@@ -1,6 +1,7 @@
 <?php
-session_start();
 session_name("site");
+session_start();
+
 
 require_once("admin/includes/conecta_bd.php");
 require_once("admin/includes/anti_injection.php");
@@ -12,7 +13,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "logar")
 
     //print_r($_POST);
     //exit;
-    //Verifica se os campos são vazios ou estão preenchidos com o conteúdo padrão.
+    //Verifica se os campos sï¿½o vazios ou estï¿½o preenchidos com o conteï¿½do padrï¿½o.
     if(empty($senha) || empty($usuario))
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos')</script>";
@@ -21,10 +22,10 @@ if(isset($_POST['acao']) && $_POST['acao'] == "logar")
     }
     else
     {
-        //verifica oe endereço de email
+        //verifica oe endereï¿½o de email
         if(!verificar_email($usuario) == 2)
         {
-            echo("<script language='javascript'>\n alert('Favor digitar em endereço de e-mail válido!')\n</script>");
+            echo("<script language='javascript'>\n alert('Favor digitar em endereï¿½o de e-mail vï¿½lido!')\n</script>");
             echo("<script language='javascript'>location.href='imprensa.php'</script>");
             exit;
         }
@@ -53,7 +54,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "logar")
             }
             else
             {
-                echo("<script language='javascript'>\n alert('Usuário não cadastrado!')\n</script>");
+                echo("<script language='javascript'>\n alert('Usuï¿½rio nï¿½o cadastrado!')\n</script>");
                 echo("<script language='javascript'>location.href='imprensa.php'</script>");
                 exit;
             }
@@ -72,7 +73,7 @@ if(isset($_GET['acao']) && $_GET['acao'] == "sair")
 }
 
 
-//função que verifica se o email foi escrito do formato correto voce@provedor.com
+//funï¿½ï¿½o que verifica se o email foi escrito do formato correto voce@provedor.com
 function verificar_email($email)
 {
 
@@ -85,9 +86,9 @@ function verificar_email($email)
          //vejo se tem caracter .
          if (substr_count($email,".")>= 1)
          {
-            //obtenho a terminação do dominio
+            //obtenho a terminaï¿½ï¿½o do dominio
             $term_dom = substr(strrchr ($email, '.'),1);
-            //verifico que a terminação do dominio seja correcta
+            //verifico que a terminaï¿½ï¿½o do dominio seja correcta
             if (strlen($term_dom)>1 && strlen($term_dom)<5 && (!strstr($term_dom,"@")) )
             {
               //verifico que o de antes do dominio seja correcto
