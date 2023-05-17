@@ -12,7 +12,6 @@ $senha = "bdsite2009";
 $banco = "nbastian_site";
 */
 
-
 $conn = mysqli_connect($host, $usuario, $senha)
     or die(mysqli_connect_error());
 

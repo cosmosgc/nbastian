@@ -132,7 +132,7 @@ require_once("admin/includes/conecta_bd.php");
 
                         <p><?php echo substr(strip_tags($evento['descricao']),0, 75);?>...</p>
                         <p>Data:  <?php echo implode("/",array_reverse(explode("-",$evento['dt_galeria'])));?><br />Local: <?php echo $evento['local'];?><br /><?php if(empty($evento['tempo_duracao'])) echo'<br />'; else echo 'Dura��o: '.$evento['tempo_duracao'];?></p>
-                        <p><a href="galeria+categoria.php?cat=8">Veja todas as exposi��es</a></p>
+                        <p><a href="galeria+categoria.php?cat=8">Veja todas as exposições</a></p>
                     
                     </li>
                 
