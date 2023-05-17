@@ -26,7 +26,7 @@ require("includes/conecta_bd.php");
 <!--
 function excluir(aURL)
 {
-    if(confirm("Você tem certeza que deseja apagar esse registro?"))
+    if(confirm("Vocï¿½ tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }
@@ -120,8 +120,8 @@ function excluir(aURL)
                 <?php
                 //Listagem de Websites
 
-                $rs1 = mysql_query("SELECT P.*, C.nm_cliente FROM pedido P LEFT JOIN cliente C ON P.cd_cliente=C.cd_cliente ORDER BY P.dt_pedido DESC") or die(mysql_error());
-                while($dados = mysql_fetch_array($rs1))
+                $rs1 = mysqli_query($conn, "SELECT P.*, C.nm_cliente FROM pedido P LEFT JOIN cliente C ON P.cd_cliente=C.cd_cliente ORDER BY P.dt_pedido DESC") or die(mysqli_error());
+                while($dados = mysqli_fetch_array($rs1, MYSQLI_BOTH))
                 {
 
                     $linkExc = "excluir.php?tp=jur&cd=".$dados['cd_investidor'];
@@ -129,8 +129,8 @@ function excluir(aURL)
                     list($data, $hora) = explode(" ",$dados['dt_pedido']);
                     $data = implode('/',array_reverse(explode('-',$data)));
                     
-                    $rs = mysql_query("SELECT COUNT(*) FROM pedido_itens WHERE cd_pedido='".$dados['cd_pedido']."'");
-                    list($num_itens) = mysql_fetch_array($rs);
+                    $rs = mysqli_query($conn, "SELECT COUNT(*) FROM pedido_itens WHERE cd_pedido='".$dados['cd_pedido']."'");
+                    list($num_itens) = mysqli_fetch_array($rs, MYSQLI_BOTH);
                 ?>
 
 					<tr>

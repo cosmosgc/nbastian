@@ -7,15 +7,15 @@ require("includes/conecta_bd.php");
 
 
 
-//Carrega os dados para fazer a edição. Se for o caso
+//Carrega os dados para fazer a ediï¿½ï¿½o. Se for o caso
 if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 {
     $codigo = intval($_GET['cd']);
-    $rs = mysql_query("SELECT P.*, C.* FROM pedido P
+    $rs = mysqli_query($conn, "SELECT P.*, C.* FROM pedido P
                                                 LEFT JOIN cliente C ON P.cd_cliente=C.cd_cliente
-                                                WHERE P.cd_pedido='$codigo'") or die(mysql_error());
+                                                WHERE P.cd_pedido='$codigo'") or die(mysqli_error());
 
-    $var = mysql_fetch_array($rs) ;
+    $var = mysqli_fetch_array($rs, MYSQLI_BOTH) ;
     
     list($data, $hora) = explode(" ",$var['dt_pedido']);
                     $data = implode('/',array_reverse(explode('-',$data)));
@@ -41,7 +41,7 @@ if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 <!--
 function excluir(aURL)
 {
-    if(confirm("Você tem certeza que deseja apagar esse registro?"))
+    if(confirm("Vocï¿½ tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }
@@ -132,7 +132,7 @@ function excluir(aURL)
                     </tr>
                     
                     <tr>
-                        <td width="20%"><strong>ID da transação no PagSeguro:</strong></td>
+                        <td width="20%"><strong>ID da transaï¿½ï¿½o no PagSeguro:</strong></td>
                         <td><?php echo $var['transacao_id'];?></td>
                     </tr>
                     
@@ -152,7 +152,7 @@ function excluir(aURL)
                     </tr>
                     
                     <tr>
-                        <td width="20%"><strong>Endereço</strong></td>
+                        <td width="20%"><strong>Endereï¿½o</strong></td>
                         <td><?php echo $var['endereco'];?></td>
                     </tr>
                     
@@ -200,22 +200,22 @@ function excluir(aURL)
                     
 
                      <?php
-                     $rs1 = mysql_query("SELECT I.* FROM pedido_itens I WHERE I.cd_pedido='$codigo'") or die(mysql_error());
-                     while($dados = mysql_fetch_array($rs1))
+                     $rs1 = mysqli_query($conn, "SELECT I.* FROM pedido_itens I WHERE I.cd_pedido='$codigo'") or die(mysqli_error());
+                     while($dados = mysqli_fetch_array($rs1, MYSQLI_BOTH))
                      {
                         list($tipo, $cd_foto) = explode('_', $dados['cd_foto']);
                         
                         if($tipo == 'gal')
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto FROM fotos_galeria WHERE cd_foto='$cd_foto'");
-                            list($caminho_foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_galeria WHERE cd_foto='$cd_foto'");
+                            list($caminho_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
 
                         }
                         else
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='$cd_foto'");
-                            list($caminho_foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='$cd_foto'");
+                            list($caminho_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
                         }
                      ?>

@@ -140,39 +140,39 @@ jQuery(function($){
                   <ul id="fotinhos">
                       <?php
                        $vl_total = 0;
-                       $rs = mysql_query("SELECT COUNT(*) FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ");
-                        list($total) = mysql_fetch_array($rs);
+                       $rs = mysqli_query($conn, "SELECT COUNT(*) FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ");
+                        list($total) = mysqli_fetch_array($rs, MYSQLI_BOTH);
                         if(!$total)
                             echo '<p>Nenhuma Foto Selecionada</p>';
 
                       
 
-                      $rs = mysql_query("SELECT * FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_item ASC");
-                      while($var = mysql_fetch_array($rs))
+                      $rs = mysqli_query($conn, "SELECT * FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_item ASC");
+                      while($var = mysqli_fetch_array($rs, MYSQLI_BOTH))
                       {
                         if($var['tp_foto'] == "galeria")
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto, cd_galeria FROM fotos_galeria WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto, $galeria) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto, cd_galeria FROM fotos_galeria WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto, $galeria) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                             
-                            $rs1 = mysql_query("SELECT vl_foto FROM galerias WHERE cd_galeria='$galeria'");
-                            list($vl_foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT vl_foto FROM galerias WHERE cd_galeria='$galeria'");
+                            list($vl_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                         }
                         elseif($var['tp_foto'] == "evento")
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto, cd_evento FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto, $galeria) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto, cd_evento FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto, $galeria) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                             
-                            $rs1 = mysql_query("SELECT vl_foto FROM eventos WHERE cd_evento='$galeria'");
-                            list($vl_foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT vl_foto FROM eventos WHERE cd_evento='$galeria'");
+                            list($vl_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                         }
                         elseif($var['tp_foto'] == "expo")
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto, cd_evento FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto, $galeria) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto, cd_evento FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto, $galeria) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                             
-                            $rs1 = mysql_query("SELECT vl_foto FROM eventos WHERE cd_evento='$galeria'");
-                            list($vl_foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT vl_foto FROM eventos WHERE cd_evento='$galeria'");
+                            list($vl_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                         }
                         
                         $vl_total += $vl_foto;
@@ -214,8 +214,8 @@ jQuery(function($){
                 <form name="form_contato" id="form_contato" action="https://pagseguro.uol.com.br/checkout/checkout.jhtml" method="post" >
                 
                 <?php
-                     $rs = mysql_query("SELECT * FROM cliente_temp WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_cliente DESC LIMIT 1");
-                     $cliente = mysql_fetch_array($rs);
+                     $rs = mysqli_query($conn, "SELECT * FROM cliente_temp WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_cliente DESC LIMIT 1");
+                     $cliente = mysqli_fetch_array($rs, MYSQLI_BOTH);
                      //print_r($cliente);
                      ?>
                 
@@ -297,8 +297,8 @@ jQuery(function($){
                         <?php
                          $total = 0;
                          $cods = array();
-                         $rs = mysql_query("SELECT cd_foto FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."'");
-                         while($var = mysql_fetch_array($rs))
+                         $rs = mysqli_query($conn, "SELECT cd_foto FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."'");
+                         while($var = mysqli_fetch_array($rs, MYSQLI_BOTH))
                             $cods[] = $var['cd_foto'];
 
                          $cods = implode(',',$cods);
@@ -310,15 +310,15 @@ jQuery(function($){
                             <?php
                             $cont = 1;
 
-                            $rs = mysql_query("SELECT C.* FROM carrinho_itens C WHERE C.cd_carrinho='".$_SESSION['carrinho']."' AND C.tp_foto='evento'");
-                            while($var = mysql_fetch_array($rs))
+                            $rs = mysqli_query($conn, "SELECT C.* FROM carrinho_itens C WHERE C.cd_carrinho='".$_SESSION['carrinho']."' AND C.tp_foto='evento'");
+                            while($var = mysqli_fetch_array($rs, MYSQLI_BOTH))
                             {
 
-                                $rs1 = mysql_query("SELECT cd_evento FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
-                                list($cd_galeria) = mysql_fetch_array($rs1);
+                                $rs1 = mysqli_query($conn, "SELECT cd_evento FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
+                                list($cd_galeria) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
-                                $rs1 = mysql_query("SELECT nm_evento, vl_foto  FROM eventos WHERE cd_evento='$cd_galeria'");
-                                list($nm_evento, $vl_foto) = mysql_fetch_array($rs1);
+                                $rs1 = mysqli_query($conn, "SELECT nm_evento, vl_foto  FROM eventos WHERE cd_evento='$cd_galeria'");
+                                list($nm_evento, $vl_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
                                 $valor = str_replace(".","",$vl_foto);
                             ?>
@@ -332,14 +332,14 @@ jQuery(function($){
                             }//while
 
                             
-                            $rs = mysql_query("SELECT C.*  FROM carrinho_itens C WHERE C.cd_carrinho='".$_SESSION['carrinho']."' AND C.tp_foto='galeria'");
-                            while($var = mysql_fetch_array($rs))
+                            $rs = mysqli_query($conn, "SELECT C.*  FROM carrinho_itens C WHERE C.cd_carrinho='".$_SESSION['carrinho']."' AND C.tp_foto='galeria'");
+                            while($var = mysqli_fetch_array($rs, MYSQLI_BOTH))
                             {
-                                $rs1 = mysql_query("SELECT cd_galeria FROM fotos_galeria WHERE cd_foto='{$var['cd_foto']}'");
-                                list($cd_galeria) = mysql_fetch_array($rs1);
+                                $rs1 = mysqli_query($conn, "SELECT cd_galeria FROM fotos_galeria WHERE cd_foto='{$var['cd_foto']}'");
+                                list($cd_galeria) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                                 
-                                $rs1 = mysql_query("SELECT nm_galeria, vl_foto  FROM galerias WHERE cd_galeria='$cd_galeria'");
-                                list($nm_galeria, $vl_foto) = mysql_fetch_array($rs1);
+                                $rs1 = mysqli_query($conn, "SELECT nm_galeria, vl_foto  FROM galerias WHERE cd_galeria='$cd_galeria'");
+                                list($nm_galeria, $vl_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
                                 $valor = str_replace(".","",$vl_foto);
                             ?>

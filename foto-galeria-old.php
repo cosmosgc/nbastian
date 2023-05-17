@@ -1,6 +1,6 @@
 <?php
-session_start();
 session_name("site");
+session_start();
 
 include_once("admin/includes/conecta_bd.php");
 ?>
@@ -9,14 +9,14 @@ include_once("admin/includes/conecta_bd.php");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="generator" content="www.nbastian.com.br" />
-<meta name="description" content="NBastian Fotografia e Comunicação - Nilson Bastian - Fotógrafo Profissional" />
-<meta name="keywords" content="fotografo, joinville, fotógrafo, festival de dança, danca, bolshoi, escola do ballet bolshoi, balé, colunismo social, exposições, exposicoes, fotográficas, fotografica, fotojornalismo, comunicação, comunicacao, nilson bastian, bastian" />
+<meta name="description" content="NBastian Fotografia e Comunicaï¿½ï¿½o - Nilson Bastian - Fotï¿½grafo Profissional" />
+<meta name="keywords" content="fotografo, joinville, fotï¿½grafo, festival de danï¿½a, danca, bolshoi, escola do ballet bolshoi, balï¿½, colunismo social, exposiï¿½ï¿½es, exposicoes, fotogrï¿½ficas, fotografica, fotojornalismo, comunicaï¿½ï¿½o, comunicacao, nilson bastian, bastian" />
 <meta name="url" content="http://www.nbastian.com.br" />
-<meta name="document-classification" content="Fotografia e Comunicação" />
+<meta name="document-classification" content="Fotografia e Comunicaï¿½ï¿½o" />
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Agência P4" />
+<meta name="author" content="EversonJP / Agï¿½ncia P4" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
 <meta http-equiv="reply-to" content="nbastian@nbastian.com" />
@@ -118,15 +118,15 @@ function adicionaImagem(cdFoto)
 <?php
 $cd = isset($_GET['cd']) ? intval($_GET['cd']) : "";
 $cd_foto = isset($_GET['cd_foto']) ? intval($_GET['cd_foto']) : "";
-$rs1 = mysql_query("SELECT cd_categoria FROM galerias WHERE cd_galeria='$cd'");
-list($cd_cat) = mysql_fetch_array($rs1);
+$rs1 = mysqli_query($conn, "SELECT cd_categoria FROM galerias WHERE cd_galeria='$cd'");
+list($cd_cat) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
-$rs1 = mysql_query("SELECT venda FROM categorias WHERE cd_categoria='$cd_cat'");
-list($pode_vender) = mysql_fetch_array($rs1);
+$rs1 = mysqli_query($conn, "SELECT venda FROM categorias WHERE cd_categoria='$cd_cat'");
+list($pode_vender) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
 
-$rs = mysql_query("SELECT * FROM fotos_galeria WHERE cd_foto='$cd_foto' AND ativo='1' ORDER BY cd_foto ASC");
-while($foto1 = mysql_fetch_array($rs))
+$rs = mysqli_query($conn, "SELECT * FROM fotos_galeria WHERE cd_foto='$cd_foto' AND ativo='1' ORDER BY cd_foto ASC");
+while($foto1 = mysqli_fetch_array($rs, MYSQLI_BOTH))
 {
 
     echo '<div class="panel" style="text-align: center; "><img src="'.$foto1['caminho_foto'].'" alt="" />
@@ -168,8 +168,8 @@ while($foto1 = mysql_fetch_array($rs))
 <ul class="filmstrip">
 <?php
 /*
-$rs = mysql_query("SELECT * FROM fotos_galeria WHERE cd_galeria='$cd' AND ativo='1' ORDER BY cd_foto ASC");
-while($foto1 = mysql_fetch_array($rs))
+$rs = mysqli_query($conn, "SELECT * FROM fotos_galeria WHERE cd_galeria='$cd' AND ativo='1' ORDER BY cd_foto ASC");
+while($foto1 = mysqli_fetch_array($rs, MYSQLI_BOTH))
 {
 
     echo '<li><img src="admin/includes/phpThumb/phpThumb.php?src=../../../'.$foto1['caminho_foto'].'&w=100&h=75&zc=1" alt="" /></li>';

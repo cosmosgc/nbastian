@@ -80,8 +80,8 @@ require_once("admin/includes/conecta_bd.php");
             <div id="imageMenu">
                 <ul>
                     <?php
-                    $rs = mysql_query("SELECT * FROM perfil WHERE tipo_perfil='2' ORDER BY cd_perfil ASC");
-                    while($perfil = mysql_fetch_array($rs))
+                    $rs = mysqli_query($conn, "SELECT * FROM perfil WHERE tipo_perfil='2' ORDER BY cd_perfil ASC");
+                    while($perfil = mysqli_fetch_array($rs, MYSQLI_BOTH))
                     {
                         echo '<li class="landscapes" >';
                         echo '<a href="#"><img src="'.$perfil['caminho_foto'].'" alt="" width="170" height="188" />';

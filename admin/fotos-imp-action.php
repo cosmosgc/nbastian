@@ -14,7 +14,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
 
 
-    //verifica se algum dos campos está vazio
+    //verifica se algum dos campos estï¿½ vazio
     if(empty($de_legenda) || empty($dt_foto) || $_FILES['foto']['error'][0] > 0)
     {
         echo"<script language=javascript>alert('Favor todos os campos')</script>";
@@ -49,7 +49,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
             }
         }
 
-        $rs = mysql_query("INSERT INTO imprensa_fotos VALUES('','".$_FILES['foto']['name'][$x]."','$grandebd','$de_legenda','$dt_foto','0')") or die(mysql_error());
+        $rs = mysqli_query($conn, "INSERT INTO imprensa_fotos VALUES('','".$_FILES['foto']['name'][$x]."','$grandebd','$de_legenda','$dt_foto','0')") or die(mysqli_error());
 
 
         //echo"<script language=javascript>alert('cadastro atualizado com sucesso.')</script>";
@@ -66,7 +66,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "edita")
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
 
 
-    //verifica se algum dos campos está vazio
+    //verifica se algum dos campos estï¿½ vazio
     if(empty($de_legenda) || empty($dt_foto) )
     {
         echo"<script language=javascript>alert('Favor todos os campos')</script>";
@@ -103,7 +103,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "edita")
             }
         }
 
-        $rs = mysql_query($up." WHERE cd_foto='$cd'");
+        $rs = mysqli_query($conn, $up." WHERE cd_foto='$cd'");
 
 
         //echo"<script language=javascript>alert('cadastro atualizado com sucesso.')</script>";

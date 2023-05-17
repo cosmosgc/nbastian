@@ -7,13 +7,13 @@ require("includes/conecta_bd.php");
 
 
 
-//Carrega os dados para fazer a edição. Se for o caso
+//Carrega os dados para fazer a ediï¿½ï¿½o. Se for o caso
 if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 {
     $codigo = intval($_GET['cd']);
-    $rs = mysql_query("SELECT * FROM perfil WHERE cd_perfil='$codigo'");
+    $rs = mysqli_query($conn, "SELECT * FROM perfil WHERE cd_perfil='$codigo'");
 
-    $var = mysql_fetch_array($rs);
+    $var = mysqli_fetch_array($rs, MYSQLI_BOTH);
 }
 ?>
 
@@ -76,7 +76,7 @@ tinyMCE.init({
 <!--
 function excluir(aURL)
 {
-    if(confirm("Você tem certeza que deseja apagar esse registro?"))
+    if(confirm("Vocï¿½ tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }
@@ -165,7 +165,7 @@ function excluir(aURL)
 
 					
                     <?php
-                    // "Define" o tipo da ação do formulário
+                    // "Define" o tipo da aï¿½ï¿½o do formulï¿½rio
                     if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
                     {
                         echo '<input type="hidden" id="acao" name="acao" value="edita">';

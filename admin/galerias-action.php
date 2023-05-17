@@ -14,7 +14,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
     // Pega os campos enviados via POST
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
     
-    //verifica se algum dos campos está vazio
+    //verifica se algum dos campos estï¿½ vazio
     if(empty($nm_galeria) || empty($dt_galeria) || empty($cd_categoria) || $_FILES['arquivo']['error'] > 0 )
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos.')</script>";
@@ -33,11 +33,11 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
         $vl_foto = str_replace(',','.',$vl_foto);
         $vl_foto = floatval($vl_foto);
 
-        $rs = mysql_query("INSERT INTO galerias VALUES('','$cd_categoria','$nm_galeria','$texto','$local','$dt_galeria','$tempo_duracao', '$vl_foto')") or die(mysql_error());
-        $cd = mysql_insert_id();
+        $rs = mysqli_query($conn, "INSERT INTO galerias VALUES('','$cd_categoria','$nm_galeria','$texto','$local','$dt_galeria','$tempo_duracao', '$vl_foto')") or die(mysqli_error());
+        $cd = mysqli_insert_id();
         
-        $dirLer = '../arquivos/temp/';//diretório que será varrido
-        $dir = '../arquivos/temp/';//diretório que será varrido
+        $dirLer = '../arquivos/temp/';//diretï¿½rio que serï¿½ varrido
+        $dir = '../arquivos/temp/';//diretï¿½rio que serï¿½ varrido
 
         $arquivo = $_FILES['arquivo']['name'];
         move_uploaded_file($_FILES['arquivo']['tmp_name'], $dirLer.$arquivo);
@@ -55,12 +55,12 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
 
             $zip->unzipAll($dir);
             
-            //começa a varrer o diretório com os arquivos estraidos.
+            //comeï¿½a a varrer o diretï¿½rio com os arquivos estraidos.
             if (is_dir($dir))
             {
-                if ($dh = opendir($dir))//se conseguir abrir o diretório continua o backup
+                if ($dh = opendir($dir))//se conseguir abrir o diretï¿½rio continua o backup
                 {
-                    while (($file = readdir($dh)) !== false )//enquanto a leitura do diretório for bem sucedida
+                    while (($file = readdir($dh)) !== false )//enquanto a leitura do diretï¿½rio for bem sucedida
                     {
                         if( $file != "." && $file != "..")
                         {
@@ -71,7 +71,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
                             }
                         }
                     }
-                closedir($dh);//fecha o diretório
+                closedir($dh);//fecha o diretï¿½rio
                 }//if opendir
             }//if is_dir
 
@@ -117,7 +117,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
                     @chmod($ft_grande, 0766);
 
 
-                    $res1 = mysql_query("INSERT INTO fotos_galeria VALUES('','$cd','$thumbbd','$grandebd','$originalbd','1')") or die(mysql_error());
+                    $res1 = mysqli_query($conn, "INSERT INTO fotos_galeria VALUES('','$cd','$thumbbd','$grandebd','$originalbd','1')") or die(mysqli_error());
                     $prim++;
 
 
@@ -144,7 +144,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
     
 
 
-    //verifica se algum dos campos está vazio
+    //verifica se algum dos campos estï¿½ vazio
     if(empty($nm_galeria) || empty($dt_galeria) || empty($cd_categoria)  )
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos.')</script>";
@@ -165,11 +165,11 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
         $vl_foto = floatval($vl_foto);
 
 
-        $rs = mysql_query("UPDATE galerias SET cd_categoria='$cd_categoria', nm_galeria='$nm_galeria',  descricao='$texto', local='$local',
-        dt_galeria='$dt_galeria', tempo_duracao='$tempo_duracao', vl_foto='$vl_foto' WHERE cd_galeria='$cd'") or die(mysql_error());
+        $rs = mysqli_query($conn, "UPDATE galerias SET cd_categoria='$cd_categoria', nm_galeria='$nm_galeria',  descricao='$texto', local='$local',
+        dt_galeria='$dt_galeria', tempo_duracao='$tempo_duracao', vl_foto='$vl_foto' WHERE cd_galeria='$cd'") or die(mysqli_error());
 
-        $dirLer = '../arquivos/temp/';//diretório que será varrido
-        $dir = '../arquivos/temp/';//diretório que será varrido
+        $dirLer = '../arquivos/temp/';//diretï¿½rio que serï¿½ varrido
+        $dir = '../arquivos/temp/';//diretï¿½rio que serï¿½ varrido
 
         if($_FILES['arquivo']['error'] == 0)
         {
@@ -193,12 +193,12 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
 
             $zip->unzipAll($dir);
 
-            //começa a varrer o diretório com os arquivos estraidos.
+            //comeï¿½a a varrer o diretï¿½rio com os arquivos estraidos.
             if (is_dir($dir))
             {
-                if ($dh = opendir($dir))//se conseguir abrir o diretório continua o backup
+                if ($dh = opendir($dir))//se conseguir abrir o diretï¿½rio continua o backup
                 {
-                    while (($file = readdir($dh)) !== false )//enquanto a leitura do diretório for bem sucedida
+                    while (($file = readdir($dh)) !== false )//enquanto a leitura do diretï¿½rio for bem sucedida
                     {
                         if( $file != "." && $file != "..")
                         {
@@ -209,7 +209,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
                             }
                         }
                     }
-                closedir($dh);//fecha o diretório
+                closedir($dh);//fecha o diretï¿½rio
                 }//if opendir
             }//if is_dir
 
@@ -258,7 +258,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
                     @chmod($ft_grande, 0766);
 
 
-                    $res1 = mysql_query("INSERT INTO fotos_galeria VALUES('','$cd','$thumbbd','$grandebd','$originalbd','1')") or die(mysql_error());
+                    $res1 = mysqli_query($conn, "INSERT INTO fotos_galeria VALUES('','$cd','$thumbbd','$grandebd','$originalbd','1')") or die(mysqli_error());
                     $prim++;
 
 
@@ -271,7 +271,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
         }
 
 
-        //$rs = mysql_query("UPDATE noticias SET de_titulo='$titulo', de_conteudo='$texto', dt_noticia='$dt_noticia' WHERE cd_noticia='$cd'");
+        //$rs = mysqli_query($conn, "UPDATE noticias SET de_titulo='$titulo', de_conteudo='$texto', dt_noticia='$dt_noticia' WHERE cd_noticia='$cd'");
 
 
         //echo"<script language=javascript>alert('Dados atualizados com sucesso.')</script>";
@@ -292,11 +292,11 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "gerencia")
 
     foreach ($_POST as $campo => $valor) { $$campo = $valor;}
     
-    $rs = mysql_query("SELECT * FROM fotos_galeria WHERE cd_galeria='$cd' ORDER BY cd_foto ASC");
-    while($var = mysql_fetch_array($rs))
+    $rs = mysqli_query($conn, "SELECT * FROM fotos_galeria WHERE cd_galeria='$cd' ORDER BY cd_foto ASC");
+    while($var = mysqli_fetch_array($rs, MYSQLI_BOTH))
     {
         $valor = $var['cd_foto'];
-        $rs1 = mysql_query("UPDATE fotos_galeria SET ativo='".$$valor."' WHERE cd_foto='".$valor."'");
+        $rs1 = mysqli_query($conn, "UPDATE fotos_galeria SET ativo='".$$valor."' WHERE cd_foto='".$valor."'");
     }
 
 
@@ -307,15 +307,15 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "gerencia")
         foreach($apagar as $item)
         {
 
-            $rs = mysql_query("SELECT * FROM fotos_galeria WHERE cd_foto='$item'");
-            $ft = mysql_fetch_array($rs);
+            $rs = mysqli_query($conn, "SELECT * FROM fotos_galeria WHERE cd_foto='$item'");
+            $ft = mysqli_fetch_array($rs, MYSQLI_BOTH);
             @unlink("../".$ft['caminho_thumb']);
             @unlink("../".$ft['caminho_foto']);
             //@unlink("../".$ft['caminho_original']);
             
-            $rs = mysql_query("DELETE FROM fotos_galeria WHERE cd_foto='$item'");
+            $rs = mysqli_query($conn, "DELETE FROM fotos_galeria WHERE cd_foto='$item'");
 
-            //$rs = mysql_query("UPDATE fotos_galeria SET ativo='0' WHERE cd_foto='$item'");
+            //$rs = mysqli_query($conn, "UPDATE fotos_galeria SET ativo='0' WHERE cd_foto='$item'");
         }
 
     }

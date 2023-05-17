@@ -1,6 +1,6 @@
 <?php
-session_start();
 session_name("site");
+session_start();
 
 include_once("admin/includes/conecta_bd.php");
 ?>
@@ -9,14 +9,14 @@ include_once("admin/includes/conecta_bd.php");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="generator" content="www.nbastian.com.br" />
-<meta name="description" content="NBastian Fotografia e Comunicação - Nilson Bastian - Fotógrafo Profissional" />
-<meta name="keywords" content="fotografo, joinville, fotógrafo, festival de dança, danca, bolshoi, escola do ballet bolshoi, balé, colunismo social, exposições, exposicoes, fotográficas, fotografica, fotojornalismo, comunicação, comunicacao, nilson bastian, bastian" />
+<meta name="description" content="NBastian Fotografia e Comunicaï¿½ï¿½o - Nilson Bastian - Fotï¿½grafo Profissional" />
+<meta name="keywords" content="fotografo, joinville, fotï¿½grafo, festival de danï¿½a, danca, bolshoi, escola do ballet bolshoi, balï¿½, colunismo social, exposiï¿½ï¿½es, exposicoes, fotogrï¿½ficas, fotografica, fotojornalismo, comunicaï¿½ï¿½o, comunicacao, nilson bastian, bastian" />
 <meta name="url" content="http://www.nbastian.com.br" />
-<meta name="document-classification" content="Fotografia e Comunicação" />
+<meta name="document-classification" content="Fotografia e Comunicaï¿½ï¿½o" />
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Agência P4" />
+<meta name="author" content="EversonJP / Agï¿½ncia P4" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
 <meta http-equiv="reply-to" content="nbastian@nbastian.com" />
@@ -74,9 +74,9 @@ jQuery(function($){
 
 <body>
 
-	<div id="geral"> <!-- início div geral - engloba todo o site -->
+	<div id="geral"> <!-- inï¿½cio div geral - engloba todo o site -->
     
-    	<div id="topo"> <!-- início div topo - marca + menu de navegação -->
+    	<div id="topo"> <!-- inï¿½cio div topo - marca + menu de navegaï¿½ï¿½o -->
         
         	<ul>
                 <li><a class="um" href="index.php">Home</a></li>
@@ -106,30 +106,30 @@ jQuery(function($){
                   
                   <ul id="fotinhos">
                       <?php
-                       $rs = mysql_query("SELECT COUNT(*) FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ");
-                        list($total) = mysql_fetch_array($rs);
+                       $rs = mysqli_query($conn, "SELECT COUNT(*) FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ");
+                        list($total) = mysqli_fetch_array($rs, MYSQLI_BOTH);
                         if(!$total)
                             echo '<p>Nenhuma Foto Selecionada</p>';
 
                       
 
-                      $rs = mysql_query("SELECT * FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_item ASC");
-                      while($var = mysql_fetch_array($rs))
+                      $rs = mysqli_query($conn, "SELECT * FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_item ASC");
+                      while($var = mysqli_fetch_array($rs, MYSQLI_BOTH))
                       {
                         if($var['tp_foto'] == "galeria")
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto FROM fotos_galeria WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_galeria WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                         }
                         elseif($var['tp_foto'] == "evento")
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                         }
                         elseif($var['tp_foto'] == "expo")
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                         }
 
                       ?>

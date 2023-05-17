@@ -7,13 +7,13 @@ require("includes/conecta_bd.php");
 
 
 
-//Carrega os dados para fazer a edição. Se for o caso
+//Carrega os dados para fazer a ediï¿½ï¿½o. Se for o caso
 if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 {
     $codigo = intval($_GET['cd']);
-    $rs = mysql_query("SELECT * FROM imprensa_usuarios WHERE cd_usuario='$codigo'");
+    $rs = mysqli_query($conn, "SELECT * FROM imprensa_usuarios WHERE cd_usuario='$codigo'");
 
-    $var = mysql_fetch_array($rs);
+    $var = mysqli_fetch_array($rs, MYSQLI_BOTH);
 }
 ?>
 
@@ -44,7 +44,7 @@ if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 <!--
 function excluir(aURL)
 {
-    if(confirm("Você tem certeza que deseja apagar esse registro?"))
+    if(confirm("Vocï¿½ tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }
@@ -66,7 +66,7 @@ function validaForm()
     }
     if(!checkMail(document.getElementById("email_usuario").value))
     {
-        alert("Favor preencher com um endereço de email válido");
+        alert("Favor preencher com um endereï¿½o de email vï¿½lido");
         document.getElementById("email_usuario").value = "";
         document.getElementById("email_usuario").focus();
         return false;
@@ -156,14 +156,14 @@ function checkMail(mail)
 
 			
 
-			<h5><a href="principal.php" title="Voltar para p&aacute;gina principal">&raquo;  Principal</a> &raquo; Cadastro de Usuário p/ Área da Imprensa</h5>
+			<h5><a href="principal.php" title="Voltar para p&aacute;gina principal">&raquo;  Principal</a> &raquo; Cadastro de Usuï¿½rio p/ ï¿½rea da Imprensa</h5>
 
 			
 
 			<div id="miolo">
 			
 
-				<h4>&raquo; Cadastro de Usuário p/ Área da Imprensa</h4>
+				<h4>&raquo; Cadastro de Usuï¿½rio p/ ï¿½rea da Imprensa</h4>
 
 				
 
@@ -173,16 +173,16 @@ function checkMail(mail)
 
 
 
-                    <label for="nm_usuario">Nome do Usuário:</label>
+                    <label for="nm_usuario">Nome do Usuï¿½rio:</label>
 
-						<input class="txt" name="nm_usuario" type="text" id="nm_usuario"  maxlength="255" tabindex="5" title="Nome do Usuário" value="<?php echo $var['nm_usuario'];?>"/>
+						<input class="txt" name="nm_usuario" type="text" id="nm_usuario"  maxlength="255" tabindex="5" title="Nome do Usuï¿½rio" value="<?php echo $var['nm_usuario'];?>"/>
 
 
                     <br />
                     
                     <label for="email_usuario">E-mail / Login:</label>
 
-						<input class="txt" name="email_usuario" type="text" id="email_usuario"  maxlength="255" tabindex="5" title="E-mail do Usuário: (Login)" value="<?php echo $var['email_usuario'];?>"/>
+						<input class="txt" name="email_usuario" type="text" id="email_usuario"  maxlength="255" tabindex="5" title="E-mail do Usuï¿½rio: (Login)" value="<?php echo $var['email_usuario'];?>"/>
 
 
                     <br />
@@ -196,7 +196,7 @@ function checkMail(mail)
                     
 
                     <?php
-                    // "Define" o tipo da ação do formulário
+                    // "Define" o tipo da aï¿½ï¿½o do formulï¿½rio
                     if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
                     {
                         echo '<input type="hidden" id="acao" name="acao" value="edita">';
@@ -233,7 +233,7 @@ function checkMail(mail)
 				
                 <br />
 
-                <h4>&raquo; Listagem de Usuário p/ Área da Imprensa</h4>
+                <h4>&raquo; Listagem de Usuï¿½rio p/ ï¿½rea da Imprensa</h4>
 
                 <table>
 
@@ -254,8 +254,8 @@ function checkMail(mail)
                 <?php
                 //Listagem de Websites
                 
-                $rs1 = mysql_query("SELECT * FROM imprensa_usuarios ORDER BY nm_usuario ASC");
-                while($dados = mysql_fetch_array($rs1))
+                $rs1 = mysqli_query($conn, "SELECT * FROM imprensa_usuarios ORDER BY nm_usuario ASC");
+                while($dados = mysqli_fetch_array($rs1, MYSQLI_BOTH))
                 {
                 
                     $linkExc = "excluir.php?tp=usui&cd=".$dados['cd_usuario'];

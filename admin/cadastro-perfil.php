@@ -7,13 +7,13 @@ require("includes/conecta_bd.php");
 
 
 
-//Carrega os dados para fazer a edição. Se for o caso
+//Carrega os dados para fazer a ediï¿½ï¿½o. Se for o caso
 if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 {
     $codigo = intval($_GET['cd']);
-    $rs = mysql_query("SELECT * FROM perfil WHERE cd_perfil='$codigo'");
+    $rs = mysqli_query($conn, "SELECT * FROM perfil WHERE cd_perfil='$codigo'");
 
-    $var = mysql_fetch_array($rs);
+    $var = mysqli_fetch_array($rs, MYSQLI_BOTH);
 }
 ?>
 
@@ -78,7 +78,7 @@ jQuery(function($){
 <!--
 function excluir(aURL)
 {
-    if(confirm("Você tem certeza que deseja apagar esse registro?"))
+    if(confirm("Vocï¿½ tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }
@@ -183,7 +183,7 @@ function excluir(aURL)
                    }
 
 
-                    // "Define" o tipo da ação do formulário
+                    // "Define" o tipo da aï¿½ï¿½o do formulï¿½rio
                     if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
                     {
                         echo '<input type="hidden" id="acao" name="acao" value="edita">';
@@ -231,7 +231,7 @@ function excluir(aURL)
 
 
 						<th width="50%" scope="col">Texto</th>
-						<th width="15%" scope="col">Data Última Atualzação</th>
+						<th width="15%" scope="col">Data ï¿½ltima Atualzaï¿½ï¿½o</th>
 						<th width="15%" scope="col">Editar</th>
                        <!-- <th width="15%" scope="col">Excluir</th>-->
 
@@ -242,8 +242,8 @@ function excluir(aURL)
                 <?php
                 //Listagem de Websites
                 
-                $rs1 = mysql_query("SELECT * FROM perfil WHERE tipo_perfil='2' ORDER BY cd_perfil ASC");
-                while($dados = mysql_fetch_array($rs1))
+                $rs1 = mysqli_query($conn, "SELECT * FROM perfil WHERE tipo_perfil='2' ORDER BY cd_perfil ASC");
+                while($dados = mysqli_fetch_array($rs1, MYSQLI_BOTH))
                 {
                 
                     //$linkExc = "excluir.php?tp=eve&cd=".$dados['cd_evento'];

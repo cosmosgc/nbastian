@@ -1,20 +1,20 @@
 <?php
-session_start();
 session_name("site");
+session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="generator" content="www.nbastian.com.br" />
-<meta name="description" content="NBastian Fotografia e Comunicação - Nilson Bastian - Fotógrafo Profissional" />
-<meta name="keywords" content="fotografo, joinville, fotógrafo, festival de dança, danca, bolshoi, escola do ballet bolshoi, balé, colunismo social, exposições, exposicoes, fotográficas, fotografica, fotojornalismo, comunicação, comunicacao, nilson bastian, bastian" />
+<meta name="description" content="NBastian Fotografia e Comunicaï¿½ï¿½o - Nilson Bastian - Fotï¿½grafo Profissional" />
+<meta name="keywords" content="fotografo, joinville, fotï¿½grafo, festival de danï¿½a, danca, bolshoi, escola do ballet bolshoi, balï¿½, colunismo social, exposiï¿½ï¿½es, exposicoes, fotogrï¿½ficas, fotografica, fotojornalismo, comunicaï¿½ï¿½o, comunicacao, nilson bastian, bastian" />
 <meta name="url" content="http://www.nbastian.com.br" />
-<meta name="document-classification" content="Fotografia e Comunicação" />
+<meta name="document-classification" content="Fotografia e Comunicaï¿½ï¿½o" />
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Agência P4" />
+<meta name="author" content="EversonJP / Agï¿½ncia P4" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
 <meta http-equiv="reply-to" content="nbastian@nbastian.com" />
@@ -105,9 +105,9 @@ require_once("admin/includes/conecta_bd.php");
 
 <body>
 
-	<div id="geral"> <!-- início div geral - engloba todo o site -->
+	<div id="geral"> <!-- inï¿½cio div geral - engloba todo o site -->
     
-    	<div id="topo"> <!-- início div topo - marca + menu de navegação -->
+    	<div id="topo"> <!-- inï¿½cio div topo - marca + menu de navegaï¿½ï¿½o -->
         
         	<ul>
                 <li><a class="um" href="index.php">Home</a></li>
@@ -132,37 +132,37 @@ require_once("admin/includes/conecta_bd.php");
 
                 <?php
                 $cat = isset($_GET['cat']) ? intval($_GET['cat']) : "";
-                $rs = mysql_query("SELECT nm_categoria FROM categorias WHERE cd_categoria='$cat'");
-                list($categoria) = mysql_fetch_array($rs);
+                $rs = mysqli_query($conn, "SELECT nm_categoria FROM categorias WHERE cd_categoria='$cat'");
+                list($categoria) = mysqli_fetch_array($rs, MYSQLI_BOTH);
                 ?>
-            	<h4><a href="solicitacao.php" title="Visualizar carrinho de solicitações"><img src="imagens/bt+categorias.png" /></a><span>Categoria:</span><?php echo htmlentities(strtoupper($categoria));?></h4>
+            	<h4><a href="solicitacao.php" title="Visualizar carrinho de solicitaï¿½ï¿½es"><img src="imagens/bt+categorias.png" /></a><span>Categoria:</span><?php echo htmlentities(strtoupper($categoria));?></h4>
             
 
             
 
                 <?php
-                $rs = mysql_query("SELECT COUNT(*) FROM galerias WHERE cd_categoria='$cat'");
-                list($total) = mysql_fetch_array($rs);
+                $rs = mysqli_query($conn, "SELECT COUNT(*) FROM galerias WHERE cd_categoria='$cat'");
+                list($total) = mysqli_fetch_array($rs, MYSQLI_BOTH);
                 if(!$total)
                     echo '<p>Nenhuma Galeria Cadastrada</p>';
                 
                 
-            $rs = mysql_query("SELECT * FROM galerias WHERE cd_categoria='$cat' ORDER BY dt_galeria DESC, nm_galeria ASC");
-            while($evento = mysql_fetch_array($rs))
+            $rs = mysqli_query($conn, "SELECT * FROM galerias WHERE cd_categoria='$cat' ORDER BY dt_galeria DESC, nm_galeria ASC");
+            while($evento = mysqli_fetch_array($rs, MYSQLI_BOTH))
             {
                 //conta as fotos
-                $rs1 = mysql_query("SELECT COUNT(*) FROM fotos_galeria WHERE cd_galeria='{$evento['cd_galeria']}'");
-                list($total) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT COUNT(*) FROM fotos_galeria WHERE cd_galeria='{$evento['cd_galeria']}'");
+                list($total) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                 
                 //conta as fotos inativas
-                $rs1 = mysql_query("SELECT COUNT(*) FROM fotos_galeria WHERE cd_galeria='{$evento['cd_galeria']}' AND ativo='0'");
-                list($inativas) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT COUNT(*) FROM fotos_galeria WHERE cd_galeria='{$evento['cd_galeria']}' AND ativo='0'");
+                list($inativas) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                 
                 //mostra a galeria que tiver mais fotos ativas do que ativas
                 if($total > $inativas)
                 {
-                    $rs1 = mysql_query("SELECT caminho_foto FROM fotos_galeria WHERE cd_galeria='{$evento['cd_galeria']}' AND ativo='1' ORDER BY cd_foto ASC LIMIT 1");
-                    list($foto) = mysql_fetch_array($rs1);
+                    $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_galeria WHERE cd_galeria='{$evento['cd_galeria']}' AND ativo='1' ORDER BY cd_foto ASC LIMIT 1");
+                    list($foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
             ?>
             	<div class="boxgrid caption">
 				<img src="admin/includes/phpThumb/phpThumb.php?src=../../../<?php echo $foto;?>&w=280&h=200&zc=1" />
@@ -174,7 +174,7 @@ require_once("admin/includes/conecta_bd.php");
                     {
                     ?>
                     <p><?php echo implode("/",array_reverse(explode("-",$evento['dt_galeria'])));?><br />
-                     Local: <?php echo $evento['local'];?><br /><?php if(empty($evento['tempo_duracao'])) echo'<br />'; else echo 'Duração: '.$evento['tempo_duracao'];?>
+                     Local: <?php echo $evento['local'];?><br /><?php if(empty($evento['tempo_duracao'])) echo'<br />'; else echo 'Duraï¿½ï¿½o: '.$evento['tempo_duracao'];?>
                     </p>
                     <?php
                     }

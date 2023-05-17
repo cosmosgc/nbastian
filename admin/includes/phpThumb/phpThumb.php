@@ -331,7 +331,7 @@ if ($phpThumb->config_mysql_query) {
 	} elseif ($phpThumb->config_mysql_extension == 'mysql') {
 
 		$found_missing_function = false;
-		//foreach (array('mysql_connect', 'mysql_select_db', 'mysql_query', 'mysql_fetch_array', 'mysql_free_result', 'mysql_close', 'mysql_error') as $required_mysql_function) {
+		//foreach (array('mysql_connect', 'mysql_select_db', 'mysql_query', 'mysql_fetch_array', 'mysql_free_result', 'mysql_close', 'mysqli_error') as $required_mysql_function) {
 		foreach (array('mysql_connect') as $required_mysql_function) {
 			if (!function_exists($required_mysql_function)) {
 				$found_missing_function = $required_mysql_function;
@@ -343,7 +343,7 @@ if ($phpThumb->config_mysql_query) {
 		} else {
 			if ($cid = @mysql_connect($phpThumb->config_mysql_hostname, $phpThumb->config_mysql_username, $phpThumb->config_mysql_password)) {
 				if (@mysql_select_db($phpThumb->config_mysql_database, $cid)) {
-					if ($result = @mysql_query($phpThumb->config_mysql_query, $cid)) {
+					if ($result = @mysqli_query($conn, $phpThumb->config_mysql_query, $cid)) {
 						if ($row = @mysql_fetch_array($result)) {
 
 							mysql_free_result($result);
@@ -358,11 +358,11 @@ if ($phpThumb->config_mysql_query) {
 						}
 					} else {
 						mysql_close($cid);
-						$phpThumb->ErrorImage('Error in MySQL query: "'.mysql_error($cid).'"');
+						$phpThumb->ErrorImage('Error in MySQL query: "'.mysqli_error($cid).'"');
 					}
 				} else {
 					mysql_close($cid);
-					$phpThumb->ErrorImage('cannot select MySQL database: "'.mysql_error($cid).'"');
+					$phpThumb->ErrorImage('cannot select MySQL database: "'.mysqli_error($cid).'"');
 				}
 			} else {
 				$phpThumb->ErrorImage('cannot connect to MySQL server');

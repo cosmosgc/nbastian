@@ -83,29 +83,29 @@ include_once("admin/includes/conecta_bd.php");
                   
                   <ul>
                    <?php
-                      $rs = mysql_query("SELECT COUNT(*) FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ");
-                        list($total) = mysql_fetch_array($rs);
+                      $rs = mysqli_query($conn, "SELECT COUNT(*) FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ");
+                        list($total) = mysqli_fetch_array($rs, MYSQLI_BOTH);
                         if(!$total)
                             echo '<p>Nenhuma Foto Selecionada</p>';
                             
                             
-                      $rs = mysql_query("SELECT * FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_item ASC");
-                      while($var = mysql_fetch_array($rs))
+                      $rs = mysqli_query($conn, "SELECT * FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_item ASC");
+                      while($var = mysqli_fetch_array($rs, MYSQLI_BOTH))
                       {
                         if($var['tp_foto'] == "galeria")
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto FROM fotos_galeria WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_galeria WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                         }
                         elseif($var['tp_foto'] == "evento")
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                         }
                         elseif($var['tp_foto'] == "expo")
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                         }
 
                       ?>

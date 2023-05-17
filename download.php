@@ -10,13 +10,13 @@ if(empty($cd))
 else
 {
     //incrementa o contador de downloads.
-    $rs = mysql_query("UPDATE imprensa_fotos SET nr_downloads=nr_downloads+1 WHERE cd_foto='$cd'") or die(mysql_error());
+    $rs = mysqli_query($conn, "UPDATE imprensa_fotos SET nr_downloads=nr_downloads+1 WHERE cd_foto='$cd'") or die(mysqli_error());
 
-    //pega informações
-    $rs = mysql_query("SELECT * FROM imprensa_fotos WHERE cd_foto='$cd'") or die(mysql_error());
+    //pega informaï¿½ï¿½es
+    $rs = mysqli_query($conn, "SELECT * FROM imprensa_fotos WHERE cd_foto='$cd'") or die(mysqli_error());
 
         
-    $foto = mysql_fetch_array($rs);
+    $foto = mysqli_fetch_array($rs, MYSQLI_BOTH);
     
     $dados = getimagesize($foto['caminho_foto']);
 

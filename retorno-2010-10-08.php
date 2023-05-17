@@ -29,12 +29,12 @@ function retorno_automatico($VendedorEmail, $TransacaoID,
     $vl_total = 0;
 
     $sql = "SELECT * FROM pedido WHERE cd_pedido = " . $Referencia;
-    $rs = mysql_query($sql);
+    $rs = mysqli_query($conn, $sql);
 
-    if(mysql_num_rows($rs) > 0)
+    if(mysqli_num_rows($rs) > 0)
     {
         $sql = "UPDATE pedido SET status_pedido='$StatusTransacao' WHERE cd_pedido = ". $Referencia;
-        $rs1 = mysql_query($sql);
+        $rs1 = mysqli_query($conn, $sql);
 
     }
     else
@@ -45,9 +45,9 @@ function retorno_automatico($VendedorEmail, $TransacaoID,
                 VALUES
                    (null,'$CliNome','$CliEndereco','$CliNumero','$CliComplemento','$CliCEP','$CliBairro','$CliCidade', '$CliEstado','$CliEmail','$CliTelefone')";
 
-        $rs = mysql_query($sql);
+        $rs = mysqli_query($conn, $sql);
 
-        $cd_cliente = mysql_insert_id();
+        $cd_cliente = mysqli_insert_id();
 
         list($data, $hora) = explode(" ",$DataTransacao);
         $data = implode('-',array_reverse(explode('/',$data)));
@@ -57,7 +57,7 @@ function retorno_automatico($VendedorEmail, $TransacaoID,
                     VALUES
                         ($Referencia,'$data $hora','$StatusTransacao','$TipoPagamento','$TransacaoID','$Anotacao','$ValorFrete',$cd_cliente)";
 
-        $rs = mysql_query($sql);
+        $rs = mysqli_query($conn, $sql);
 
         for($x=1; $x<=$NumItens; $x++)
         {
@@ -72,28 +72,28 @@ function retorno_automatico($VendedorEmail, $TransacaoID,
 
             if($tipo == 'gal')
             {
-                $rs1 = mysql_query("SELECT cd_galeria FROM fotos_galeria WHERE cd_foto='$cd_foto'");
-                list($cd_galeria) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT cd_galeria FROM fotos_galeria WHERE cd_foto='$cd_foto'");
+                list($cd_galeria) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
-                $rs1 = mysql_query("SELECT nm_galeria, vl_foto  FROM galerias WHERE cd_galeria='$cd_galeria'");
-                list($nm_evento, $vl_foto) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT nm_galeria, vl_foto  FROM galerias WHERE cd_galeria='$cd_galeria'");
+                list($nm_evento, $vl_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
             }
             else
             {
-                $rs1 = mysql_query("SELECT cd_evento FROM fotos_eventos WHERE cd_foto='$cd_foto'");
-                list($cd_galeria) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT cd_evento FROM fotos_eventos WHERE cd_foto='$cd_foto'");
+                list($cd_galeria) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
-                $rs1 = mysql_query("SELECT nm_evento, vl_foto  FROM eventos WHERE cd_evento='$cd_galeria'");
-                list($nm_evento, $vl_foto) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT nm_evento, vl_foto  FROM eventos WHERE cd_evento='$cd_galeria'");
+                list($nm_evento, $vl_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
             }
 
 
             $vl_total += ($vl_foto*1);
             
-            $Executa = mysql_query("INSERT INTO pedido_itens VALUES('','$Referencia','".$_POST[$cd_prod]."','".$_POST[$qtidade]."','0')") or print(mysql_error());
+            $Executa = mysqli_query($conn, "INSERT INTO pedido_itens VALUES('','$Referencia','".$_POST[$cd_prod]."','".$_POST[$qtidade]."','0')") or print(mysqli_error());
        }
 
-        $rs = mysql_query("UPDATE pedido SET vl_total='$vl_total' WHERE cd_pedido = ".$Referencia);
+        $rs = mysqli_query($conn, "UPDATE pedido SET vl_total='$vl_total' WHERE cd_pedido = ".$Referencia);
     }
 
     if(strtolower($StatusTransacao) == "aguardando pagto")
@@ -110,19 +110,19 @@ function retorno_automatico($VendedorEmail, $TransacaoID,
 
             if($tipo == 'gal')
             {
-                $rs1 = mysql_query("SELECT cd_galeria FROM fotos_galeria WHERE cd_foto='$cd_foto'");
-                list($cd_galeria) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT cd_galeria FROM fotos_galeria WHERE cd_foto='$cd_foto'");
+                list($cd_galeria) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
-                $rs1 = mysql_query("SELECT nm_galeria, vl_foto  FROM galerias WHERE cd_galeria='$cd_galeria'");
-                list($nm_evento, $vl_foto) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT nm_galeria, vl_foto  FROM galerias WHERE cd_galeria='$cd_galeria'");
+                list($nm_evento, $vl_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
             }
             else
             {
-                $rs1 = mysql_query("SELECT cd_evento FROM fotos_eventos WHERE cd_foto='$cd_foto'");
-                list($cd_galeria) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT cd_evento FROM fotos_eventos WHERE cd_foto='$cd_foto'");
+                list($cd_galeria) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
-                $rs1 = mysql_query("SELECT nm_evento, vl_foto  FROM eventos WHERE cd_evento='$cd_galeria'");
-                list($nm_evento, $vl_foto) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT nm_evento, vl_foto  FROM eventos WHERE cd_evento='$cd_galeria'");
+                list($nm_evento, $vl_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
             }
 
             $corpo .= $nm_evento." - Foto Nr. ".$cd_foto.'<BR><BR>';
@@ -156,31 +156,31 @@ function retorno_automatico($VendedorEmail, $TransacaoID,
 
                 if($tipo == 'gal')
                 {
-                    $rs1 = mysql_query("SELECT cd_galeria FROM fotos_galeria WHERE cd_foto='$cd_foto'");
-                    list($cd_galeria) = mysql_fetch_array($rs1);
+                    $rs1 = mysqli_query($conn, "SELECT cd_galeria FROM fotos_galeria WHERE cd_foto='$cd_foto'");
+                    list($cd_galeria) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
-                    $rs1 = mysql_query("SELECT nm_galeria, vl_foto  FROM galerias WHERE cd_galeria='$cd_galeria'");
-                    list($nm_evento, $vl_foto) = mysql_fetch_array($rs1);
+                    $rs1 = mysqli_query($conn, "SELECT nm_galeria, vl_foto  FROM galerias WHERE cd_galeria='$cd_galeria'");
+                    list($nm_evento, $vl_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                 }
                 else
                 {
-                    $rs1 = mysql_query("SELECT cd_evento FROM fotos_eventos WHERE cd_foto='$cd_foto'");
-                    list($cd_galeria) = mysql_fetch_array($rs1);
+                    $rs1 = mysqli_query($conn, "SELECT cd_evento FROM fotos_eventos WHERE cd_foto='$cd_foto'");
+                    list($cd_galeria) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
-                    $rs1 = mysql_query("SELECT nm_evento, vl_foto  FROM eventos WHERE cd_evento='$cd_galeria'");
-                    list($nm_evento, $vl_foto) = mysql_fetch_array($rs1);
+                    $rs1 = mysqli_query($conn, "SELECT nm_evento, vl_foto  FROM eventos WHERE cd_evento='$cd_galeria'");
+                    list($nm_evento, $vl_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                 }
 
 
                 $vl_total += ($vl_foto*1);
 
-                $rs = mysql_query("SELECT cd_item FROM pedido_itens WHERE cd_foto='".$_POST[$cd_prod]."' AND cd_pedido='$Referencia'");
-                list($item) = mysql_fetch_array($rs);
+                $rs = mysqli_query($conn, "SELECT cd_item FROM pedido_itens WHERE cd_foto='".$_POST[$cd_prod]."' AND cd_pedido='$Referencia'");
+                list($item) = mysqli_fetch_array($rs, MYSQLI_BOTH);
                 $corpo .= '<a href="http://www.agenciap4.com/nbastian/autorizar.php?pedido='.$Referencia.'&item='.$item.'&cod_aut='.$_POST[$cd_prod].'">'.$nm_evento.' - Foto Nr '.$cd_foto.'</a><BR><BR>';
                 //$corpo .= '<a href="http://www.monografiadigital.com.br/autorizar.php?pedido='.$Referencia.'&item='.$n.'&cod_aut='.$_POST[$cd_prod].'">'.$var['titulo'].'</a><BR><BR>';
             }
 
-            //$rs = mysql_query("UPDATE pedido SET vl_total='$vl_total' WHERE cd_pedido = ".$Referencia);
+            //$rs = mysqli_query($conn, "UPDATE pedido SET vl_total='$vl_total' WHERE cd_pedido = ".$Referencia);
 
             $corpo .= "Gratos,<BR>Equipe NBastian Fotografia | Comunica&ccedil;&atilde;o";
 

@@ -7,13 +7,13 @@ require("includes/conecta_bd.php");
 
 
 
-//Carrega os dados para fazer a edição. Se for o caso
+//Carrega os dados para fazer a ediï¿½ï¿½o. Se for o caso
 if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 {
     $codigo = intval($_GET['cd']);
-    $rs = mysql_query("SELECT * FROM galerias WHERE cd_galeria='$codigo'");
+    $rs = mysqli_query($conn, "SELECT * FROM galerias WHERE cd_galeria='$codigo'");
 
-    $var = mysql_fetch_array($rs);
+    $var = mysqli_fetch_array($rs, MYSQLI_BOTH);
 }
 ?>
 
@@ -78,7 +78,7 @@ jQuery(function($){
 <!--
 function excluir(aURL)
 {
-    if(confirm("Você tem certeza que deseja apagar esse registro?"))
+    if(confirm("Vocï¿½ tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }
@@ -160,8 +160,8 @@ function excluir(aURL)
 
                         <select name="cd_categoria" id="cd_categoria" title="Categoria" class="txt" tabindex="5">
                             <?php
-                            $rs1 = mysql_query("SELECT * FROM categorias ORDER BY nm_categoria ASC");
-                            while($tipo = mysql_fetch_array($rs1))
+                            $rs1 = mysqli_query($conn, "SELECT * FROM categorias ORDER BY nm_categoria ASC");
+                            while($tipo = mysqli_fetch_array($rs1, MYSQLI_BOTH))
                             {
                                 if($var['cd_categoria'] == $tipo['cd_categoria'])
                                 echo '<option value="'.$tipo['cd_categoria'].'" selected="true">'.$tipo['nm_categoria'].'</option>';
@@ -187,9 +187,9 @@ function excluir(aURL)
 
                     <br />
                     
-                    <label for="tempo_duracao">Duração:</label>
+                    <label for="tempo_duracao">Duraï¿½ï¿½o:</label>
 
-						<input class="txt" name="tempo_duracao" type="text" id="tempo_duracao"  maxlength="100" tabindex="5" title="Duração do Evento" value="<?php echo $var['tempo_duracao'];?>"/>
+						<input class="txt" name="tempo_duracao" type="text" id="tempo_duracao"  maxlength="100" tabindex="5" title="Duraï¿½ï¿½o do Evento" value="<?php echo $var['tempo_duracao'];?>"/>
 
 
                     <br />
@@ -211,7 +211,7 @@ function excluir(aURL)
 
 					
                     <?php
-                    // "Define" o tipo da ação do formulário
+                    // "Define" o tipo da aï¿½ï¿½o do formulï¿½rio
                     if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
                     {
                         echo '<input type="hidden" id="acao" name="acao" value="edita">';
@@ -282,8 +282,8 @@ function excluir(aURL)
                 <?php
                 //Listagem de Websites
                 
-                $rs1 = mysql_query("SELECT G.*, C.nm_categoria FROM galerias G INNER JOIN categorias C ON C.cd_categoria=G.cd_categoria ORDER BY G.dt_galeria DESC");
-                while($dados = mysql_fetch_array($rs1))
+                $rs1 = mysqli_query($conn, "SELECT G.*, C.nm_categoria FROM galerias G INNER JOIN categorias C ON C.cd_categoria=G.cd_categoria ORDER BY G.dt_galeria DESC");
+                while($dados = mysqli_fetch_array($rs1, MYSQLI_BOTH))
                 {
                 
                     $linkExc = "excluir.php?tp=gal&cd=".$dados['cd_galeria'];

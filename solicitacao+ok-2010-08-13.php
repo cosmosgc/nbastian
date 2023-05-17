@@ -1,6 +1,6 @@
 <?php
-session_start();
 session_name("site");
+session_start();
 
 include_once("admin/includes/conecta_bd.php");
 
@@ -22,7 +22,7 @@ else
     {
         if(verificar_email($email) == 2)
         {
-            echo("<script language='javascript'>\n alert('Favor digitar em endereço de e-mail válido!')\n</script>");
+            echo("<script language='javascript'>\n alert('Favor digitar em endereï¿½o de e-mail vï¿½lido!')\n</script>");
             echo("<script language='javascript'>location.href='solicitacao.php'</script>");
             exit;
         }
@@ -35,7 +35,7 @@ else
             
             //$destinatario = "contato@agenciap4.com.br, everson@eversonjp.com.br";
 
-            $assunto = "NBastian - Solicitação de Fotos";
+            $assunto = "NBastian - Solicitaï¿½ï¿½o de Fotos";
 
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Date: ". date('D, d M Y H:i:s O') ." \r\n";
@@ -45,7 +45,7 @@ else
             $headers .= "Reply-To : $nome <$email> \r\n";
             $headers .= "Content-Type: text/html; charset=\"ISO-8859-1\"\r\n";
 
-            $corpo = "Solicitação de Fotos via site\n\n\n";
+            $corpo = "Solicitaï¿½ï¿½o de Fotos via site\n\n\n";
             $corpo .= "Nome: " . $nome ."\n";
             $corpo .= "E-mail: " . $email . "\n";
             $corpo .= "Telefone: " . $fone . "\n";
@@ -55,34 +55,34 @@ else
 
             $galerias = "Galerias: \n";
             
-            $eventos ="Exposiçõoes: \n";
+            $eventos ="Exposiï¿½ï¿½oes: \n";
 
             $x = 1;
             $y = 1;
-            $rs = mysql_query("SELECT * FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_item ASC");
-            while($var = mysql_fetch_array($rs))
+            $rs = mysqli_query($conn, "SELECT * FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_item ASC");
+            while($var = mysqli_fetch_array($rs, MYSQLI_BOTH))
             {
 
                 if($var['tp_foto'] == "galeria")
                 {
-                            $rs1 = mysql_query("SELECT caminho_original FROM fotos_galeria WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_original FROM fotos_galeria WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                             
                             $galerias .='<a href="http://www.nbastian.com/'.$foto.'"> Foto '.$x.'</a><BR>';
                             $x++;
                         }
                         elseif($var['tp_foto'] == "evento")
                         {
-                            $rs1 = mysql_query("SELECT caminho_original FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_original FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                             
                             $eventos .='<a href="http://www.nbastian.com/'.$foto.'"> Foto '.$y.'</a><BR>';
                             $y++;
                         }
                         elseif($var['tp_foto'] == "expo")
                         {
-                            $rs1 = mysql_query("SELECT caminho_original FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_original FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                             
                             $eventos .='<a href="http://www.nbastian.com/'.$foto.'"> Foto '.$y.'</a><BR>';
                             $y++;
@@ -112,14 +112,14 @@ else
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="generator" content="www.nbastian.com.br" />
-<meta name="description" content="NBastian Fotografia e Comunicação - Nilson Bastian - Fotógrafo Profissional" />
-<meta name="keywords" content="fotografo, joinville, fotógrafo, festival de dança, danca, bolshoi, escola do ballet bolshoi, balé, colunismo social, exposições, exposicoes, fotográficas, fotografica, fotojornalismo, comunicação, comunicacao, nilson bastian, bastian" />
+<meta name="description" content="NBastian Fotografia e Comunicaï¿½ï¿½o - Nilson Bastian - Fotï¿½grafo Profissional" />
+<meta name="keywords" content="fotografo, joinville, fotï¿½grafo, festival de danï¿½a, danca, bolshoi, escola do ballet bolshoi, balï¿½, colunismo social, exposiï¿½ï¿½es, exposicoes, fotogrï¿½ficas, fotografica, fotojornalismo, comunicaï¿½ï¿½o, comunicacao, nilson bastian, bastian" />
 <meta name="url" content="http://www.nbastian.com.br" />
-<meta name="document-classification" content="Fotografia e Comunicação" />
+<meta name="document-classification" content="Fotografia e Comunicaï¿½ï¿½o" />
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Agência P4" />
+<meta name="author" content="EversonJP / Agï¿½ncia P4" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
 <meta http-equiv="reply-to" content="nbastian@nbastian.com" />
@@ -152,9 +152,9 @@ else
 
 <body>
 
-	<div id="geral"> <!-- início div geral - engloba todo o site -->
+	<div id="geral"> <!-- inï¿½cio div geral - engloba todo o site -->
     
-    	<div id="topo"> <!-- início div topo - marca + menu de navegação -->
+    	<div id="topo"> <!-- inï¿½cio div topo - marca + menu de navegaï¿½ï¿½o -->
         
         	<ul>
                 <li><a class="um" href="index.php">Home</a></li>
@@ -184,29 +184,29 @@ else
                   
                   <ul>
                    <?php
-                      $rs = mysql_query("SELECT COUNT(*) FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ");
-                        list($total) = mysql_fetch_array($rs);
+                      $rs = mysqli_query($conn, "SELECT COUNT(*) FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ");
+                        list($total) = mysqli_fetch_array($rs, MYSQLI_BOTH);
                         if(!$total)
                             echo '<p>Nenhuma Foto Selecionada</p>';
                             
                             
-                      $rs = mysql_query("SELECT * FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_item ASC");
-                      while($var = mysql_fetch_array($rs))
+                      $rs = mysqli_query($conn, "SELECT * FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_item ASC");
+                      while($var = mysqli_fetch_array($rs, MYSQLI_BOTH))
                       {
                         if($var['tp_foto'] == "galeria")
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto FROM fotos_galeria WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_galeria WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                         }
                         elseif($var['tp_foto'] == "evento")
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                         }
                         elseif($var['tp_foto'] == "expo")
                         {
-                            $rs1 = mysql_query("SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
-                            list($foto) = mysql_fetch_array($rs1);
+                            $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_eventos WHERE cd_foto='{$var['cd_foto']}'");
+                            list($foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                         }
 
                       ?>
@@ -226,7 +226,7 @@ else
                 
                 	<img src="imagens/bt+ok.gif" />
                     
-                    <h6>SUA SOLICITAÇÃO DE FOTOS FOI<span>REALIZADA COM SUCESSO!</span></h6>
+                    <h6>SUA SOLICITAï¿½ï¿½O DE FOTOS FOI<span>REALIZADA COM SUCESSO!</span></h6>
                 
                 	<p>Aguarde nosso contato em breve, onde informaremos o seu or&ccedil;amento, as formas de pagamento e como realizar o download das fotos em alta resolu&ccedil;&atilde;o.</p>
                 	<p>Agradecemos desde j&aacute; seu interesse e estamos a disposi&ccedil;&atilde;o para mais esclarecimentos.</p>
@@ -268,7 +268,7 @@ else
 <?php
 }
 
-//função que verifica se o email foi escrito do formato correto voce@provedor.com
+//funï¿½ï¿½o que verifica se o email foi escrito do formato correto voce@provedor.com
 function verificar_email($email)
 {
 
@@ -281,9 +281,9 @@ function verificar_email($email)
          //vejo se tem caracter .
          if (substr_count($email,".")>= 1)
          {
-            //obtenho a terminação do dominio
+            //obtenho a terminaï¿½ï¿½o do dominio
             $term_dom = substr(strrchr ($email, '.'),1);
-            //verifico que a terminação do dominio seja correcta
+            //verifico que a terminaï¿½ï¿½o do dominio seja correcta
             if (strlen($term_dom)>1 && strlen($term_dom)<5 && (!strstr($term_dom,"@")) )
             {
               //verifico que o de antes do dominio seja correcto

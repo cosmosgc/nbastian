@@ -14,7 +14,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "edita")
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
 
 
-    //verifica se algum dos campos está vazio
+    //verifica se algum dos campos estï¿½ vazio
     if(empty($texto)  )
     {
         echo"<script language=javascript>alert('Favor preencher o texto .')</script>";
@@ -47,7 +47,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "edita")
             }
         }
 
-        $rs = mysql_query("UPDATE perfil SET de_conteudo='$texto', caminho_foto='$grandebd', dt_ultima='".time()."' WHERE cd_perfil='$cd'");
+        $rs = mysqli_query($conn, "UPDATE perfil SET de_conteudo='$texto', caminho_foto='$grandebd', dt_ultima='".time()."' WHERE cd_perfil='$cd'");
 
 
         //echo"<script language=javascript>alert('cadastro atualizado com sucesso.')</script>";

@@ -31,13 +31,13 @@ if(isset($_POST['acao']) && $_POST['acao'] == "logar")
         }
         else
         {
-            $rs = mysql_query("SELECT cd_usuario, nm_usuario, AES_DECRYPT(de_senha,'imprensa') AS de_senha FROM imprensa_usuarios WHERE email_usuario='$usuario'");
-            if(mysql_num_rows($rs) > 0)
+            $rs = mysqli_query($conn, "SELECT cd_usuario, nm_usuario, AES_DECRYPT(de_senha,'imprensa') AS de_senha FROM imprensa_usuarios WHERE email_usuario='$usuario'");
+            if(mysqli_num_rows($rs) > 0)
             {
-                $var = mysql_fetch_array($rs);
+                $var = mysqli_fetch_array($rs, MYSQLI_BOTH);
                 if($var['de_senha'] == $senha)
                 {
-                    $rs1 = mysql_query("UPDATE imprensa_usuarios SET dt_ultimo_acesso='".time()."' WHERE cd_usuario='{$var['cd_usuario']}'");
+                    $rs1 = mysqli_query($conn, "UPDATE imprensa_usuarios SET dt_ultimo_acesso='".time()."' WHERE cd_usuario='{$var['cd_usuario']}'");
 
                     $_SESSION['logado'] = true;
                     $_SESSION['nm_usuario'] = $var['nm_usuario'];

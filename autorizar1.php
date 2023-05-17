@@ -23,20 +23,20 @@ else
 
             if($tipo == 'gal')
             {
-                $rs1 = mysql_query("SELECT cd_galeria, caminho_original FROM fotos_galeria WHERE cd_foto='$cd_foto'");
-                list($cd_galeria, $foto) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT cd_galeria, caminho_original FROM fotos_galeria WHERE cd_foto='$cd_foto'");
+                list($cd_galeria, $foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
                 
-                $rs1 = mysql_query("SELECT nm_galeria, vl_foto  FROM galerias WHERE cd_galeria='$cd_galeria'");
-                list($nm_evento, $vl_foto) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT nm_galeria, vl_foto  FROM galerias WHERE cd_galeria='$cd_galeria'");
+                list($nm_evento, $vl_foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
             }
             else
             {
-                $rs1 = mysql_query("SELECT cd_evento, caminho_original  FROM fotos_eventos WHERE cd_foto='$cd_foto'");
-                list($cd_galeria, $foto) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT cd_evento, caminho_original  FROM fotos_eventos WHERE cd_foto='$cd_foto'");
+                list($cd_galeria, $foto) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
 
-                $rs1 = mysql_query("SELECT nm_evento  FROM eventos WHERE cd_evento='$cd_galeria'");
-                list($nm_evento) = mysql_fetch_array($rs1);
+                $rs1 = mysqli_query($conn, "SELECT nm_evento  FROM eventos WHERE cd_evento='$cd_galeria'");
+                list($nm_evento) = mysqli_fetch_array($rs1, MYSQLI_BOTH);
             }
 
         
@@ -54,7 +54,7 @@ else
         $tipo = $info['mime'];
         $size = filesize($foto);
         
-        //list($nome, $caminho, $tipo, $size) = mysql_fetch_array($rs);
+        //list($nome, $caminho, $tipo, $size) = mysqli_fetch_array($rs, MYSQLI_BOTH);
 
 
         header("Content-Disposition: attachment; filename=$nome");

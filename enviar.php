@@ -1,17 +1,17 @@
 <?php
-session_start();
 session_name("site");
+session_start();
 
 if(isset($_POST['acao']) && $_POST['acao'] == "enviar")
 {
     foreach ($_POST as $campo => $valor) { $$campo = utf8_decode($valor);}
 
-    //Veriável auxiliar para detectar spamns. Inicialmente é setada como false.
+    //Veriï¿½vel auxiliar para detectar spamns. Inicialmente ï¿½ setada como false.
     $spam = false;
 
     //print_r($_POST);
     //exit;
-    //Verifica se os campos são vazios ou estão preenchidos com o conteúdo padrão.
+    //Verifica se os campos sï¿½o vazios ou estï¿½o preenchidos com o conteï¿½do padrï¿½o.
     if(empty($nome) || empty($email) || empty($mensagem) || empty($fone) || empty($assunto))
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos.')</script>";
@@ -20,25 +20,25 @@ if(isset($_POST['acao']) && $_POST['acao'] == "enviar")
     }
     else
     {
-        //verifica oe endereço de email
+        //verifica oe endereï¿½o de email
         if(verificar_email($email) == 2)
         {
-            echo("<script language='javascript'>\n alert('Favor digitar em endereço de e-mail válido!')\n</script>");
+            echo("<script language='javascript'>\n alert('Favor digitar em endereï¿½o de e-mail vï¿½lido!')\n</script>");
             echo("<script language='javascript'>location.href='contato.php'</script>");
             exit;
         }
         else
         {
 
-            /*O campo validar é um campo auxiliar escondido do formulário, utilizado para detectar spambots, se este campo for preeenchido
-            não foi uma pessoa que enviou o formulário
+            /*O campo validar ï¿½ um campo auxiliar escondido do formulï¿½rio, utilizado para detectar spambots, se este campo for preeenchido
+            nï¿½o foi uma pessoa que enviou o formulï¿½rio
             if(!empty($validar))
                 $spam = true;
             */
 
-            /*O código a seguir faz a verificação se a 'page referrer' (incorretamente denominada de ‘referer’ nas especificações para HTTP e em PHP)
-            existe e caso exista se ela encontra-se no mesmo Web Site do script de processamento. Para navegadores e spambots que não enviam informações
-            'referrer' a mensagem nunca será setada como spam.
+            /*O cï¿½digo a seguir faz a verificaï¿½ï¿½o se a 'page referrer' (incorretamente denominada de ï¿½refererï¿½ nas especificaï¿½ï¿½es para HTTP e em PHP)
+            existe e caso exista se ela encontra-se no mesmo Web Site do script de processamento. Para navegadores e spambots que nï¿½o enviam informaï¿½ï¿½es
+            'referrer' a mensagem nunca serï¿½ setada como spam.
             */
             if(!stristr($_SERVER['HTTP_REFERER'],$_SERVER['HTTP_HOST']))
                 $spam=true;
@@ -46,7 +46,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "enviar")
             $destinatario = "nbastian@nbastian.com";
 
 
-            //$assunto = "NBastian - Contato via formulário do site";
+            //$assunto = "NBastian - Contato via formulï¿½rio do site";
 
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Date: ". date('D, d M Y H:i:s O') ." \r\n";
@@ -55,7 +55,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "enviar")
             $headers .= "From: $nome <$email>\r\n";
             $headers .= "Reply-To : $nome <$email> \r\n";
 
-            $corpo = "\t\tContato via formulário do site\n\n\n";
+            $corpo = "\t\tContato via formulï¿½rio do site\n\n\n";
             $corpo .= "Nome: " . $nome ."\n";
             $corpo .= "E-mail: " . $email . "\n";
             $corpo .= "Telefone: " . $fone . "\n";
@@ -81,7 +81,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "enviar")
         }
     }
 }
-//função que verifica se o email foi escrito do formato correto voce@provedor.com
+//funï¿½ï¿½o que verifica se o email foi escrito do formato correto voce@provedor.com
 function verificar_email($email)
 {
 
@@ -94,9 +94,9 @@ function verificar_email($email)
          //vejo se tem caracter .
          if (substr_count($email,".")>= 1)
          {
-            //obtenho a terminação do dominio
+            //obtenho a terminaï¿½ï¿½o do dominio
             $term_dom = substr(strrchr ($email, '.'),1);
-            //verifico que a terminação do dominio seja correcta
+            //verifico que a terminaï¿½ï¿½o do dominio seja correcta
             if (strlen($term_dom)>1 && strlen($term_dom)<5 && (!strstr($term_dom,"@")) )
             {
               //verifico que o de antes do dominio seja correcto

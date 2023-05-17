@@ -12,7 +12,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
     // Pega os campos enviados via POST
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
     
-    //verifica se algum dos campos está vazio
+    //verifica se algum dos campos estï¿½ vazio
     if(empty($texto) || empty($titulo) )
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos.')</script>";
@@ -52,7 +52,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
         }
 
 
-        $rs = mysql_query("INSERT INTO noticias VALUES('','$titulo','$texto','$dt_noticia','$grandebd','".time()."')");
+        $rs = mysqli_query($conn, "INSERT INTO noticias VALUES('','$titulo','$texto','$dt_noticia','$grandebd','".time()."')");
         
         
         //echo"<script language=javascript>alert('cadastro realizado com sucesso.')</script>";
@@ -72,7 +72,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
     
 
 
-    //verifica se algum dos campos está vazio
+    //verifica se algum dos campos estï¿½ vazio
     if(empty($texto) || empty($titulo) )
     {
         echo"<script language=javascript>alert('Favor preencher nome e a corpo da noticia .')</script>";
@@ -113,7 +113,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
         }
 
 
-        $rs = mysql_query($up." WHERE cd_noticia='$cd'") or die(mysql_error());
+        $rs = mysqli_query($conn, $up." WHERE cd_noticia='$cd'") or die(mysqli_error());
 
 
         //echo"<script language=javascript>alert('Dados atualizados com sucesso.')</script>";

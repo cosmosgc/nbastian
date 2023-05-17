@@ -1,6 +1,6 @@
 <?php
-session_start();
 session_name("site");
+session_start();
 
 if(!isset($_SESSION['logado']) || !isset($_SESSION['nm_usuario']) || $_SESSION['logado'] == false)
 {
@@ -16,14 +16,14 @@ if(!isset($_SESSION['logado']) || !isset($_SESSION['nm_usuario']) || $_SESSION['
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="generator" content="www.nbastian.com.br" />
-<meta name="description" content="NBastian Fotografia e Comunicação - Nilson Bastian - Fotógrafo Profissional" />
-<meta name="keywords" content="fotografo, joinville, fotógrafo, festival de dança, danca, bolshoi, escola do ballet bolshoi, balé, colunismo social, exposições, exposicoes, fotográficas, fotografica, fotojornalismo, comunicação, comunicacao, nilson bastian, bastian" />
+<meta name="description" content="NBastian Fotografia e Comunicaï¿½ï¿½o - Nilson Bastian - Fotï¿½grafo Profissional" />
+<meta name="keywords" content="fotografo, joinville, fotï¿½grafo, festival de danï¿½a, danca, bolshoi, escola do ballet bolshoi, balï¿½, colunismo social, exposiï¿½ï¿½es, exposicoes, fotogrï¿½ficas, fotografica, fotojornalismo, comunicaï¿½ï¿½o, comunicacao, nilson bastian, bastian" />
 <meta name="url" content="http://www.nbastian.com.br" />
-<meta name="document-classification" content="Fotografia e Comunicação" />
+<meta name="document-classification" content="Fotografia e Comunicaï¿½ï¿½o" />
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Agência P4" />
+<meta name="author" content="EversonJP / Agï¿½ncia P4" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
 <meta http-equiv="reply-to" content="nbastian@nbastian.com" />
@@ -67,15 +67,15 @@ require_once("admin/includes/conecta_bd.php");
 
 <body>
 
-	<div id="geral"> <!-- início div geral - engloba todo o site -->
+	<div id="geral"> <!-- inï¿½cio div geral - engloba todo o site -->
     
-    	<div id="topo"> <!-- início div topo - marca + menu de navegação -->
+    	<div id="topo"> <!-- inï¿½cio div topo - marca + menu de navegaï¿½ï¿½o -->
         
         	<ul>
                 <li><a class="um" href="index.php">Home</a></li>
                 <li><a class="dois" href="perfil.php">Perfil</a></li>
                 <li><a class="tres" href="clientes.php">Clientes</a></li>
-                <li><a class="quatro" href="galeria.php">Galerias</a></li>
+                <li><a class="quatro" href="gamysqli_queryleria.php">Galerias</a></li>
                 <li><a class="cinco" href="eventos.php">Eventos</a></li>
                 <li><a class="sete on7" href="imprensa.php">Imprensa</a></li>
                 <li><a class="oito" href="contato.php">Contato</a></li>
@@ -92,13 +92,13 @@ require_once("admin/includes/conecta_bd.php");
             <div class="box">
             
             <?php
-			$rs = mysql_query("SELECT COUNT(*) FROM imprensa_fotos ");
-			list($total) = mysql_fetch_array($rs);
+			$rs = mysqli_query($conn, "SELECT COUNT(*) FROM imprensa_fotos ");
+			list($total) = mysqli_fetch_array($rs, MYSQLI_BOTH);
 			if(!$total)
-			    echo '<p>Nenhuma foto disponibilizada até o momento.</p>';
+			    echo '<p>Nenhuma foto disponibilizada atï¿½ o momento.</p>';
 	
-			$rs = mysql_query("SELECT * FROM imprensa_fotos ORDER BY dt_foto DESC");
-			while($foto = mysql_fetch_array($rs))
+			$rs = mysqli_query($conn, "SELECT * FROM imprensa_fotos ORDER BY dt_foto DESC");
+			while($foto = mysqli_fetch_array($rs, MYSQLI_BOTH))
 			{		
             ?>
 
@@ -117,7 +117,7 @@ require_once("admin/includes/conecta_bd.php");
                 
           </div>
           
-          <a href="logar.php?acao=sair" title="Sair da Área de Imprensa"><img src="imagens/bot_logoff.jpg" /></a>
+          <a href="logar.php?acao=sair" title="Sair da ï¿½rea de Imprensa"><img src="imagens/bot_logoff.jpg" /></a>
           
           <br clear="left" />
                         

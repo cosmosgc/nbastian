@@ -13,7 +13,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
     // Pega os campos enviados via POST
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
     
-    //verifica se algum dos campos está vazio
+    //verifica se algum dos campos estï¿½ vazio
     if(empty($texto) || empty($nm_evento) || empty($local)   )
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos.')</script>";
@@ -27,8 +27,8 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
         else
             $dt_evento = implode("-",array_reverse(explode("/",$dt_evento)));
             
-        $rs = mysql_query("INSERT INTO eventos VALUES('','$nm_evento','$texto','$local','$dt_evento','$tempo_duracao','1','".time()."')");
-        $cd = mysql_insert_id();
+        $rs = mysqli_query($conn, "INSERT INTO eventos VALUES('','$nm_evento','$texto','$local','$dt_evento','$tempo_duracao','1','".time()."')");
+        $cd = mysqli_insert_id();
         
         $prim = time();
         for($x=0; $x<10; $x++)
@@ -75,7 +75,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
                     @chmod($ft_grande, 0766);
 
 
-                    $res1 = mysql_query("INSERT INTO fotos_eventos VALUES('','$cd','$thumbbd','$grandebd','$originalbd','1')") or die(mysql_error());
+                    $res1 = mysqli_query($conn, "INSERT INTO fotos_eventos VALUES('','$cd','$thumbbd','$grandebd','$originalbd','1')") or die(mysqli_error());
                     $prim++;
                 }
             }
@@ -99,7 +99,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
     
 
 
-    //verifica se algum dos campos está vazio
+    //verifica se algum dos campos estï¿½ vazio
     if(empty($texto) || empty($nm_evento) || empty($local) )
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos .')</script>";
@@ -114,7 +114,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
         else
             $dt_evento = implode("-",array_reverse(explode("/",$dt_evento)));
 
-        $rs = mysql_query("UPDATE eventos SET nm_evento='$nm_evento', descricao='$texto', local='$local', dt_evento='$dt_evento', tempo_duracao='$tempo_duracao' WHERE cd_evento='$cd'");
+        $rs = mysqli_query($conn, "UPDATE eventos SET nm_evento='$nm_evento', descricao='$texto', local='$local', dt_evento='$dt_evento', tempo_duracao='$tempo_duracao' WHERE cd_evento='$cd'");
 
 
         $prim = time();
@@ -164,14 +164,14 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
                     @chmod($ft_grande, 0766);
 
 
-                    $res1 = mysql_query("INSERT INTO fotos_eventos VALUES('','$cd','$thumbbd','$grandebd','$originalbd','1')") or die(mysql_error());
+                    $res1 = mysqli_query($conn, "INSERT INTO fotos_eventos VALUES('','$cd','$thumbbd','$grandebd','$originalbd','1')") or die(mysqli_error());
                     $prim++;
                 }
             }
         }
 
 
-        //$rs = mysql_query("UPDATE noticias SET de_titulo='$titulo', de_conteudo='$texto', dt_noticia='$dt_noticia' WHERE cd_noticia='$cd'");
+        //$rs = mysqli_query($conn, "UPDATE noticias SET de_titulo='$titulo', de_conteudo='$texto', dt_noticia='$dt_noticia' WHERE cd_noticia='$cd'");
 
 
         //echo"<script language=javascript>alert('Dadoa atualizados com sucesso.')</script>";
@@ -188,11 +188,11 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "gerencia")
 
     foreach ($_POST as $campo => $valor) { $$campo = $valor;}
 
-    $rs = mysql_query("SELECT * FROM fotos_eventos WHERE cd_evento='$cd' ORDER BY cd_foto ASC");
-    while($var = mysql_fetch_array($rs))
+    $rs = mysqli_query($conn, "SELECT * FROM fotos_eventos WHERE cd_evento='$cd' ORDER BY cd_foto ASC");
+    while($var = mysqli_fetch_array($rs, MYSQLI_BOTH))
     {
         $valor = $var['cd_foto'];
-        $rs1 = mysql_query("UPDATE fotos_eventos SET ativo='".$$valor."' WHERE cd_foto='".$valor."'");
+        $rs1 = mysqli_query($conn, "UPDATE fotos_eventos SET ativo='".$$valor."' WHERE cd_foto='".$valor."'");
     }
 
     $apagar = $_POST['apagar'];
@@ -202,15 +202,15 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "gerencia")
         foreach($apagar as $item)
         {
 
-            $rs = mysql_query("SELECT * FROM fotos_eventos WHERE cd_foto='$item'");
-            $ft = mysql_fetch_array($rs);
+            $rs = mysqli_query($conn, "SELECT * FROM fotos_eventos WHERE cd_foto='$item'");
+            $ft = mysqli_fetch_array($rs, MYSQLI_BOTH);
             @unlink("../".$ft['caminho_thumb']);
             @unlink("../".$ft['caminho_foto']);
             //@unlink("../".$ft['caminho_original']);
 
-            $rs = mysql_query("DELETE FROM fotos_eventos WHERE cd_foto='$item'");
+            $rs = mysqli_query($conn, "DELETE FROM fotos_eventos WHERE cd_foto='$item'");
 
-            //$rs = mysql_query("UPDATE fotos_eventos SET ativo='0' WHERE cd_foto='$item'");
+            //$rs = mysqli_query($conn, "UPDATE fotos_eventos SET ativo='0' WHERE cd_foto='$item'");
         }
 
     }

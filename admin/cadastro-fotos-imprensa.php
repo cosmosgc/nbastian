@@ -7,13 +7,13 @@ require("includes/conecta_bd.php");
 
 
 
-//Carrega os dados para fazer a edição. Se for o caso
+//Carrega os dados para fazer a ediï¿½ï¿½o. Se for o caso
 if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 {
     $codigo = intval($_GET['cd']);
-    $rs = mysql_query("SELECT * FROM imprensa_fotos WHERE cd_foto='$codigo'");
+    $rs = mysqli_query($conn, "SELECT * FROM imprensa_fotos WHERE cd_foto='$codigo'");
 
-    $var = mysql_fetch_array($rs);
+    $var = mysqli_fetch_array($rs, MYSQLI_BOTH);
 }
 ?>
 
@@ -56,7 +56,7 @@ jQuery(function($){
 <!--
 function excluir(aURL)
 {
-    if(confirm("Você tem certeza que deseja apagar esse registro?"))
+    if(confirm("Vocï¿½ tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }
@@ -118,14 +118,14 @@ function excluir(aURL)
 
 			
 
-			<h5><a href="principal.php" title="Voltar para p&aacute;gina principal">&raquo;  Principal</a> &raquo; Cadastro de Fotos p/ Área da Imprensa</h5>
+			<h5><a href="principal.php" title="Voltar para p&aacute;gina principal">&raquo;  Principal</a> &raquo; Cadastro de Fotos p/ ï¿½rea da Imprensa</h5>
 
 			
 
 			<div id="miolo">
 			
 
-				<h4>&raquo; Cadastro de Fotos p/ Área da Imprensa</h4>
+				<h4>&raquo; Cadastro de Fotos p/ ï¿½rea da Imprensa</h4>
 
 				
 
@@ -163,7 +163,7 @@ function excluir(aURL)
 
                    <?php
 
-                    // "Define" o tipo da ação do formulário
+                    // "Define" o tipo da aï¿½ï¿½o do formulï¿½rio
                     if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
                     {
                         echo '<input type="hidden" id="acao" name="acao" value="edita">';
@@ -197,7 +197,7 @@ function excluir(aURL)
 				
                 <br />
 
-                <h4>&raquo; Listagem de Fotos p/ Área da Imprensa</h4>
+                <h4>&raquo; Listagem de Fotos p/ ï¿½rea da Imprensa</h4>
 
                 <table>
 
@@ -219,8 +219,8 @@ function excluir(aURL)
                 <?php
                 //Listagem de Websites
                 
-                $rs1 = mysql_query("SELECT * FROM imprensa_fotos ORDER BY dt_foto ASC");
-                while($dados = mysql_fetch_array($rs1))
+                $rs1 = mysqli_query($conn, "SELECT * FROM imprensa_fotos ORDER BY dt_foto ASC");
+                while($dados = mysqli_fetch_array($rs1, MYSQLI_BOTH))
                 {
                 
                     $linkExc = "excluir.php?tp=ftoi&cd=".$dados['cd_foto'];

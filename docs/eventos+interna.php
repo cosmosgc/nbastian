@@ -1,6 +1,6 @@
 <?php
-session_start();
 session_name("site");
+session_start();
 
 require_once("admin/includes/conecta_bd.php");
 
@@ -8,22 +8,22 @@ $pgSize = 36;
 $cd = isset($_GET['cd']) ? intval($_GET['cd']) : "";
 $pg = isset($_GET['pg']) ? intval($_GET['pg']) : 1;
 
-$rs = mysql_query("SELECT COUNT(*) FROM fotos_eventos WHERE cd_evento='$cd'");
-list($total) = mysql_fetch_array($rs);
+$rs = mysqli_query($conn, "SELECT COUNT(*) FROM fotos_eventos WHERE cd_evento='$cd'");
+list($total) = mysqli_fetch_array($rs, MYSQLI_BOTH);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="generator" content="www.nbastian.com.br" />
-<meta name="description" content="NBastian Fotografia e Comunicação - Nilson Bastian - Fotógrafo Profissional" />
-<meta name="keywords" content="fotografo, joinville, fotógrafo, festival de dança, danca, bolshoi, escola do ballet bolshoi, balé, colunismo social, exposições, exposicoes, fotográficas, fotografica, fotojornalismo, comunicação, comunicacao, nilson bastian, bastian" />
+<meta name="description" content="NBastian Fotografia e Comunicaï¿½ï¿½o - Nilson Bastian - Fotï¿½grafo Profissional" />
+<meta name="keywords" content="fotografo, joinville, fotï¿½grafo, festival de danï¿½a, danca, bolshoi, escola do ballet bolshoi, balï¿½, colunismo social, exposiï¿½ï¿½es, exposicoes, fotogrï¿½ficas, fotografica, fotojornalismo, comunicaï¿½ï¿½o, comunicacao, nilson bastian, bastian" />
 <meta name="url" content="http://www.nbastian.com.br" />
-<meta name="document-classification" content="Fotografia e Comunicação" />
+<meta name="document-classification" content="Fotografia e Comunicaï¿½ï¿½o" />
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Agência P4" />
+<meta name="author" content="EversonJP / Agï¿½ncia P4" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
 <meta http-equiv="reply-to" content="nbastian@nbastian.com" />
@@ -70,9 +70,9 @@ function adicionaImagem(cdFoto)
 
 <body>
 
-	<div id="geral"> <!-- início div geral - engloba todo o site -->
+	<div id="geral"> <!-- inï¿½cio div geral - engloba todo o site -->
     
-    	<div id="topo"> <!-- início div topo - marca + menu de navegação -->
+    	<div id="topo"> <!-- inï¿½cio div topo - marca + menu de navegaï¿½ï¿½o -->
         
         	<ul>
                 <li><a class="um" href="index.php">Home</a></li>
@@ -96,10 +96,10 @@ function adicionaImagem(cdFoto)
 
                 <?php
 
-                $rs = mysql_query("SELECT nm_evento FROM eventos WHERE cd_evento='$cd'");
-                list($nm_galeria) = mysql_fetch_array($rs);
+                $rs = mysqli_query($conn, "SELECT nm_evento FROM eventos WHERE cd_evento='$cd'");
+                list($nm_galeria) = mysqli_fetch_array($rs, MYSQLI_BOTH);
                 ?>
-            	<h4><a href="solicitacao.php" title="Visualizar carrinho de solicitações"><img src="imagens/bt+categorias.png" /></a><span>Evento:</span><?php echo htmlentities(strtoupper($nm_galeria));?></h4>
+            	<h4><a href="solicitacao.php" title="Visualizar carrinho de solicitaï¿½ï¿½es"><img src="imagens/bt+categorias.png" /></a><span>Evento:</span><?php echo htmlentities(strtoupper($nm_galeria));?></h4>
             
 
             
@@ -107,8 +107,8 @@ function adicionaImagem(cdFoto)
                 <?php
 
             $inicial = ($pg-1)*$pgSize;
-            $rs = mysql_query("SELECT * FROM fotos_eventos WHERE cd_evento='$cd' AND ativo='1' ORDER BY cd_foto ASC LIMIT $inicial,$pgSize");
-            while($evento = mysql_fetch_array($rs))
+            $rs = mysqli_query($conn, "SELECT * FROM fotos_eventos WHERE cd_evento='$cd' AND ativo='1' ORDER BY cd_foto ASC LIMIT $inicial,$pgSize");
+            while($evento = mysqli_fetch_array($rs, MYSQLI_BOTH))
             {
 
 

@@ -7,13 +7,13 @@ require("includes/conecta_bd.php");
 
 
 
-//Carrega os dados para fazer a edição. Se for o caso
+//Carrega os dados para fazer a ediï¿½ï¿½o. Se for o caso
 if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 {
     $codigo = intval($_GET['cd']);
-    $rs = mysql_query("SELECT * FROM eventos WHERE cd_evento='$codigo'");
+    $rs = mysqli_query($conn, "SELECT * FROM eventos WHERE cd_evento='$codigo'");
 
-    $var = mysql_fetch_array($rs);
+    $var = mysqli_fetch_array($rs, MYSQLI_BOTH);
 }
 ?>
 
@@ -115,16 +115,16 @@ if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 
     				    <tbody>
                         <?php
-                        $rs = mysql_query("SELECT COUNT(*) FROM fotos_eventos WHERE cd_evento='$codigo'");
-                        list($total) = mysql_fetch_array($rs);
+                        $rs = mysqli_query($conn, "SELECT COUNT(*) FROM fotos_eventos WHERE cd_evento='$codigo'");
+                        list($total) = mysqli_fetch_array($rs, MYSQLI_BOTH);
                         
                         $total = ceil($total/4);
                         for($x=1; $x<=$total; $x++)
                         {
                             $inicial = ($x-1)*4;
                             echo '<tr>';
-                            $rs1 = mysql_query("SELECT * FROM fotos_eventos WHERE cd_evento='$codigo' ORDER BY cd_foto ASC LIMIT $inicial,4");
-                            while($var = mysql_fetch_array($rs1))
+                            $rs1 = mysqli_query($conn, "SELECT * FROM fotos_eventos WHERE cd_evento='$codigo' ORDER BY cd_foto ASC LIMIT $inicial,4");
+                            while($var = mysqli_fetch_array($rs1, MYSQLI_BOTH))
                             {
                                 echo '<td width="25%" class="center">
                                 <img src="../'.$var['caminho_thumb'].'" alt="" /><br /><br />
@@ -157,7 +157,7 @@ if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 
 					
                     <?php
-                    // "Define" o tipo da ação do formulário
+                    // "Define" o tipo da aï¿½ï¿½o do formulï¿½rio
                     if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
                     {
                         echo '<input type="hidden" id="acao" name="acao" value="gerencia">';

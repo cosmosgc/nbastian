@@ -10,20 +10,20 @@ if(isset($_POST['acao']) && $_POST['acao'] == "login")
     $login = anti_injection($_POST['txtusuario']);
     $senha = anti_injection($_POST['txfsenha']);
     
-    //seleciona o usuário
-    $rs = mysql_query("SELECT cd_usuario, nm_usuario, AES_DECRYPT(de_senha,'admin') AS de_senha FROM usuarios WHERE de_login='$login'") or die(mysql_error());
+    //seleciona o usuï¿½rio
+    $rs = mysqli_query($conn, "SELECT cd_usuario, nm_usuario, AES_DECRYPT(de_senha,'admin') AS de_senha FROM usuarios WHERE de_login='$login'") or die(mysqli_error());
 
-    //caso encontre um usuário
-    if(mysql_num_rows($rs) > 0)
+    //caso encontre um usuï¿½rio
+    if(mysqli_num_rows($rs) > 0)
     {
-        $dados = mysql_fetch_array($rs);
-        if($dados['de_senha'] == $senha)//verifica se a senha está correta
+        $dados = mysqli_fetch_array($rs, MYSQLI_BOTH);
+        if($dados['de_senha'] == $senha)//verifica se a senha estï¿½ correta
         {
             $_SESSION['nm_usuario'] = $dados['nm_usuario'];
             $_SESSION['cd_usuario'] = $dados['cd_usuario'];
             $_SESSION['de_login'] = $login;
             
-            $rs1 = mysql_query("UPDATE usuarios SET dt_ultimo_acesso='".time()."' WHERE cd_usuario='{$dados['cd_usuario']}'");
+            $rs1 = mysqli_query($conn, "UPDATE usuarios SET dt_ultimo_acesso='".time()."' WHERE cd_usuario='{$dados['cd_usuario']}'");
             
             echo"<script language=javascript>location.href='principal.php'</script>";
             exit;
@@ -35,9 +35,9 @@ if(isset($_POST['acao']) && $_POST['acao'] == "login")
             exit;
         }
     }
-    else // caso não encontre
+    else // caso nï¿½o encontre
     {
-        echo"<script language=javascript>alert('Usuário não encontrado.')</script>";
+        echo"<script language=javascript>alert('Usuï¿½rio nï¿½o encontrado.')</script>";
         echo"<script language=javascript>location.href='index.php'</script>";
         exit;
     }
