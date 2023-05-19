@@ -1,0 +1,4 @@
+# Ignore everything except PHP files and directories
+arquivos/
+*.sql
+*.svn

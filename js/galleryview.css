@@ -1,0 +1,7 @@
+#photoStrip{
+    position: relative;
+    z-index: 900;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+}

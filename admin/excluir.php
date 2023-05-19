@@ -1,6 +1,6 @@
 <?php
-session_start();
 session_name("admin");
+session_start();
 
 include "includes/verifica_sessao.php";
 

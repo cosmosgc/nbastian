@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://logging.apache.org/log4php/">
+	<appender name="console" class="LoggerAppenderConsole" />
+	<appender name="file" class="LoggerAppenderFile">
+		<layout class="LoggerLayoutTTCC" />
+		<param name="file" value="logs/nbastian.log" />
+	</appender>
+	<appender name="rolling" class="LoggerAppenderRollingFile">
+		<layout class="LoggerLayoutTTCC" />
+		<param name="file" value="logs/nbastian.log" />
+		<param name="maxFileSize" value="1MB" />
+		<param name="maxBackupIndex" value="5" />
+	</appender>
+	<appender name="daily" class="LoggerAppenderDailyFile">
+		<layout class="LoggerLayoutTTCC" />
+		<param name="file" value="logs/nbastian-%s.log" />
+		<param name="datePattern" value="Y-m-d" />
+	</appender>
+	<logger name="retorno.php">
+		<appender_ref ref="daily" />
+	</logger>
+	<root>
+		<level value="DEBUG" />
+		<appender_ref ref="console" />
+	</root>
+</configuration>

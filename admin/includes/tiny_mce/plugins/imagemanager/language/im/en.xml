@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<language-pack>
+	<header>
+
+		<author>MarchiMedia</author>
+		<version minor="2" major="1" releasedate="2006-12-05" />
+		<description>
+			Este é o pacote de linguagem para o Gerenciador de Imagens.
+		</description>
+	</header>
+
+	<language code="en" title="English" dir="ltr">
+		<group target="common">
+			<item name="title">MarchiMedia - Gerenciador de Imagens</item>
+			<item name="filemanager">Gerenciador de Arquivos</item>
+			<item name="createdir">Criar Pasta</item>
+			<item name="refresh">Atualizar</item>
+			<item name="upload">Subir</item>
+			<item name="help">Ajuda</item>
+			<item name="edit">Editar</item>
+			<item name="deleteit">Apagar</item>
+			<item name="view">Visualizar</item>
+			<item name="insert">Inserir</item>
+			<item name="add_favorite">Adicionar favoritos</item>
+			<item name="directory">Selecionar Pasta</item>
+			<item name="removefavorite">Remover favoritos</item>
+			<item name="loading">Carregando...</item>
+			<item name="filter">Filtro</item>
+			<item name="alert_ok">Ok</item>
+			<item name="confirm_yes">Sim</item>
+			<item name="confirm_no">Não</item>
+			<item name="prev">Anter</item>
+			<item name="next">Próx</item>
+			<item name="image_data">Obtendo dados da imagem, por favor aguarde...</item>
+		</group>
+
+		<group target="button">
+			<!-- think about the length of the text -->
+			<item name="create">Criar</item>
+			<item name="cancel">Cancelar</item>
+			<item name="apply">Aplicar</item>
+			<item name="save">Salvar</item>
+		</group>
+
+		<group target="error">
+			<!-- common -->
+			<item name="demo">Esta ação é restrita no modo demonstrativo.</item>
+			<item name="no_filesystem">Nenhum sistema de arquivos localizado para o caminho: {path}.</item>
+			<item name="no_access">Nenhum acesso nesta pasta/arquivo.</item>
+			<item name="no_write_access">A pasta não possui permissão para escrita.</item>
+			<item name="file_not_exists">Arquivo/pasta não foi localizado.</item>
+			<item name="invalid_filename">O nome de arquivo não é válido.</item>
+			<item name="remove_favorite_failed">Falha em mremover os favoritos da sua lista de favoritos.</item>
+
+			<!-- create dir -->
+			<item name="template_missing">O gabarito selecionado está perdido.</item>
+			<item name="folder_exists">Uma pasta com o nome especificado já existe.</item>
+			<item name="createdir_failed">Erro: não foi possível criar a pasta.</item>
+
+			<!-- upload -->
+			<item name="upload_failed">Falha no upload, verifique suas permissões de escrita na pasta.</item>
+			<item name="file_exists">Um arquivo com o nome especificado já existe.</item>
+			<item name="error_to_large">O arquivo que você está tentando subir é muito grande.</item>
+
+			<!-- delete -->
+			<item name="delete_failed">Não foi possível apagar os arquivos(s).</item>
+			
+			<!-- image edit -->
+			<item name="crop_failed">A imagem não pode ser cortada.</item>
+			<item name="resize_failed">Não foi possível redimensionar a imagem.</item>
+			<item name="rotate_failed">A rotação de imagem não foi possível.</item>
+			<item name="flip_failed">A inversão da imagem não foi possível.</item>
+			<item name="save_failed">Não foi possível salvar a imagem.</item>
+		</group>
+
+		<group target="message">
+			<!-- common -->
+			<item name="save_success">O arquivo foi salvo.</item>
+			<item name="keepalive">Manter ativado.</item>
+
+			<!-- delete -->
+			<item name="delete_success">O(s) arquivo(s) foi excluído com sucesso.</item>
+
+			<!-- create dir -->
+			<item name="directory_ok">A pasta doi criada.</item>
+
+			<!-- upload -->
+			<item name="upload_ok">O upload foi efetuado com sucesso.</item>
+
+			<!-- image edit -->
+			<item name="crop_success">Corte efetuado com sucesso.</item>
+			<item name="resize_success">Redimensionamento efetuado com sucesso.</item>
+			<item name="rotate_success">Rotação efetuada com sucesso.</item>
+			<item name="flip_success">Inversão efetuada com sucesso.</item>
+		</group>
+
+		<group target="panel">
+			<item name="categories">Categorias</item>
+			<item name="folders">Pastas</item>
+			<item name="favorites">Favoritos</item>
+			<item name="history">Histórico</item>
+		</group>
+
+		<group target="view">
+			<item name="title">Visualizar</item>
+			<item name="mode">Modo Visualização:</item>
+			<item name="thumbnail">Miniaturas</item>
+			<item name="textlist">Lista do Texto</item>
+			<item name="images_per_page">imagens/página</item>
+			<item name="confirm_delete">Tem certeza de que deseja remover este arquivo?</item>
+			<item name="keyboard_next">Atalho do teclado: ESPACO,N,SETA DIREITA,PAGE DOWN</item>
+			<item name="keyboard_prev">Atalho do teclado: P,SETA ESQUERDA,PAGE UP</item>
+			<item name="dimensions">Dimensões</item>
+			<item name="confirm_remove_favorite">Tem certeza de que deseja remover isto da sua lista de favoritos?</item>
+		</group>
+
+		<group target="createdir">
+			<item name="title">Criar pasta</item>
+			<item name="description">Insira um nome para a pasta que você deseja criar.</item>
+			<item name="template">Gabarito:</item>
+			<item name="select_template">-- Selecionar gabarito --</item>
+			<item name="directory_name">Nome da pasta:</item>
+			<item name="create_in">Criado em:</item>
+			<item name="progress">Criando pasta, por favor aguarde...</item>
+		</group>
+
+		<group target="upload">
+			<item name="title">Subir</item>
+			<item name="description">Use o formulário para subir arquivos.</item>
+			<item name="valid_extensions">Extensões válidas:</item>
+			<item name="max_upload_size">Tamanho máximo do upload de arquivos:</item>
+			<item name="file_to_upload">Arquivo para subir:</item>
+			<item name="as_file_name">Com nome de arquivo:</item>
+			<item name="path">Caminho: </item>
+			<item name="button_upload">Subir</item>
+			<item name="browse">Adicionar arquivo(s)</item>
+			<item name="progress">Subindo...</item>
+			<item name="upload_warn">Os arquivos estão sendo subidos, tem certeza de que deseja cancelar o upload?</item>
+		</group>
+
+		<group target="edit_image">
+			<item name="title">Editor do Gerenciador de Imagens</item>
+			<item name="save">Salvar</item>
+			<item name="revert">Reverter</item>
+			<item name="crop">Cortar</item>
+			<item name="resize">Redimensionar</item>
+			<item name="please_wait">Processando imagem, por favor aguarde...</item>
+			<item name="constrain">Manter proporções</item>
+			<item name="left">Esquerda</item>
+			<item name="top">Acima</item>
+			<item name="width">Largura</item>
+			<item name="height">Altura</item>
+			<item name="save_as">Salvar como</item>
+			<item name="flip">Inverter</item>
+			<item name="rotate">Rotacionar</item>
+			<item name="reload">Recarregar</item>
+			<item name="horizontal">Horizontal</item>
+			<item name="vertical">Vertical</item>
+			<item name="saving_wait">Salvando imagem, por favor aguarde...</item>
+			<item name="confirm_revert">Tem certeza de que deseja reverter para a ultima imagem salva?</item>
+			<item name="loading">Carregando imagem, por favor aguarde...</item>
+		</group>
+
+		<group target="tinymce">
+			<item name="insertimage_desc">Inserir imagem</item>	
+		</group>
+	</language>
+</language-pack>

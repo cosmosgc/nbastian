@@ -1,6 +1,6 @@
 <?php
-session_start();
 session_name("admin");
+session_start();
 
 require("includes/verifica_sessao.php");
 require("includes/conecta_bd.php");
@@ -124,7 +124,7 @@ function excluir(aURL)
                 while($dados = mysqli_fetch_array($rs1, MYSQLI_BOTH))
                 {
 
-                    $linkExc = "excluir.php?tp=jur&cd=".$dados['cd_investidor'];
+                    $linkExc = "excluir.php?tp=jur&cd=".$dados['cd_pedido'];
                     
                     list($data, $hora) = explode(" ",$dados['dt_pedido']);
                     $data = implode('/',array_reverse(explode('-',$data)));

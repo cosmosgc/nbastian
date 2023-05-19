@@ -1,0 +1,70 @@
+/* CSS Document */
+
+	#forum{
+		margin-bottom: 20px;
+	}
+	
+	#forum ul {
+		width: 100%;
+		list-style:none;
+		font:70% "Trebuchet MS", Tahoma;
+	}
+	
+	#forum ul li{
+		display: block;
+		padding: 6px 5px;
+	}
+	
+	#forum ul li a{
+		color: #069;
+		font: bold 12px "Trebuchet MS", Tahoma, Verdana;
+	}
+	
+	#forum ul li a:hover{
+		color: #f60;
+		padding-left:5px;
+		border-left: 3px solid #f60;
+	}
+	
+	#topico{
+		margin-bottom: 20px;
+		border: 1px dotted #ECF3F9;
+	}
+	
+	#topico p{
+		color: #333;
+		font: 12px "Trebuchet MS", Tahoma, Verdana;
+		margin: 10px;
+	}
+	
+	#topico h6{
+		background-color: #E9F1F8;
+		color: #333;
+		border-bottom: 1px dotted #ECF3F9;
+		font: bold 80% "Trebuchet MS", Tahoma, Verdana;
+		padding: 5px;
+		margin-bottom: 10px;
+	}
+	
+	#topico h6.resposta{ margin-bottom: 0;}
+	
+	hr {
+		color: #ccc;
+		background-color: #ccc;
+		height: 1px;
+		width: 100%;
+		text-align: left;
+	}
+	
+	#botao-topico{ margin-bottom: 10px; text-align: right;}
+	#botao-topico li{
+		padding: 10px;
+		display: inline;
+	}
+	
+	
+
+	
+
+
+

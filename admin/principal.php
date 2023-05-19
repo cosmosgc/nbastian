@@ -1,6 +1,6 @@
 <?php
-session_start();
 session_name("admin");
+session_start();
 
 require("includes/verifica_sessao.php");
 
@@ -88,7 +88,7 @@ require("includes/verifica_sessao.php");
 
 			
 
-			<div id="menuNovo"> <!-- menu principal para navegação -->
+			<div id="menuNovo"> <!-- menu principal para navegaï¿½ï¿½o -->
 
 			
 
@@ -120,12 +120,12 @@ require("includes/verifica_sessao.php");
                     
 
                     
-                    <li><a href="cadastro-usuarios-imprensa.php"><img src="img/icones/ico-mail.jpg" title="Cadastro de Usuário p/ Área da Imprensa" /><br />Usuário p/ Área da Imprensa</a></li>
+                    <li><a href="cadastro-usuarios-imprensa.php"><img src="img/icones/ico-mail.jpg" title="Cadastro de Usuï¿½rio p/ ï¿½rea da Imprensa" /><br />Usuï¿½rio p/ ï¿½rea da Imprensa</a></li>
                     
-                    <li><a href="cadastro-fotos-imprensa.php"><img src="img/icones/ico-mail.jpg" title="Cadastro de Fotos p/ Área da Imprensa" /><br />Fotos p/ Área da Imprensa</a></li>
+                    <li><a href="cadastro-fotos-imprensa.php"><img src="img/icones/ico-mail.jpg" title="Cadastro de Fotos p/ ï¿½rea da Imprensa" /><br />Fotos p/ ï¿½rea da Imprensa</a></li>
                     
 
-                    <li><a href="cadastro-usuarios.php"><img src="img/icones/ico-mail.jpg" title="Cadastro de Usuários p/ Área Administrativa" /><br />Usuários p/ Área Administrativa</a></li>
+                    <li><a href="cadastro-usuarios.php"><img src="img/icones/ico-mail.jpg" title="Cadastro de Usuï¿½rios p/ ï¿½rea Administrativa" /><br />Usuï¿½rios p/ ï¿½rea Administrativa</a></li>
 
 
 				</ul>
@@ -136,7 +136,7 @@ require("includes/verifica_sessao.php");
 
 			
 
-			</div> <!-- fim do menu principal para navegação -->
+			</div> <!-- fim do menu principal para navegaï¿½ï¿½o -->
 
 			
 

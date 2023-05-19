@@ -1,0 +1,72 @@
+
+/* the overlayed element */
+.apple_overlay {
+	
+	/* initially overlay is hidden */
+	display:none;
+	
+	/* growing background image */
+	background-image:url(../images/overlay/transparent.png);
+	
+	/* 
+		width after the growing animation finishes
+		height is automatically calculated
+	*/
+	width:660px;
+
+
+	
+	/* some padding to layout nested elements nicely  */
+	padding:35px;
+
+	/* a little styling */	
+	font-size:11px;
+	text-align: center;
+}
+
+/* default close button positioned on upper right corner */
+.apple_overlay div.close {
+	background-image:url(../images/overlay/close.png);
+	position:absolute; right:10px; top:10px;
+	cursor:pointer;
+	height:35px;
+	width:35px;
+}
+
+.apple_overlay #photoStrip{
+    position: absolute;
+    top: 100px;
+    left: 65px;
+    z-index: 1001;
+    
+}
+
+.apple_overlay .details{
+    text-align: left;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.apple_overlay .details p{
+    color:#ccc;
+	font: 11px Arial, Helvetica, sans-serif;
+	margin: 5px;
+	padding: 2px 0;
+}
+
+.apple_overlay .details p strong{
+	color: #ccc;
+	font: bold 14px Arial, Helvetica, sans-serif;
+}
+
+.apple_overlay .details p span.left{
+    width: 300px;
+    float: left;
+    margin-top:20px;
+
+}
+
+.apple_overlay .details p span.right{
+    float:right;
+    margin-top:15px;
+}

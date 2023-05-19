@@ -1,0 +1,18 @@
+Thu Sep  6 00:23:07 2012,694 [40520] INFO retorno.php - Iniciando retorno automatico - transacao 76E942DA5A434374A252E3B3E73A80ED
+
+Thu Sep  6 00:23:07 2012,697 [40520] INFO retorno.php - Retorno do PagSeguro: {Referencia: 330, DataTransacao: 05/09/2012 10:27:21, TransacaoID: 76E942DA5A434374A252E3B3E73A80ED, StatusTransacao: Aprovado, TipoPagamento: Boleto, TipoFrete: FR, ValorFrete: 0.00, Anotacao: , VendedorEmail: nbastian@nbastian.com, Cliente Nome: Anderson Boechat, Cliente Email: anderson.boechat@gmail.com, Cliente Endereco: Avenida Ruy Antunes Correa, Cliente Numero: 150, Cliente Complemento: , Cliente Bairro: Barra Da Tijuca, Cliente Cidade: Rio De Janeiro, Cliente Estado: RJ, Cliente CEP: 22793355, Cliente Telefone: 21 12345678, Numero de Itens: 1, Produtos: Array
+(
+    [0] => Array
+        (
+            [ProdID] => gal_9204
+            [ProdDescricao] => Galeria Viagem Bolshoi Ravello - Foto nr 9204
+            [ProdValor] => 2
+            [ProdQuantidade] => 1
+            [ProdFrete] => 0
+            [ProdExtras] => 0
+        )
+
+)
+}
+
+Thu Sep  6 00:23:07 2012,792 [40520] INFO retorno.php - Finalizando retorno automatico - transacao 76E942DA5A434374A252E3B3E73A80ED

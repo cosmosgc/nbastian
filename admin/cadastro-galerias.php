@@ -1,6 +1,6 @@
 <?php
-session_start();
 session_name("admin");
+session_start();
 
 require("includes/verifica_sessao.php");
 require("includes/conecta_bd.php");

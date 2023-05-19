@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<NewDataSet>
+    <Table>
+        <Transacao_ID>9747F5BE-7842-4404-8ACE-001B85BF7750</Transacao_ID>
+        <Cliente_Nome>Norton Fuscaldo Albo</Cliente_Nome>
+        <Cliente_Email>albo@terra.com.br</Cliente_Email>
+        <Debito_Credito>Crédito</Debito_Credito>
+        <Tipo_Transacao>Pagamento</Tipo_Transacao>
+        <Status>Aprovada</Status>
+        <Tipo_Pagamento>Cartão de Crédito</Tipo_Pagamento>
+        <Valor_Bruto>36,0000</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>2,7000</Valor_Taxa>
+        <Valor_Liquido>33,3000</Valor_Liquido>
+        <Data_Transacao>03/05/2011 19:43:25</Data_Transacao>
+        <Data_Compensacao>17/05/2011 19:48:09</Data_Compensacao>
+        <Ref_Transacao>289</Ref_Transacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+    <Table>
+        <Transacao_ID>8F88910C-95B1-4B2B-939A-8EA207271752</Transacao_ID>
+        <Cliente_Nome>milene regina tavares</Cliente_Nome>
+        <Cliente_Email>tavares.milene@hotmail.com</Cliente_Email>
+        <Debito_Credito>Crédito</Debito_Credito>
+        <Tipo_Transacao>Pagamento</Tipo_Transacao>
+        <Status>Aprovada</Status>
+        <Tipo_Pagamento>Cartão de Crédito</Tipo_Pagamento>
+        <Valor_Bruto>36,0000</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>2,7000</Valor_Taxa>
+        <Valor_Liquido>33,3000</Valor_Liquido>
+        <Data_Transacao>03/05/2011 16:44:05</Data_Transacao>
+        <Data_Compensacao>17/05/2011 16:46:41</Data_Compensacao>
+        <Ref_Transacao>288</Ref_Transacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+    <Table>
+        <Transacao_ID>D099C8A6-4CC2-4632-93DD-641F25AC7FD8</Transacao_ID>
+        <Cliente_Nome>Norton Fuscaldo Albo</Cliente_Nome>
+        <Cliente_Email>albo@terra.com.br</Cliente_Email>
+        <Debito_Credito>Crédito</Debito_Credito>
+        <Tipo_Transacao>Pagamento</Tipo_Transacao>
+        <Status>Cancelada</Status>
+        <Tipo_Pagamento>Cartão de Crédito</Tipo_Pagamento>
+        <Valor_Bruto>36,0000</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>2,7000</Valor_Taxa>
+        <Valor_Liquido>33,3000</Valor_Liquido>
+        <Data_Transacao>03/05/2011 11:59:56</Data_Transacao>
+        <Data_Compensacao>03/05/2011 11:59:56</Data_Compensacao>
+        <Ref_Transacao>287</Ref_Transacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+    <Table>
+        <Transacao_ID>C910150D-5DE1-4A62-8D30-1E9E04D8D778</Transacao_ID>
+        <Cliente_Nome>Eliana Cristina Fernandes Gazola</Cliente_Nome>
+        <Cliente_Email>6nina@terra.com.br</Cliente_Email>
+        <Debito_Credito>Crédito</Debito_Credito>
+        <Tipo_Transacao>Pagamento</Tipo_Transacao>
+        <Status>Cancelada</Status>
+        <Tipo_Pagamento>Boleto</Tipo_Pagamento>
+        <Valor_Bruto>6,0000</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>0,5700</Valor_Taxa>
+        <Valor_Liquido>5,4300</Valor_Liquido>
+        <Data_Transacao>02/05/2011 21:16:33</Data_Transacao>
+        <Data_Compensacao>02/05/2011 21:16:33</Data_Compensacao>
+        <Ref_Transacao>286</Ref_Transacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+    <Table>
+        <Transacao_ID>66C00603-3162-4DD3-B5B1-A9DF1709CB3F</Transacao_ID>
+        <Cliente_Nome>ISABEL KLIMESCH</Cliente_Nome>
+        <Cliente_Email>beltur@beltur.com.br</Cliente_Email>
+        <Debito_Credito>Crédito</Debito_Credito>
+        <Tipo_Transacao>Pagamento</Tipo_Transacao>
+        <Status>Aprovada</Status>
+        <Tipo_Pagamento>Cartão de Crédito</Tipo_Pagamento>
+        <Valor_Bruto>36,0000</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>2,7000</Valor_Taxa>
+        <Valor_Liquido>33,3000</Valor_Liquido>
+        <Data_Transacao>01/05/2011 22:25:28</Data_Transacao>
+        <Data_Compensacao>15/05/2011 22:27:53</Data_Compensacao>
+        <Ref_Transacao>284</Ref_Transacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+    <Table>
+        <Transacao_ID>72CE2D66-C11A-4D0A-AFE6-EC940CF06540</Transacao_ID>
+        <Cliente_Nome>Ana Carolina De Oliveira</Cliente_Nome>
+        <Cliente_Email>anavet03@hotmail.com</Cliente_Email>
+        <Debito_Credito>Crédito</Debito_Credito>
+        <Tipo_Transacao>Pagamento</Tipo_Transacao>
+        <Status>Cancelada</Status>
+        <Tipo_Pagamento>Boleto</Tipo_Pagamento>
+        <Valor_Bruto>60,0000</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>2,1400</Valor_Taxa>
+        <Valor_Liquido>57,8600</Valor_Liquido>
+        <Data_Transacao>28/04/2011 21:33:24</Data_Transacao>
+        <Data_Compensacao>28/04/2011 21:33:24</Data_Compensacao>
+        <Ref_Transacao>280</Ref_Transacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+    <Table>
+        <Transacao_ID>1A21000E-78B0-4384-8B37-CEC0A6874683</Transacao_ID>
+        <Cliente_Nome>NBastian Fotografia</Cliente_Nome>
+        <Cliente_Email>nbastian@nbastian.com</Cliente_Email>
+        <Debito_Credito>Débito</Debito_Credito>
+        <Tipo_Transacao>Saque</Tipo_Transacao>
+        <Status>Aprovada</Status>
+        <Valor_Bruto>148,0300</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>0,0000</Valor_Taxa>
+        <Valor_Liquido>148,0300</Valor_Liquido>
+        <Data_Transacao>27/04/2011 10:44:15</Data_Transacao>
+        <Data_Compensacao>27/04/2011 10:44:15</Data_Compensacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+    <Table>
+        <Transacao_ID>8E1D2DEB-B577-4641-B100-396D45B4AF9A</Transacao_ID>
+        <Cliente_Nome>NBastian Fotografia</Cliente_Nome>
+        <Cliente_Email>nbastian@nbastian.com</Cliente_Email>
+        <Debito_Credito>Débito</Debito_Credito>
+        <Tipo_Transacao>Saque</Tipo_Transacao>
+        <Status>Cancelada</Status>
+        <Valor_Bruto>117,5400</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>0,0000</Valor_Taxa>
+        <Valor_Liquido>117,5400</Valor_Liquido>
+        <Data_Transacao>19/04/2011 20:43:24</Data_Transacao>
+        <Data_Compensacao>19/04/2011 20:43:24</Data_Compensacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+    <Table>
+        <Transacao_ID>71170C6D-8669-4BAD-85E3-3706E00AC886</Transacao_ID>
+        <Cliente_Nome>Ana Cristina Lobo</Cliente_Nome>
+        <Cliente_Email>alobo161@gmail.com</Cliente_Email>
+        <Debito_Credito>Crédito</Debito_Credito>
+        <Tipo_Transacao>Pagamento</Tipo_Transacao>
+        <Status>Aprovada</Status>
+        <Tipo_Pagamento>Cartão de Crédito</Tipo_Pagamento>
+        <Valor_Bruto>33,0000</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>2,5100</Valor_Taxa>
+        <Valor_Liquido>30,4900</Valor_Liquido>
+        <Data_Transacao>11/04/2011 13:47:53</Data_Transacao>
+        <Data_Compensacao>25/04/2011 13:49:08</Data_Compensacao>
+        <Ref_Transacao>275</Ref_Transacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+    <Table>
+        <Transacao_ID>2B1FB74F-E664-4DF8-96A8-B6DCFF1B4ED7</Transacao_ID>
+        <Cliente_Nome>Monica B M Johnson</Cliente_Nome>
+        <Cliente_Email>monica@johnsoncc.com.br</Cliente_Email>
+        <Debito_Credito>Crédito</Debito_Credito>
+        <Tipo_Transacao>Pagamento</Tipo_Transacao>
+        <Status>Aprovada</Status>
+        <Tipo_Pagamento>Cartão de Crédito</Tipo_Pagamento>
+        <Valor_Bruto>126,0000</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>8,4600</Valor_Taxa>
+        <Valor_Liquido>117,5400</Valor_Liquido>
+        <Data_Transacao>31/03/2011 12:41:44</Data_Transacao>
+        <Data_Compensacao>14/04/2011 15:35:39</Data_Compensacao>
+        <Ref_Transacao>273</Ref_Transacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+    <Table>
+        <Transacao_ID>00BBA794-9C5A-44C3-BFE3-C37EFF2EF3DC</Transacao_ID>
+        <Cliente_Nome>NBastian Fotografia</Cliente_Nome>
+        <Cliente_Email>nbastian@nbastian.com</Cliente_Email>
+        <Debito_Credito>Débito</Debito_Credito>
+        <Tipo_Transacao>Saque</Tipo_Transacao>
+        <Status>Aprovada</Status>
+        <Valor_Bruto>233,6000</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>0,0000</Valor_Taxa>
+        <Valor_Liquido>233,6000</Valor_Liquido>
+        <Data_Transacao>03/03/2011 18:54:32</Data_Transacao>
+        <Data_Compensacao>03/03/2011 18:54:32</Data_Compensacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+    <Table>
+        <Transacao_ID>E78A9937-39C7-4585-8A63-CEA5AC9BE55E</Transacao_ID>
+        <Cliente_Nome>Nanci Hass Da Cruz</Cliente_Nome>
+        <Cliente_Email>nanci@twcnet.com.br</Cliente_Email>
+        <Debito_Credito>Crédito</Debito_Credito>
+        <Tipo_Transacao>Pagamento</Tipo_Transacao>
+        <Status>Aprovada</Status>
+        <Tipo_Pagamento>Cartão de Crédito</Tipo_Pagamento>
+        <Valor_Bruto>250,0000</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>16,4000</Valor_Taxa>
+        <Valor_Liquido>233,6000</Valor_Liquido>
+        <Data_Transacao>17/02/2011 14:53:15</Data_Transacao>
+        <Data_Compensacao>03/03/2011 17:19:39</Data_Compensacao>
+        <Ref_Transacao>267</Ref_Transacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+    <Table>
+        <Transacao_ID>9846B34B-79A4-4F17-8710-4EEDF7658E5A</Transacao_ID>
+        <Cliente_Nome>Nanci Hass Da Cruz</Cliente_Nome>
+        <Cliente_Email>nanci@tnccomunicacao.com.br</Cliente_Email>
+        <Debito_Credito>Crédito</Debito_Credito>
+        <Tipo_Transacao>Pagamento</Tipo_Transacao>
+        <Status>Cancelada</Status>
+        <Tipo_Pagamento>Cartão de Crédito</Tipo_Pagamento>
+        <Valor_Bruto>250,0000</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>0,0000</Valor_Taxa>
+        <Valor_Liquido>250,0000</Valor_Liquido>
+        <Data_Transacao>15/02/2011 09:41:22</Data_Transacao>
+        <Data_Compensacao>15/02/2011 09:41:22</Data_Compensacao>
+        <Ref_Transacao>266</Ref_Transacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+    <Table>
+        <Transacao_ID>24B7D12B-2BD0-49B3-BB33-2D63A4DFADFF</Transacao_ID>
+        <Cliente_Nome>NBastian Fotografia</Cliente_Nome>
+        <Cliente_Email>nbastian@nbastian.com</Cliente_Email>
+        <Debito_Credito>Débito</Debito_Credito>
+        <Tipo_Transacao>Saque</Tipo_Transacao>
+        <Status>Aprovada</Status>
+        <Valor_Bruto>63,6900</Valor_Bruto>
+        <Valor_Desconto>0,0000</Valor_Desconto>
+        <Valor_Taxa>0,0000</Valor_Taxa>
+        <Valor_Liquido>63,6900</Valor_Liquido>
+        <Data_Transacao>18/01/2011 16:01:53</Data_Transacao>
+        <Data_Compensacao>18/01/2011 16:01:53</Data_Compensacao>
+        <Parcelas>1</Parcelas>
+    </Table>
+</NewDataSet>

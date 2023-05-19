@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<language-pack>
+	<header>
+		<author>MarchiMedia</author>
+		<version minor="2" major="0" releasedate="2005-10-28" />
+		<description>
+			Este é o arquivo de linguagem do gerenciador de arquivos.
+		</description>
+	</header>
+
+	<language code="en" title="English" dir="ltr">
+		<group target="error">
+			<item name="tofile_exists">O arquivo já existe.</item>
+			<item name="no_from_file">O arquivo de origem não existe.</item>
+			<item name="demo">Esta ação é restrita no modo administrativo.</item>
+			<item name="invalid_filename">O nome de arquivo não é válido.</item>
+			<item name="no_write_access">Sem permissão de acesso à este arquivo/pasta.</item>
+			<item name="copy_failed">Falha na cópia.</item>
+			<item name="move_failed">Falha na trasferência.</item>
+			<item name="template_missing">O gabarito não foi localizado.</item>
+			<item name="createdoc_failed">Falha na criação do documento.</item>
+			<item name="no_access">Você não possui permissão para executar esta operação.</item>
+			<item name="file_exists">O arquivo já existe.</item>
+			<item name="upload_failed">Falha no Upload, cverifique suas permissões de escrita na pasta.</item>
+			<item name="error_to_large">O tamanho máximo do arquivo foi atingido.</item>
+			<item name="file_not_exists">O arquivo não existe.</item>
+			<item name="delete_failed">Falha na exclusão.</item>
+			<item name="folder_exists">A pastajá existe.</item>
+			<item name="no_filesystem">Nenhum sitema de arquivos foi localizado.</item>
+			<item name="createdir_failed">Falha na criação da pasta.</item>
+			<item name="createzip_failed">Falha na criação do arquivo .zip.</item>
+			<item name="rename_failed">Falha na renomeação.</item>
+		</group>
+
+		<group target="message">
+			<item name="zip_success">O processo de Zip foi executado com sucesso .</item>
+			<item name="copy_success">A cópia foi efetuada com sucesso.</item>
+			<item name="move_success">A transferência foi efetuada com sucesso.</item>
+			<item name="createdoc_success">O documento foi criado com sucesso.</item>
+			<item name="delete_success">A exclusão foi efetuada com sucesso.</item>
+			<item name="directory_ok">Pasta criada com sucesso.</item>
+			<item name="keepalive">Mantenha ativado</item>
+			<item name="upload_ok">O upload foi efetuado com sucesso.</item>
+			<item name="confirm_cut">Tem certeza de que deseja eliminar os arquivos selecionados?</item>
+			<item name="confirm_copy">Tem certeza de que deseja copiar os arquivos selecionados?</item>
+			<item name="confirm_paste">Tem certeza de que deseja colar aqui os arquivos copiados?</item>
+			<item name="confirm_delete">Tem certeza de que deseja excluir os arquivos selecionados?</item>
+			<item name="insert">Obtendo dados dos arquivos, por favor aguarde...</item>
+			<item name="paste_in_progress">Operação de colar arquivos em progresso, por favor aguarde...</item>
+		</group>
+
+		<group target="common">
+			<item name="createdir">Criar pasta</item>
+			<item name="createfile">Novo arquivo</item>
+			<item name="help">Ajuda</item>
+			<item name="refresh">Atualizar</item>
+			<item name="upload">Subir</item>
+			<item name="directory">Pasta Selecionada</item>
+			<item name="imagemanager">Gereciar Imagens</item>
+			<item name="title">Gerenciador de Arquivos</item>
+			<item name="alert_ok">Ok</item>
+			<item name="confirm_yes">Sim</item>
+			<item name="confirm_no">Não</item>
+		</group>
+
+		<group target="button">
+			<item name="create">Criar</item>
+			<item name="cancel">Cancelar</item>
+		</group>
+
+		<group target="panel">
+			<item name="categories">Categorias</item>
+			<item name="preview">Prévia</item>
+			<item name="favorites">Favoritos</item>
+			<item name="history">Histórico</item>
+		</group>
+
+		<group target="actions">
+			<item name="insert">Inserir</item>
+			<item name="download">Baixar</item>
+			<item name="rename">Renomear</item>
+			<item name="cut">Cortar</item>
+			<item name="copy">Copiar</item>
+			<item name="paste">Colar</item>
+			<item name="deleteit">Excluir</item>
+			<item name="zip">Zipar</item>
+			<item name="view">Ver</item>
+			<item name="select_all">Marcar tudo</item>
+			<item name="unselect_all">Desmarcar tudo</item>
+			<item name="addfavorites">Adicionar aos favoritos</item>
+			<item name="removefavorites">Remover dos favoritos</item>
+		</group>
+
+		<group target="filelist">
+			<item name="filename">Nome do arquivo</item>
+			<item name="size">Tamanho</item>
+			<item name="type">Tipo</item>
+			<item name="modified">Data Modificação</item>
+			<item name="with_selected">Com selecionados:</item>
+			<item name="info_dirs">Pastas:</item>
+			<item name="info_files">Arquivos:</item>
+			<item name="info_size">Tamanho total dos arquivos:</item>
+			<item name="info_access">Acesso:</item>
+			<item name="loading">Carregando...</item>
+		</group>
+
+		<group target="createdir">
+			<item name="title">Criar pasta</item>
+			<item name="description">Insira um nome para a psta que você gostaria de criar.</item>
+			<item name="template">Gabarito:</item>
+			<item name="select_template">-- Selecionar gabarito --</item>
+			<item name="directory_name">Nome da pasta:</item>
+			<item name="create_in">Criar em:</item>
+			<item name="progress">Criando pasta, por favor aguarde...</item>
+		</group>
+
+		<group target="createdoc">
+			<item name="title">Criar documento</item>
+			<item name="description">Preencha o formulário para criar um novo documento a partir de um gabarito.</item>
+			<item name="template">Gabarito:</item>
+			<item name="select_template">-- Selecionar gabarito --</item>
+			<item name="name">Nome</item>
+			<item name="path">Caminho</item>
+			<item name="preview">Prévia</item>
+		</group>
+
+		<group target="upload">
+			<item name="title">Subir</item>
+			<item name="description">Use o formulário para subir arquivos.</item>
+			<item name="valid_extensions">Extensões válidas:</item>
+			<item name="max_upload_size">Tamanho máximo para o upload:</item>
+			<item name="file_to_upload">Arquivo para upload:</item>
+			<item name="as_file_name">Como nome de arquivo:</item>
+			<item name="path">Caminho: </item>
+			<item name="button_upload">Subir</item>
+			<item name="browse">Adicionar arquivo(s)</item>
+			<item name="progress">Subindo...</item>
+			<item name="upload_warn">Os arquivos estão subindo. Tem certeza de que deseja cancelar o upload?</item>
+		</group>
+
+		<group target="createzip">
+			<item name="title">Criar zip</item>
+			<item name="description">Insira o nome do arquivo zip que você deseja criar.</item>
+			<item name="name">Nome:</item>
+			<item name="path">Caminho</item>
+		</group>
+
+		<group target="tinymce">
+			<item name="insertfile_desc">Inserir arquivo</item>	
+		</group>
+	</language>
+</language-pack>

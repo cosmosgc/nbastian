@@ -1,0 +1,364 @@
+/* CSS Document */
+
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border: none;
+	}
+	
+	body{
+		background:url(../img/fundo/body.jpg) top repeat-x;
+		font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	}
+	
+	a{ color: #666; text-decoration: none;}
+	
+	p{
+		color: #666;
+		font-size: 80%;
+		margin-bottom: 5px;
+	}
+
+	
+	h5{
+		color: #069;
+		font: bold 90% "Trebuchet MS", Tahoma, Verdana;
+		background-color: fafafa;
+		border: 1px solid #f3f3f3;
+		padding: 5px;
+		margin-bottom: 10px;
+	}
+
+	
+	#geral{
+		margin: 0 auto;
+		width: 770px;
+	}
+	
+	#topo{
+		height: 85px;
+		padding: 0 20px;
+	}
+	
+	#topo h3{
+		color: #fff;
+		font: bold 190% "Trebuchet MS", Tahoma, Verdana;
+		height: 85px;
+		line-height: 85px;
+		float: left;
+	}
+	
+	#topo #menu{
+		padding-top:15px;
+		text-align: center;
+	}
+	
+	#topo #menu ul{ width: 450px;}
+	
+	#topo #menu li{
+		display: inline;
+	}
+	
+	#topo #menu li a{
+		height: 10px;
+		float: right;
+		font: bold 75% "Trebuchet MS", Helvetica, Arial, Tahoma, Verdana, Sans-Serifa;
+		color: #fff;
+		padding: 0 10px;
+		text-decoration: none;
+	}
+	
+
+	#conteudo{
+		border-top: none;
+		padding: 10px;
+	}
+	
+	#conteudo h4, #miolo h4{
+		color: #f60;
+		font: bold 100% "Trebuchet MS", Tahoma, Verdana;
+		border-bottom: 1px dotted #ccc;
+		margin-bottom: 10px;
+	}
+	
+	
+	#conteudo #menu{
+		margin-bottom: 20px;
+		height: 70px;
+	}
+	
+	#conteudo #menu ul {
+			float: left;
+			width: 100%;
+			list-style:none;
+			font:70% "Trebuchet MS", Tahoma;
+		}
+
+	#conteudo #menu ul li { display: inline; }
+
+	#conteudo #menu ul li a {
+		color: #666;
+		text-decoration: none;
+		padding: 2px 30px;
+		float:left;
+		text-align: center;
+		display: block;
+	}
+	
+	#miolo{
+		border: 1px solid #fafafa;
+		padding: 10px;
+	}
+	
+	#miolo p{
+		color: #333;
+		font: 80% "Trebuchet MS", Tahoma, Verdana;
+		padding: 10px 0;
+	}
+	
+	#local{
+		float: right;
+		margin-bottom: 10px;
+	}
+	
+	#local h6{
+		color: #666;
+		font: 70% "Trebuchet MS", Tahoma;
+		padding: 7px;
+	}
+	
+	#rodape{
+		border-top: 1px solid #f1f1f1;
+		margin-top: 10px;
+		padding: 5px;
+		text-align: center;
+	}
+	
+	#rodape ul{ margin:5px 0;}
+	#rodape li{ display: inline;}
+	
+	#rodape li a{
+		color: #666;
+		text-decoration: none;
+		padding: 2px 30px;
+		text-align: center;
+		font: 9px Tahoma, Verdana;
+	}
+
+	
+	address{ color: #666; font: 75% "Trebuchet MS", Verdana, Arial, Tahoma; }
+	
+	address a{ color: #666; text-decoration: underline;}
+
+	.direita{ float: right;}
+	.esquerda {float: left;}
+	
+	.sublinhado{ text-decoration:underline;}	
+
+
+
+	table {
+		border-spacing:1px;
+		font: 12px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+		background-color:#fafafa;
+		color: #666;
+		width: 100%;
+	}
+	
+	td, th {
+		padding: 2px;
+	}
+	
+	td img, th img{ padding: 0 10px;} 
+	td.top{vertical-align:top; }
+	
+	.33{ width: 10%;}
+	.90{ width: 15%;}
+	.625{ width: 75%;}
+	
+	thead th {
+		background: #fafafa;
+		color: #666;
+		text-align: left;
+	}
+	
+	tbody tr{
+		background-color:#FFF; 
+		text-align:left;
+		}
+	
+	tbody tr td { 
+		background: #FFF;
+		border: 1px solid #FFF;
+		padding-bottom: 15px;
+		}
+		
+		tbody tr td.listar{ text-align: right; padding-right: 20px;} 
+	
+	table td a:link{
+		color: #666;
+		text-decoration: none;
+	}
+	
+	tfoot th, tfoot td {
+		background-color:#fafafa; 
+		text-align:right; 
+		font: 12px "Trebuchet MS", Georgia, "Times New Roman", Times, serif;
+		border-bottom:3px solid #eaeaea;
+	}
+	
+	label{ 
+		display: block;
+		width: 90px;
+		float: left;
+		color: #000;
+		border-bottom: 1px solid #f1f1f1;
+		font-size: 95%;
+		font: 80% "Trebuchet MS";
+		color: #666;
+	} 
+	
+	.txt, .txtFone, select, textarea, .txtLogin{
+		border: 1px solid #7F9DB9;
+		font: 80% Verdana, Arial, Tahoma;
+		background-color: #FFF;
+		padding: 2px 2px;
+		color: #666;
+	}
+	
+	.txt { width: 350px;}
+	.txtLogin { width: 100px; margin-bottom: 15px;}
+	
+	.botao, .botaoEntrar{
+		font-size: 11px;
+		float: right;
+		color: #999;
+		background: #f1f1f1;
+		border: 1px solid #999;
+		margin-right: 230px;
+		padding: 5px 15px;
+	}
+	
+	.botaoEntrar{ margin-right: 30px; }
+	
+	#botoes{ clear: both; margin-bottom: 10px; text-align: left;}
+	#botoes li{
+		padding: 10px;
+		display: inline;
+	}
+	
+	/* novos estilos 20/03/2007 */
+	
+	#explicao{
+		background: #ffffca url(../img/icones/alerta.gif) 10px center no-repeat;
+		border: 1px solid #ffff8c;
+		margin: 15px auto;
+		padding: 10px 10px 10px 85px;
+		width: 340px;
+	}
+	
+	#explicao span{
+		color: #f00;
+		display: block;
+		font-size: 120%;
+	}
+	
+	
+	#conteudo a.pdf, #conteudo a.mail, #conteudo a.horario{
+		background: #fafafa url(../img/icones/logo-pdf.gif) 10px center no-repeat;
+		border: 1px solid #f2f2f2;
+		color: #666;
+		display: block;
+		margin: 20px 0;
+		padding: 20px 20px 20px 50px;
+		text-decoration: none;
+	}
+	
+	#conteudo a.mail{
+		background: #fafafa url(../img/icones/logo-mail.gif) 10px center no-repeat;
+		clear: both;
+		padding-left: 60px;
+	}
+	
+	#conteudo a.horario{ background: #fafafa url(../img/icones/logo-horario.gif) 10px center no-repeat;}
+	
+		
+	#conteudo #menuNovo{
+		margin: 5px 5px 20px 5px;
+	}
+	
+	#conteudo #menuNovo ul li{
+		float: left;
+		height: 70px;
+		margin: 10px 5px 40px 5px;
+		padding: 3px;
+		width: 95px;
+		text-align: center;
+	} 
+	
+	#conteudo #menuNovo ul li a{
+		color: #666;
+		font-size: 70%;
+		padding: 5px;
+		text-align: center;
+		text-decoration: none;
+	}
+	
+	#bot{ clear: both; padding: 5px; border: 1px solid #f60;}
+	
+	.botVoltar, .botEnviar{
+		background: #fff url(../img/botoes/ico-voltar.gif) left center no-repeat;
+		border: 1px solid #f3f3f3;
+		display: block;
+		margin-top: 10px;
+		padding: 0 3px 3px 35px;
+		width: 90px;
+	}
+	
+	.botEnviar{
+		background: #fff url(../img/botoes/ico-enviar.gif) right center no-repeat;
+		float: right;
+		padding: 0 35px 3px 3px;
+	}
+	
+	label{ 
+		display: block;
+		width: 75px;
+		float: left;
+		color: #000;
+		border-bottom: 1px solid #f1f1f1;
+		font-size: 95%;
+		font: 80% "Trebuchet MS";
+		color: #666;
+	}
+	
+
+	fieldset{ border: none;}
+	
+	.txt, .txtData, select, textarea {
+		border: 1px solid #7F9DB9;
+		font: 80% Verdana, Arial, Tahoma;
+		background-color: #FFF;
+		padding: 2px 2px;
+		color: #666;
+		margin-bottom: 15px;
+	}
+	
+	.txt { width: 350px;}
+	.txtData { width: 100px;}
+	
+	td.dois{ padding-left: 20px;}
+
+	fieldset.apostila
+	{
+	   margin-right: 7px;
+	   width: 250px;
+	   border: solid #f60 1px;
+	   padding: 20px 20px 5px;
+	   margin-bottom: 10px;
+	   display: block;
+	}
+	
+	.semApostila{ display: none;}
+

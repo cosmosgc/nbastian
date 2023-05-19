@@ -1,0 +1,16 @@
+08/30/12 11:25:05,636 [15052] INFO retorno.php - Iniciando retorno automatico
+08/30/12 11:25:05,638 [15052] INFO retorno.php - Retorno do PagSeguro: {Referencia: Referencia, DataTransacao: DataTransacao, TransacaoID: TransacaoID, StatusTransacao: StatusTransacao, TipoPagamento: TipoPagamento, TipoFrete: TipoFrete, ValorFrete: ValorFrete, Anotacao: Anotacao, VendedorEmail: nbastian.com, Cliente Nome: CliNome, Cliente Email: CliEmail, Cliente Endereco: CliEndereco, Cliente Numero: CliNumero, Cliente Complemento: CliComplemento, Cliente Bairro: CliBairro, Cliente Cidade: CliCidade, Cliente Estado: CliEstado, Cliente CEP: CliCEP, Cliente Telefone: CliTelefone, Numero de Itens: NumItens, Produtos: Array
+(
+    [0] => Array
+        (
+            [ProdID] => gal_1234
+            [ProdDescricao] => teste de descricao
+            [ProdValor] => 1111
+            [ProdQuantidade] => 2222
+            [ProdFrete] => 3333
+            [ProdExtras] => 4444
+        )
+
+)
+}
+08/30/12 11:25:05,646 [15052] INFO retorno.php - Finalizando retorno automatico - transacao TransacaoID

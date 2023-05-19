@@ -1,0 +1,757 @@
+@charset "iso-8859-1";
+
+/*
+Nome: NBastian Fotografia | Comunicação
+Endereco: http://www.nbastian.com.br/
+Versao: 1.0
+Autor: Giovani de Oliveira - Agencia P4 - giovani@agenciap4.com.br
+*/
+
+*{margin:0;padding:0;list-style:none;}
+
+body{
+	background-color: #bbb;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+p{
+	color:#888;
+	font: lighter 11px Arial, Helvetica, sans-serif;
+	margin: 5px 10px 15px;
+	padding: 2px 0;
+}
+
+h2,
+h2.clientes,
+h2.contato,
+h2.galeria,
+h2.eventos{
+	padding: 30px 0 0 0; /* padding-top=altura imagem */
+    overflow: hidden;
+    background: url(imagens/h2+perfil.gif) no-repeat;
+    height: 0 !important;
+    height /**/:30px; /* height=altura imagem - hack IE5's */
+	margin:10px 0 0 15px;
+}
+h2.clientes{background: url(imagens/h2+clientes.gif) no-repeat;}
+h2.contato{background: url(imagens/h2+fale.gif) no-repeat;}
+h2.galeria{background: url(imagens/h2+galeria.gif) no-repeat;}
+h2.eventos{background: url(imagens/h2+eventos.gif) no-repeat;}
+h2.colaboradores{
+	padding: 23px 0 0 0; /* padding-top=altura imagem */
+    background: url(imagens/h2+colaboradores.gif) no-repeat;
+    height: 0 !important;
+    height /**/:23px; /* height=altura imagem - hack IE5's */
+	margin-left:15px;
+	margin-top: 50px;
+}
+h2.noticias,
+h2.imprensa{
+	padding: 38px 0 0 0; /* padding-top=altura imagem */
+    background: url(imagens/h2+noticias.gif) no-repeat;
+    height: 0 !important;
+    height /**/:38px; /* height=altura imagem - hack IE5's */
+	margin: 10px 0 0 15px;
+}
+h2.imprensa{background: url(imagens/h2+imprensa.gif) no-repeat;}
+
+h2.solicitacao{
+	padding: 38px 0 0 0; /* padding-top=altura imagem */
+    background: url(imagens/h2+solicitacao.gif) no-repeat;
+    height: 0 !important;
+    height /**/:38px; /* height=altura imagem - hack IE5's */
+	margin-left:15px;
+}
+
+
+#geral{
+	background: #000 url(imagens/fundo+geral.jpg) repeat-x 0 0;	
+}
+
+#topo{
+	background: url(imagens/fundo+topo.png) no-repeat bottom center;
+	height: 85px;
+	margin: 0 auto;
+	width: 935px;
+}
+/*#topo h1{
+	padding: 70px 0 0 0;
+    overflow: hidden;
+    background: url(imagens/logo+topo.png) no-repeat;
+    height: 0 !important;
+    height :70px;
+}*/
+#topo h1,
+#topo h1 a{
+	background: url(imagens/logo+topo.jpg) no-repeat;
+	display: block;
+	height: 70px;
+	text-indent:-9999px;
+	width:217px;
+}
+#topo ul{
+	height: 63px;
+	float: right;
+}
+#topo ul li{
+	display: block;
+	float: left;
+	height: 62px;
+	margin: 0 6px 0 0;
+}
+#topo ul li a{
+	height: 62px;
+	display: block;
+	text-indent: -9999px;
+}
+#topo ul li a.um { background: url(imagens/menu/home.gif) no-repeat left top; width:60px; }
+#topo ul li a.um:hover { background: url(imagens/menu/home+hover.jpg) no-repeat left top; }
+
+#topo ul li a.dois { background: url(imagens/menu/perfil.gif) no-repeat left top; width:67px; }
+#topo ul li a.dois:hover,
+#topo ul li a.dois.on2 { background: url(imagens/menu/perfil+hover.jpg) no-repeat left top; }
+
+#topo ul li a.tres { background: url(imagens/menu/clientes.gif) no-repeat left top; width:80px; }
+#topo ul li a.tres:hover,
+#topo ul li a.tres.on3{ background: url(imagens/menu/clientes+hover.jpg) no-repeat left top; }
+
+#topo ul li a.quatro { background: url(imagens/menu/galerias.gif) no-repeat left top; width:80px; }
+#topo ul li a.quatro:hover,
+#topo ul li a.quatro.on4{ background: url(imagens/menu/galerias+hover.jpg) no-repeat left top; }
+
+#topo ul li a.cinco { background: url(imagens/menu/eventos.gif) no-repeat left top; width:78px; }
+#topo ul li a.cinco:hover,
+#topo ul li a.cinco.on5{ background: url(imagens/menu/eventos+hover.jpg) no-repeat left top; }
+
+#topo ul li a.seis { background: url(imagens/menu/noticias.gif) no-repeat left top; width:78px; }
+#topo ul li a.seis:hover,
+#topo ul li a.seis.on6{ background: url(imagens/menu/noticias+hover.jpg) no-repeat left top; }
+
+#topo ul li a.sete { background: url(imagens/menu/imprensa.gif) no-repeat left top; width:86px; }
+#topo ul li a.sete:hover,
+#topo ul li a.sete.on7{ background: url(imagens/menu/imprensa+hover.jpg) no-repeat left top; }
+
+#topo ul li a.oito { background: url(imagens/menu/contato.gif) no-repeat left top; width:80px; }
+#topo ul li a.oito:hover,
+#topo ul li a.oito.on8{ background: url(imagens/menu/contato+hover.jpg) no-repeat left top; }
+
+.box{
+	background-color:#111;
+	padding: 10px;
+}
+.box h4{
+	background: url(imagens/fundo+h4.jpg) repeat-x left bottom; 
+	color:#fff;
+	font: bold 22px Arial, Helvetica, sans-serif;
+	margin: 10px;
+	padding-bottom: 10px;
+	text-transform:uppercase;
+	display: block;
+}
+.box h4 span{
+	color:#888;
+	display: block;
+	font: bold 14px Arial, Helvetica, sans-serif;
+	margin-bottom: 5px;
+}
+.box h4 a img{
+	float: right;
+	margin-top:10px;
+}
+
+#principal,
+#perfil,
+#clientes,
+#noticias,
+#contato,
+#imprensa,
+.galeria{margin: 0 auto;}
+
+
+#principal{
+	height: 690px;
+	position: relative;
+	width:935px;
+}
+#principal #banner{
+	height: 688px;
+	position: absolute;
+	width:933px;
+}
+
+#principal #destaque{
+	color:#fff;
+	height: 233px;
+	padding: 0 65px;
+	position: absolute;
+	top: 435px;
+	width: 780px;
+	z-index:10;
+}
+#principal #destaque ul li{
+	float: left;
+	height: 155px;
+	padding: 55px 5px;
+	width:375px;
+}
+#principal #destaque ul li img{border: 5px solid #444; float: left; margin: 0 10px;}
+#principal #destaque ul li h5{
+	background: url(imagens/eventos/fundo+h5+index.png) no-repeat;
+	color: #000;
+	float: left;
+	font: bold 16px Arial, Helvetica, sans-serif;
+	height: 20px;
+	margin-bottom: 5px;
+	letter-spacing:-1px;
+	padding:10px 20px;
+	width:210px;
+	text-transform:uppercase;
+}
+#principal #destaque ul li p{
+	color: #848484;
+	font: lighter 11px Arial, Helvetica, sans-serif;
+	margin: 5px 10px 10px 135px !important;
+}
+#principal #destaque ul li a{
+	background: url(imagens/fundo+a+index.png) no-repeat right bottom;
+	clear:both;
+	color: #848484;
+	font: bold 12px Arial, Helvetica, sans-serif;
+	display: block;
+	margin-top:13px;
+	padding-right:15px;
+	text-align: right;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+
+#principal #destaque ul li.eventos{background: url(imagens/fundo+eventos+index.png) no-repeat left top;}
+#principal #destaque ul li.expo{background: url(imagens/fundo+exposicoes+index.png) no-repeat right top;}
+
+.setaEsquerda{
+	position: absolute;
+	top: 280px;
+	left: 0px;
+	height: 73px;
+	width: 35px;
+	z-index: 10;
+}
+.setaDireita{
+	position: absolute;
+	top: 280px;
+	right: 17px;
+	height: 73px;
+	width: 35px;
+	z-index: 10;
+}
+
+
+/* Div para página de perfil */
+#perfil{
+	background: url(imagens/foto+perfil.jpg) no-repeat left top;
+	padding:20px 0 0 305px;
+	width:580px;
+}
+#clientes{
+	padding: 20px 0;
+	width: 940px;
+}
+#clientes ul li{
+	float: left;
+	margin: 5px 12px;
+}
+
+/* Div para página de noticias */
+#noticias{
+	padding: 20px 0;
+	width: 940px;
+}
+#noticias ul{margin: 5px 0;}
+#noticias ul li{
+	background: url(imagens/fundo+noticia.gif) no-repeat right center;
+	color: #848485;
+	float: left;
+	height: 40px;
+	margin: 0 22px 25px 0;
+	width: 437px;
+}
+#noticias ul li span{
+	font-size: 20px;
+	font-weight:bold;
+	float: left;
+	margin: 8px 0 0 0;
+	letter-spacing:-1px;
+}
+#noticias ul li a{
+	color: #848485;
+	display: block;
+	float: right;
+	font-size:11px;
+	font-stretch:narrower;
+	height: 30px;
+	margin: 5px 10px;
+	text-decoration: none;
+	width: 323px;
+}
+#noticias ul li a strong{
+	color: #848485;
+	font-size:12px;
+}
+#noticias p{color:#848485;}
+#noticias p strong{font-size:20px; font-weight:bold; letter-spacing:-1px; margin: 25px 0 10px; color: #848485; }
+#noticias a img{ margin-left:5px;}
+
+/* Div para página de contato */
+#contato{
+	padding: 20px 0;
+	width: 940px;
+}
+#contato #endereco{
+	float: left;
+	margin: 25px 15px 10px;
+	padding: 0 10px;
+	width:360px;
+}
+#contato #endereco ul{
+	background-color: #1c1c1c;
+	margin: 10px 0 25px;
+	padding: 10px;
+	width: 310px;
+}
+#contato #endereco ul li{
+	color: #fff;
+	display: block;
+	font: bold 14px Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+}
+#contato #endereco ul li strong{
+	background-color: #000;
+	display:block;
+	padding: 5px 15px;
+}
+#contato #endereco ul li span{
+	display:block;
+	margin-bottom: 15px;
+	padding: 5px 15px;
+}
+#contato #endereco ul li span a{
+	color:#fff;
+	text-decoration:none;
+}
+#contato #engloba{
+	float: left;
+	margin: 0 45px 10px 15px;
+	padding: 20px;
+	width:300px;
+}
+#contato #solicita{
+	background-color: #1c1c1c;
+	
+	padding: 10px 10px 20px;
+	width: 300px;
+}
+#contato #botao{
+	margin: 0 10px 0 110px;
+	width: 200px;
+}
+
+#contato #solicita h6{
+	background-color: #000;
+	color: #fff;
+	display: block;
+	font: bold 14px Arial, Helvetica, sans-serif;
+	padding: 5px 15px;
+	margin-bottom:10px;
+}
+
+#contato #solicita h6.total{margin-top:30px;}
+
+#contato #solicita ul{padding: 10px 15px;}
+
+#contato #solicita ul li{
+background-color: #fff;
+	height: 103px;
+	float: left;
+	margin:10px 12px 0 0;
+	padding: 5px;
+	width: 67px;
+}
+
+#contato #solicita ul li span{
+    display: block;
+    color: #444;
+	font-size:12px;
+    text-align: center;
+}
+#contato #solicita ul li a{
+	background: url(imagens/icone+excluir.gif) no-repeat left center;
+	color: #444;
+	font-size:9px;
+	padding: 5px 0;
+	padding-left:18px;
+	text-decoration: none;
+	text-transform:uppercase;
+}
+
+#contato #ok{
+	padding: 30px 0 10px;
+	text-align:center;
+}
+#contato #ok h6{
+	background-color: #1c1c1c;
+	color: #fff;
+	font-size: 14px;
+	margin: 15px 0;
+	padding: 10px 0;
+}
+#contato #ok h6 span{
+	display: block;
+	font-size:20px;}
+
+
+#contato form,
+#contato #ok{
+	float: left;
+	margin: 25px 10px;
+	width: 490px;
+	height: 400px;
+}
+#contato form fieldset {border:none; padding-top:10px;}
+#contato form fieldset label {
+    display:table;
+	margin-bottom: 10px;
+    width:100%;
+}
+#contato form fieldset label span {
+	color: #fff;
+    float:left;
+    text-align:right;
+    width:111px;
+    font: bold 13px Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	margin: 8px 5px 0 0;
+}
+#contato form fieldset label input {
+	background: url(imagens/fundo+input.jpg) no-repeat;
+    float:left;
+	height: 16px;
+    border:none;
+    padding:10px;
+	width: 312px;
+}
+#contato form fieldset label textarea{
+	background: url(imagens/fundo+textarea.jpg) no-repeat;
+	border: none;
+	font: 13px Arial, Helvetica, sans-serif;
+	height: 109px;
+	padding: 10px;
+	width: 294px;
+}
+#contato form fieldset button {
+    width:89px;
+    height:46px;
+    background: url(imagens/bt+enviar.jpg) no-repeat 0 0;
+    border:none;
+    text-indent:-9000em;
+    overflow:hidden;
+    cursor:pointer;
+    float:right;
+    margin:-12px 60px 0 0;
+}
+
+/* Div para página de imprensa */
+#imprensa{
+	padding: 20px 0 60px;
+	width: 940px;
+}
+#imprensa ul{
+	background: url(imagens/fundo+ul+imprensa.jpg) no-repeat;
+	float: left;
+	padding: 20px 130px 0 15px;
+	margin: 10px 30px 0 10px;
+	width: 300px;
+	height:214px;
+}
+#imprensa ul li{
+	color: #fff;
+	display: block;
+	font: bold 14px Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+}
+#imprensa ul li strong{
+	background-color: #000;
+	display:block;
+	margin-top: 40px;
+	padding: 5px 15px;
+}
+#imprensa ul li span{
+	display:block;
+	margin-bottom: 15px;
+	padding: 5px 15px;
+}
+#imprensa ul li span a{
+	color:#fff;
+	text-decoration:none;
+}
+#imprensa form{
+	float: left;
+	margin: 25px 0;
+	padding-top:10px;
+	width: 420px;
+}
+#imprensa form fieldset {border:none;}
+#imprensa form fieldset label {
+    display:table;
+	margin-bottom: 10px;
+    width:100%;
+}
+#imprensa form fieldset label span {
+	color: #fff;
+    float:left;
+    text-align:right;
+    width:111px;
+    font: bold 13px Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	margin: 8px 5px 0 0;
+}
+#imprensa form fieldset label input {
+	background: url(imagens/fundo+input+pequeno.jpg) no-repeat;
+    float:left;
+	height: 16px;
+    border:none;
+    padding:10px;
+	width: 186px;
+}
+#imprensa form fieldset button {
+    width:89px;
+    height:46px;
+    background: url(imagens/bt+acessar.jpg) no-repeat 0 0;
+    border:none;
+    text-indent:-9000em;
+    overflow:hidden;
+    cursor:pointer;
+    float:right;
+    margin:-10px 100px 0 0;
+}
+
+/* Div para páginas que contém galeria */
+.galeria{
+	padding: 20px 0 50px;
+	width: 940px;
+}
+
+.galeria a img{margin-left:5px;}
+
+#rodape{
+	background: #bbb url(imagens/fundo+rodape.jpg) repeat-x left 0;
+	height: 112px;
+}
+#rodape #patrocinadores{
+	background: url(imagens/fundo+rodape+interno.png) no-repeat center top;
+	height:50px;
+	margin: 0 auto;
+	padding: 18px 0 4px;
+	width: 935px;
+}
+#rodape #patrocinadores img{
+	float:left;
+	margin: 0 10px;
+}
+#rodape #info{
+	background: url(imagens/patrocinadores/fundo+info.gif) repeat-x left top;
+	margin: 0 auto;
+	padding: 9px 0 0;
+	width: 935px;
+}
+#rodape #info p{
+	color: #666;
+	font-size:10px;
+}
+#rodape #info p a{
+	color: #666;
+	font-weight:bold;
+	text-decoration: none;
+}
+
+
+/* Classes adicionais */
+
+.direitaPag{float: right; margin-right: 5px;}
+
+.esquerda{float: left;}
+.direita{float: right;}
+.minusculo{text-transform: none;}
+a img{border: none;}
+a{text-decoration:none; cursor:pointer;}
+.textoEsquerda{text-align:left !important; margin: 7px; text-transform:uppercase;}
+.imagemNoticia{
+	background-color: #1c1c1c;
+	float: left;
+	padding: 10px;
+	margin: 5px 25px 25px 5px;
+}
+hr{
+	background-color:#000;
+	border-width:0;
+    border-style: none;
+    color: #000;
+	clear: both;
+	height: 10px;
+	margin: 10px 0 0;
+}
+
+h3, h3 a{
+	margin: 10px 10px 0 10px;
+	color:#fff;
+	font: bold 14px Arial, sans-serif;
+	letter-spacing:-1px;
+	text-align: center;
+	text-transform:uppercase; 
+}
+h3 a{text-decoration:none;}
+.boxgrid{ 
+	width: 272px; 
+	height: 200px; 
+	margin:10px; 
+	float:left; 
+	background:#161613; 
+	border: solid 5px #1c1c1c; 
+	overflow: hidden; 
+	position: relative; 
+}
+
+.boxgridFoto{
+	width: 120px;
+	height: 88px;
+	margin:10px;
+	float:left;
+	background:#161613;
+	border: solid 5px #1c1c1c;
+	overflow: hidden;
+	position: relative;
+}
+
+.boxgridFoto img{
+    position: absolute;
+	top: 0;
+	left: 0;
+	border: 0;
+    cursor: pointer;
+ }
+
+.boxgrid img{ 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	border: 0; 
+
+}
+.boxgrid p{text-align:center;font:11px Arial, Helvetica, sans-serif;}
+.boxgrid p a{ 
+	color:#afafaf; 
+	font-weight:bold; 
+	font:11px Arial, Helvetica, sans-serif;
+	text-decoration:none;
+}
+.boxcaption img{
+	float:right;
+	height: 51px;
+	left: 210px;
+	margin-top:5px;
+	width:60px;
+	position: absolute;
+} 
+				
+.boxcaption{ 
+	float: left; 
+	position: absolute; 
+	background: #000; 
+	height: 100px;
+	width: 100%; 
+	opacity: .8; 
+	/* For IE 5-7 */
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+	/* For IE 8 */
+	-MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+.captionfull .boxcaption {
+	top: 200px;
+	left: 0;
+}
+.caption .boxcaption {
+	top: 165px;
+	left: 0;
+}
+
+
+/**************************************************************
+
+	Image Menu
+	v 2.2
+
+**************************************************************/
+
+
+#imageMenu {
+	background-color: #111;
+	/*position: relative;*/
+	width: 560px;
+	height: 188px;
+	overflow: hidden;
+	padding: 10px;
+}
+#imageMenu ul {
+	list-style: none;
+	margin: 0px;
+	display: block;
+	height: 200px;
+	width: 1000px;
+	
+	}
+
+#imageMenu ul li {
+	float: left;
+}
+
+#imageMenu ul li a {
+	text-indent: -1000px;
+	background:#FFFFFF none repeat scroll 0%;
+	cursor:pointer;
+	display:block;
+	overflow:hidden;
+	width:180px;
+	height: 188px;
+	margin-right: 10px;
+}
+
+#imageMenu ul li.landscapes a {
+	background: url(imagens/imageMenu/col-1.jpg) repeat scroll 0%;
+}
+
+#imageMenu ul li.people a {
+	background: url(imagens/imageMenu/col-1.jpg) repeat scroll 0%;
+}
+
+#imageMenu ul li.nature a {
+	background: url(imagens/imageMenu/col-1.jpg) repeat scroll 0%;
+}
+
+#imageMenu ul li.urban a {
+	background: url(imagens/imageMenu/urban.jpg) repeat scroll 0%;
+}
+
+#imageMenu ul li.abstract a {
+	background: url(imagens/imageMenu/abstract.jpg) repeat scroll 0%;
+	width: 310px;
+}
+
+.clear {
+	clear: both;
+}
+
+/*************************************************************/
+
