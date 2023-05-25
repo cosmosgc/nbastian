@@ -9,13 +9,13 @@ if(isset($_POST['acao']) && $_POST['acao'] == "enviar")
 {
     foreach ($_POST as $campo => $valor) { $$campo = $valor;}
 
-    //Veri�vel auxiliar para detectar spamns. Inicialmente � setada como false.
+    //Veriável auxiliar para detectar spamns. Inicialmente é setada como false.
     $spam = false;
 
     //echo "<pre>";
     //print_r($_POST);
     //exit;
-    //Verifica se os campos s�o vazios ou est�o preenchidos com o conte�do padr�o.
+    //Verifica se os campos são vazios ou estáo preenchidos com o conteúdo padrão.
     if(empty($nome) || empty($cep) || empty($endereco1) || empty($nr_endereco) || empty($bairro) || empty($cidade) || empty($estado) || empty($fone) || empty($email))
     {
         echo("<script language='javascript'>\n alert('Favor preencher todos os campos')\n</script>");
@@ -40,7 +40,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "enviar")
            
            if(!isset($_SESSION['carrinho']) || empty($_SESSION['carrinho']) || empty($cods))
            {
-                echo("<script language='javascript'>\n alert('Seu carrinho est� vazio, favor selecionar as fotos desejadas antes de finalizar sua compra!')\n</script>");
+                echo("<script language='javascript'>\n alert('Seu carrinho está vazio, favor selecionar as fotos desejadas antes de finalizar sua compra!')\n</script>");
                 echo("<script language='javascript'>location.href='solicitacao.php'</script>");
                 exit;
            }
@@ -57,7 +57,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "enviar")
 
     }
 }
-//fun��o que verifica se o email foi escrito do formato correto voce@provedor.com
+//função que verifica se o email foi escrito do formato correto voce@provedor.com
 function verificar_email($email)
 {
 

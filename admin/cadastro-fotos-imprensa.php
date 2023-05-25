@@ -7,7 +7,7 @@ require("includes/conecta_bd.php");
 
 
 
-//Carrega os dados para fazer a edi��o. Se for o caso
+//Carrega os dados para fazer a edição. Se for o caso
 if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 {
     $codigo = intval($_GET['cd']);
@@ -56,7 +56,7 @@ jQuery(function($){
 <!--
 function excluir(aURL)
 {
-    if(confirm("Voc� tem certeza que deseja apagar esse registro?"))
+    if(confirm("Você tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }
@@ -118,14 +118,14 @@ function excluir(aURL)
 
 			
 
-			<h5><a href="principal.php" title="Voltar para p&aacute;gina principal">&raquo;  Principal</a> &raquo; Cadastro de Fotos p/ �rea da Imprensa</h5>
+			<h5><a href="principal.php" title="Voltar para p&aacute;gina principal">&raquo;  Principal</a> &raquo; Cadastro de Fotos p/ área da Imprensa</h5>
 
 			
 
 			<div id="miolo">
 			
 
-				<h4>&raquo; Cadastro de Fotos p/ �rea da Imprensa</h4>
+				<h4>&raquo; Cadastro de Fotos p/ área da Imprensa</h4>
 
 				
 
@@ -163,7 +163,7 @@ function excluir(aURL)
 
                    <?php
 
-                    // "Define" o tipo da a��o do formul�rio
+                    // "Define" o tipo da ação do formulário
                     if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
                     {
                         echo '<input type="hidden" id="acao" name="acao" value="edita">';
@@ -197,7 +197,7 @@ function excluir(aURL)
 				
                 <br />
 
-                <h4>&raquo; Listagem de Fotos p/ �rea da Imprensa</h4>
+                <h4>&raquo; Listagem de Fotos p/ área da Imprensa</h4>
 
                 <table>
 

@@ -10,14 +10,14 @@ if(isset($_POST['acao']) && $_POST['acao'] == "login")
     $login = anti_injection($_POST['txtusuario']);
     $senha = anti_injection($_POST['txfsenha']);
     
-    //seleciona o usu�rio
+    //seleciona o Usuário
     $rs = mysqli_query($conn, "SELECT cd_usuario, nm_usuario, de_senha, SHA2('$senha', 512) AS de_senha_sha FROM usuarios WHERE de_login='$login'") or die(mysqli_error());
         //SELECT cd_usuario, nm_usuario, de_senha, AES_DECRYPT(de_senha,'1234567890123456') AS de_senha_ FROM usuarios WHERE de_login='cosmoskitsune@hotmail.com'
-    //caso encontre um usu�rio
+    //caso encontre um Usuário
     if(mysqli_num_rows($rs) > 0)
     {
         $dados = mysqli_fetch_array($rs, MYSQLI_BOTH);
-        if($dados['de_senha'] == $dados['de_senha_sha'])//verifica se a senha est� correta
+        if($dados['de_senha'] == $dados['de_senha_sha'])//verifica se a senha está correta
         {
             $_SESSION['nm_usuario'] = $dados['nm_usuario'];
             $_SESSION['cd_usuario'] = $dados['cd_usuario'];
@@ -35,9 +35,9 @@ if(isset($_POST['acao']) && $_POST['acao'] == "login")
             exit;
         }
     }
-    else // caso n�o encontre
+    else // caso não encontre
     {
-        echo"<script language=javascript>alert('Usu�rio n�o encontrado.')</script>";
+        echo"<script language=javascript>alert('Usuário não encontrado.')</script>";
         echo"<script language=javascript>location.href='index.php'</script>";
         exit;
     }

@@ -22,7 +22,7 @@ else
     {
         if(verificar_email($email) == 2)
         {
-            echo("<script language='javascript'>\n alert('Favor digitar em endere�o de e-mail v�lido!')\n</script>");
+            echo("<script language='javascript'>\n alert('Favor digitar em endereço de e-mail válido!')\n</script>");
             echo("<script language='javascript'>location.href='solicitacao.php'</script>");
             exit;
         }
@@ -35,7 +35,7 @@ else
             
             //$destinatario = "contato@agenciap4.com.br, everson@eversonjp.com.br";
 
-            $assunto = "NBastian - Solicita��o de Fotos";
+            $assunto = "NBastian - Solicitação de Fotos";
 
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Date: ". date('D, d M Y H:i:s O') ." \r\n";
@@ -45,7 +45,7 @@ else
             $headers .= "Reply-To : $nome <$email> \r\n";
             $headers .= "Content-Type: text/html; charset=\"ISO-8859-1\"\r\n";
 
-            $corpo = "Solicita��o de Fotos via site\n\n\n";
+            $corpo = "Solicitação de Fotos via site\n\n\n";
             $corpo .= "Nome: " . $nome ."\n";
             $corpo .= "E-mail: " . $email . "\n";
             $corpo .= "Telefone: " . $fone . "\n";
@@ -55,7 +55,7 @@ else
 
             $galerias = "Galerias: \n";
             
-            $eventos ="Exposi��oes: \n";
+            $eventos ="Exposições: \n";
 
             $x = 1;
             $y = 1;
@@ -112,14 +112,14 @@ else
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="generator" content="www.nbastian.com.br" />
-<meta name="description" content="NBastian Fotografia e Comunica��o - Nilson Bastian - Fot�grafo Profissional" />
-<meta name="keywords" content="fotografo, joinville, fot�grafo, festival de dan�a, danca, bolshoi, escola do ballet bolshoi, bal�, colunismo social, exposi��es, exposicoes, fotogr�ficas, fotografica, fotojornalismo, comunica��o, comunicacao, nilson bastian, bastian" />
+<meta name="description" content="NBastian Fotografia e Comunicação - Nilson Bastian - fotógrafo Profissional" />
+<meta name="keywords" content="fotografo, joinville, fotógrafo, festival de dança, danca, bolshoi, escola do ballet bolshoi, balé, colunismo social, exposições, exposicoes, fotográficas, fotografica, fotojornalismo, Comunicação, comunicacao, nilson bastian, bastian" />
 <meta name="url" content="http://www.nbastian.com.br" />
-<meta name="document-classification" content="Fotografia e Comunica��o" />
+<meta name="document-classification" content="Fotografia e Comunicação" />
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Ag�ncia P4" />
+<meta name="author" content="EversonJP / Agência P4" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
 <meta http-equiv="reply-to" content="nbastian@nbastian.com" />
@@ -152,9 +152,9 @@ else
 
 <body>
 
-	<div id="geral"> <!-- in�cio div geral - engloba todo o site -->
+	<div id="geral"> <!-- início div geral - engloba todo o site -->
     
-    	<div id="topo"> <!-- in�cio div topo - marca + menu de navega��o -->
+    	<div id="topo"> <!-- início div topo - marca + menu de navegação -->
         
         	<ul>
                 <li><a class="um" href="index.php">Home</a></li>
@@ -226,7 +226,7 @@ else
                 
                 	<img src="imagens/bt+ok.gif" />
                     
-                    <h6>SUA SOLICITA��O DE FOTOS FOI<span>REALIZADA COM SUCESSO!</span></h6>
+                    <h6>SUA Solicitação DE FOTOS FOI<span>REALIZADA COM SUCESSO!</span></h6>
                 
                 	<p>Aguarde nosso contato em breve, onde informaremos o seu or&ccedil;amento, as formas de pagamento e como realizar o download das fotos em alta resolu&ccedil;&atilde;o.</p>
                 	<p>Agradecemos desde j&aacute; seu interesse e estamos a disposi&ccedil;&atilde;o para mais esclarecimentos.</p>
@@ -268,7 +268,7 @@ else
 <?php
 }
 
-//fun��o que verifica se o email foi escrito do formato correto voce@provedor.com
+//função que verifica se o email foi escrito do formato correto voce@provedor.com
 function verificar_email($email)
 {
 
@@ -281,9 +281,9 @@ function verificar_email($email)
          //vejo se tem caracter .
          if (substr_count($email,".")>= 1)
          {
-            //obtenho a termina��o do dominio
+            //obtenho a terminação do dominio
             $term_dom = substr(strrchr ($email, '.'),1);
-            //verifico que a termina��o do dominio seja correcta
+            //verifico que a terminação do dominio seja correcta
             if (strlen($term_dom)>1 && strlen($term_dom)<5 && (!strstr($term_dom,"@")) )
             {
               //verifico que o de antes do dominio seja correcto

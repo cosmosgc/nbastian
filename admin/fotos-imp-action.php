@@ -14,7 +14,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
 
 
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($de_legenda) || empty($dt_foto) || $_FILES['foto']['error'][0] > 0)
     {
         echo"<script language=javascript>alert('Favor todos os campos')</script>";
@@ -66,7 +66,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "edita")
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
 
 
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($de_legenda) || empty($dt_foto) )
     {
         echo"<script language=javascript>alert('Favor todos os campos')</script>";

@@ -12,7 +12,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
     // Pega os campos enviados via POST
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
     
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($nm_usuario) || empty($email_usuario) || empty($de_senha)  )
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos.')</script>";
@@ -27,32 +27,32 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
         
         if($total > 0)
         {
-            echo"<script language=javascript>alert('O e-mail digitado j� se encontra cadastrado. Fa�a novamente o cadastro.')</script>";
+            echo"<script language=javascript>alert('O e-mail digitado já se encontra cadastrado. Faça novamente o cadastro.')</script>";
             echo"<script language=javascript>location.href='cadastro-usuarios-imprensa.php'</script>";
             exit;
         }
             
         $rs = mysqli_query($conn, "INSERT INTO imprensa_usuarios VALUES('','$nm_usuario','$email_usuario',AES_ENCRYPT('$de_senha','imprensa'),'0')");
         
-        $assunto = "NBastian Fotografia e Comunica��o - Cadastro na �rea de Imprensa";
+        $assunto = "NBastian Fotografia e Comunicação - Cadastro na área de Imprensa";
 
         $headers = "MIME-Version: 1.0\r\n";
         $headers .= "Date: ". date('D, d M Y H:i:s O') ." \r\n";
         $headers .= "X-MSMail-Priority: Normal \r\n";
         $headers .= "Return-Path: nbastian@nbastian.com\r\n";
-        $headers .= "From: NBastian Fotografia e Comunica��o <nbastian@nbastian.com>\r\n";
-        $headers .= "Reply-To : NBastian Fotografia e Comunica��o <nbastian@nbastian.com> \r\n";
+        $headers .= "From: NBastian Fotografia e Comunicação <nbastian@nbastian.com>\r\n";
+        $headers .= "Reply-To : NBastian Fotografia e Comunicação <nbastian@nbastian.com> \r\n";
         $headers .= "Content-Type: text/html; charset=\"ISO-8859-1\"\r\n";
 
         $corpo = "Prezado(a) $nm_usuario,<BR>";
-        $corpo .= "Voc� foi cadastrado na �rea de imprensa do nosso site.<BR>";
-        $corpo .= "Voc� passa a ter acesso a fotos exclusivas para download.<BR>";
+        $corpo .= "Você foi cadastrado na área de imprensa do nosso site.<BR>";
+        $corpo .= "Você passa a ter acesso a fotos exclusivas para download.<BR>";
         $corpo .= "Acesse: <a href=\"http://www.nbastian.com\">www.nbastian.com</a><BR>";
         $corpo .= "No menu Imprensa use os seguintes dados:<BR>";
-        $corpo .= "Usu�rio: $email_usuario<BR>";
+        $corpo .= "Usuário: $email_usuario<BR>";
         $corpo .= "Senha: $de_senha<BR><BR>";
         $corpo .= "Atenciosamente,<BR>";
-        $corpo .= "Equipe <a href=\"http://www.nbastian.com\">Nbastian Fotografia e Comunica��o </a><BR>";
+        $corpo .= "Equipe <a href=\"http://www.nbastian.com\">Nbastian Fotografia e Comunicação </a><BR>";
 
         
         $para = "$nm_usuario <$email_usuario>";
@@ -76,7 +76,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
     
 
 
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($nm_usuario) || empty($email_usuario)  )
     {
         echo"<script language=javascript>alert('Favor preencher nome e a corpo da noticia .')</script>";
@@ -92,7 +92,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
 
         if($total > 0)
         {
-            echo"<script language=javascript>alert('O e-mail digitado j� se encontra cadastrado. Fa�a novamente o cadastro.')</script>";
+            echo"<script language=javascript>alert('O e-mail digitado já se encontra cadastrado. Faça novamente o cadastro.')</script>";
             echo"<script language=javascript>location.href='cadastro-usuarios-imprensa.php?tipo=edit?cd=$cd'</script>";
             exit;
         }

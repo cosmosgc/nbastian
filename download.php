@@ -12,7 +12,7 @@ else
     //incrementa o contador de downloads.
     $rs = mysqli_query($conn, "UPDATE imprensa_fotos SET nr_downloads=nr_downloads+1 WHERE cd_foto='$cd'") or die(mysqli_error());
 
-    //pega informa��es
+    //pega informações
     $rs = mysqli_query($conn, "SELECT * FROM imprensa_fotos WHERE cd_foto='$cd'") or die(mysqli_error());
 
         

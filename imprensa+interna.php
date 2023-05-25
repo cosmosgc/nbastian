@@ -16,14 +16,14 @@ if(!isset($_SESSION['logado']) || !isset($_SESSION['nm_usuario']) || $_SESSION['
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="generator" content="www.nbastian.com.br" />
-<meta name="description" content="NBastian Fotografia e Comunica��o - Nilson Bastian - Fot�grafo Profissional" />
-<meta name="keywords" content="fotografo, joinville, fot�grafo, festival de dan�a, danca, bolshoi, escola do ballet bolshoi, bal�, colunismo social, exposi��es, exposicoes, fotogr�ficas, fotografica, fotojornalismo, comunica��o, comunicacao, nilson bastian, bastian" />
+<meta name="description" content="NBastian Fotografia e Comunicação - Nilson Bastian - fotógrafo Profissional" />
+<meta name="keywords" content="fotografo, joinville, fotógrafo, festival de dança, danca, bolshoi, escola do ballet bolshoi, balé, colunismo social, exposições, exposicoes, fotográficas, fotografica, fotojornalismo, Comunicação, comunicacao, nilson bastian, bastian" />
 <meta name="url" content="http://www.nbastian.com.br" />
-<meta name="document-classification" content="Fotografia e Comunica��o" />
+<meta name="document-classification" content="Fotografia e Comunicação" />
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Ag�ncia P4" />
+<meta name="author" content="EversonJP / Agência P4" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
 <meta http-equiv="reply-to" content="nbastian@nbastian.com" />
@@ -67,9 +67,9 @@ require_once("admin/includes/conecta_bd.php");
 
 <body>
 
-	<div id="geral"> <!-- in�cio div geral - engloba todo o site -->
+	<div id="geral"> <!-- início div geral - engloba todo o site -->
     
-    	<div id="topo"> <!-- in�cio div topo - marca + menu de navega��o -->
+    	<div id="topo"> <!-- início div topo - marca + menu de navegação -->
         
         	<ul>
                 <li><a class="um" href="index.php">Home</a></li>
@@ -95,7 +95,7 @@ require_once("admin/includes/conecta_bd.php");
 			$rs = mysqli_query($conn, "SELECT COUNT(*) FROM imprensa_fotos ");
 			list($total) = mysqli_fetch_array($rs, MYSQLI_BOTH);
 			if(!$total)
-			    echo '<p>Nenhuma foto disponibilizada at� o momento.</p>';
+			    echo '<p>Nenhuma foto disponibilizada até o momento.</p>';
 	
 			$rs = mysqli_query($conn, "SELECT * FROM imprensa_fotos ORDER BY dt_foto DESC");
 			while($foto = mysqli_fetch_array($rs, MYSQLI_BOTH))
@@ -117,7 +117,7 @@ require_once("admin/includes/conecta_bd.php");
                 
           </div>
           
-          <a href="logar.php?acao=sair" title="Sair da �rea de Imprensa"><img src="imagens/bot_logoff.jpg" /></a>
+          <a href="logar.php?acao=sair" title="Sair da área de Imprensa"><img src="imagens/bot_logoff.jpg" /></a>
           
           <br clear="left" />
                         

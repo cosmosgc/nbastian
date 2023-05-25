@@ -88,7 +88,7 @@ require("includes/verifica_sessao.php");
 
 			
 
-			<div id="menuNovo"> <!-- menu principal para navega��o -->
+			<div id="menuNovo"> <!-- menu principal para navegação -->
 
 			
 
@@ -120,12 +120,12 @@ require("includes/verifica_sessao.php");
                     
 
                     
-                    <li><a href="cadastro-usuarios-imprensa.php"><img src="img/icones/ico-mail.jpg" title="Cadastro de Usu�rio p/ �rea da Imprensa" /><br />Usu�rio p/ �rea da Imprensa</a></li>
+                    <li><a href="cadastro-usuarios-imprensa.php"><img src="img/icones/ico-mail.jpg" title="Cadastro de Usuário p/ área da Imprensa" /><br />Usuário p/ área da Imprensa</a></li>
                     
-                    <li><a href="cadastro-fotos-imprensa.php"><img src="img/icones/ico-mail.jpg" title="Cadastro de Fotos p/ �rea da Imprensa" /><br />Fotos p/ �rea da Imprensa</a></li>
+                    <li><a href="cadastro-fotos-imprensa.php"><img src="img/icones/ico-mail.jpg" title="Cadastro de Fotos p/ área da Imprensa" /><br />Fotos p/ área da Imprensa</a></li>
                     
 
-                    <li><a href="cadastro-usuarios.php"><img src="img/icones/ico-mail.jpg" title="Cadastro de Usu�rios p/ �rea Administrativa" /><br />Usu�rios p/ �rea Administrativa</a></li>
+                    <li><a href="cadastro-usuarios.php"><img src="img/icones/ico-mail.jpg" title="Cadastro de Usuários p/ área Administrativa" /><br />Usuários p/ área Administrativa</a></li>
 
 
 				</ul>
@@ -136,7 +136,7 @@ require("includes/verifica_sessao.php");
 
 			
 
-			</div> <!-- fim do menu principal para navega��o -->
+			</div> <!-- fim do menu principal para navegação -->
 
 			
 

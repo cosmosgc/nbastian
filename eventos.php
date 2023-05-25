@@ -8,14 +8,14 @@ session_start();
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="generator" content="www.nbastian.com.br" />
-<meta name="description" content="NBastian Fotografia e Comunica��o - Nilson Bastian - Fot�grafo Profissional" />
-<meta name="keywords" content="fotografo, joinville, fot�grafo, festival de dan�a, danca, bolshoi, escola do ballet bolshoi, bal�, colunismo social, exposi��es, exposicoes, fotogr�ficas, fotografica, fotojornalismo, comunica��o, comunicacao, nilson bastian, bastian" />
+<meta name="description" content="NBastian Fotografia e Comunicação - Nilson Bastian - fotógrafo Profissional" />
+<meta name="keywords" content="fotografo, joinville, fotógrafo, festival de dança, danca, bolshoi, escola do ballet bolshoi, balé, colunismo social, exposições, exposicoes, fotográficas, fotografica, fotojornalismo, Comunicação, comunicacao, nilson bastian, bastian" />
 <meta name="url" content="http://www.nbastian.com.br" />
-<meta name="document-classification" content="Fotografia e Comunica��o" />
+<meta name="document-classification" content="Fotografia e Comunicação" />
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Ag�ncia P4" />
+<meta name="author" content="EversonJP / Agência P4" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
 <meta http-equiv="reply-to" content="nbastian@nbastian.com" />
@@ -61,9 +61,9 @@ require_once("admin/includes/conecta_bd.php");
 
 <body>
 
-	<div id="geral"> <!-- in�cio div geral - engloba todo o site -->
+	<div id="geral"> <!-- início div geral - engloba todo o site -->
     
-    	<div id="topo"> <!-- in�cio div topo - marca + menu de navega��o -->
+    	<div id="topo"> <!-- início div topo - marca + menu de navegação -->
         
         	<ul>
                 <li><a class="um" href="index.php">Home</a></li>
@@ -120,7 +120,7 @@ require_once("admin/includes/conecta_bd.php");
                 <div class="cover boxcaption">
 					<h3><?php echo htmlentities($evento['nm_evento']);?></h3>
                     <p><?php echo implode("/",array_reverse(explode("-",$evento['dt_evento'])));?><br />
-                     Local: <?php echo $evento['local'];?><br /><?php if(empty($evento['tempo_duracao'])) echo'<br />'; else echo 'Dura��o: '.$evento['tempo_duracao'];?></p>
+                     Local: <?php echo $evento['local'];?><br /><?php if(empty($evento['tempo_duracao'])) echo'<br />'; else echo 'Duração: '.$evento['tempo_duracao'];?></p>
 				</div></a>
 				</div>
            <?php

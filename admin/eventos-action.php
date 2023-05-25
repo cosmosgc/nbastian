@@ -14,7 +14,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
     // Pega os campos enviados via POST
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
     
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($texto) || empty($nm_evento) || empty($local)  || $_FILES['arquivo']['error'] > 0  )
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos.')</script>";
@@ -36,8 +36,8 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
         $cd = mysqli_insert_id();
         
 
-        $dirLer = '../arquivos/temp/';//diret�rio que ser� varrido
-        $dir = '../arquivos/temp/';//diret�rio que ser� varrido
+        $dirLer = '../arquivos/temp/';//diretório que será varrido
+        $dir = '../arquivos/temp/';//diretório que será varrido
 
         $arquivo = $_FILES['arquivo']['name'];
         move_uploaded_file($_FILES['arquivo']['tmp_name'], $dirLer.$arquivo);
@@ -55,12 +55,12 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
 
             $zip->unzipAll($dir);
 
-            //come�a a varrer o diret�rio com os arquivos estraidos.
+            //começa a varrer o diretório com os arquivos estraidos.
             if (is_dir($dir))
             {
-                if ($dh = opendir($dir))//se conseguir abrir o diret�rio continua o backup
+                if ($dh = opendir($dir))//se conseguir abrir o diretório continua o backup
                 {
-                    while (($file = readdir($dh)) !== false )//enquanto a leitura do diret�rio for bem sucedida
+                    while (($file = readdir($dh)) !== false )//enquanto a leitura do diretório for bem sucedida
                     {
                         if( $file != "." && $file != "..")
                         {
@@ -71,7 +71,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
                             }
                         }
                     }
-                closedir($dh);//fecha o diret�rio
+                closedir($dh);//fecha o diretório
                 }//if opendir
             }//if is_dir
 
@@ -206,7 +206,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
     
 
 
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($texto) || empty($nm_evento) || empty($local) )
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos .')</script>";
@@ -230,8 +230,8 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
 
         if($_FILES['arquivo']['error'] == 0)
         {
-            $dirLer = '../arquivos/temp/';//diret�rio que ser� varrido
-            $dir = '../arquivos/temp/';//diret�rio que ser� varrido
+            $dirLer = '../arquivos/temp/';//diretório que será varrido
+            $dir = '../arquivos/temp/';//diretório que será varrido
 
             $arquivo = $_FILES['arquivo']['name'];
             move_uploaded_file($_FILES['arquivo']['tmp_name'], $dirLer.$arquivo);
@@ -249,12 +249,12 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
 
             $zip->unzipAll($dir);
 
-            //come�a a varrer o diret�rio com os arquivos estraidos.
+            //começa a varrer o diretório com os arquivos estraidos.
             if (is_dir($dir))
             {
-                if ($dh = opendir($dir))//se conseguir abrir o diret�rio continua o backup
+                if ($dh = opendir($dir))//se conseguir abrir o diretório continua o backup
                 {
-                    while (($file = readdir($dh)) !== false )//enquanto a leitura do diret�rio for bem sucedida
+                    while (($file = readdir($dh)) !== false )//enquanto a leitura do diretório for bem sucedida
                     {
                         if( $file != "." && $file != "..")
                         {
@@ -265,7 +265,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
                             }
                         }
                     }
-                closedir($dh);//fecha o diret�rio
+                closedir($dh);//fecha o diretório
                 }//if opendir
             }//if is_dir
 

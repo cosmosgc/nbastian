@@ -7,7 +7,7 @@ require("includes/conecta_bd.php");
 
 
 
-//Carrega os dados para fazer a edi��o. Se for o caso
+//Carrega os dados para fazer a edição. Se for o caso
 if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 {
     $codigo = intval($_GET['cd']);
@@ -78,7 +78,7 @@ jQuery(function($){
 <!--
 function excluir(aURL)
 {
-    if(confirm("Voc� tem certeza que deseja apagar esse registro?"))
+    if(confirm("Você tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }
@@ -140,29 +140,29 @@ function excluir(aURL)
 
 			
 
-			<h5><a href="principal.php" title="Voltar para p&aacute;gina principal">&raquo;  Principal</a> &raquo; Cadastro de Usu�rios p/ �rea Administrativa</h5>
+			<h5><a href="principal.php" title="Voltar para p&aacute;gina principal">&raquo;  Principal</a> &raquo; Cadastro de Usuários p/ área Administrativa</h5>
 
 			
 
 			<div id="miolo">
 			
 
-				<h4>&raquo; Cadastro de Usu�rios p/ �rea Administrativa</h4>
+				<h4>&raquo; Cadastro de Usuários p/ área Administrativa</h4>
 
 				
 
 				<form name="form1" id="form1" method="post" action="usuarios-action.php" enctype="multipart/form-data">
 
-                    <label for="nm_usuario">Nome do Usu�rio:</label>
+                    <label for="nm_usuario">Nome do Usuário:</label>
 
-						<input class="txt" name="nm_usuario" type="text" id="nm_usuario"  maxlength="255" tabindex="5" title="Nome do Usu�rio" value="<?php echo $var['nm_usuario'];?>"/>
+						<input class="txt" name="nm_usuario" type="text" id="nm_usuario"  maxlength="255" tabindex="5" title="Nome do Usuário" value="<?php echo $var['nm_usuario'];?>"/>
 
 
                     <br />
 
                     <label for="email_usuario">E-mail / Login:</label>
 
-						<input class="txt" name="email_usuario" type="text" id="email_usuario"  maxlength="255" tabindex="5" title="E-mail do Usu�rio: (Login)" value="<?php echo $var['de_login'];?>"/>
+						<input class="txt" name="email_usuario" type="text" id="email_usuario"  maxlength="255" tabindex="5" title="E-mail do Usuário: (Login)" value="<?php echo $var['de_login'];?>"/>
 
 
                     <br />
@@ -178,7 +178,7 @@ function excluir(aURL)
 					
                   <?php
 
-                    // "Define" o tipo da a��o do formul�rio
+                    // "Define" o tipo da ação do formulário
                     if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
                     {
                         echo '<input type="hidden" id="acao" name="acao" value="edita">';
@@ -209,7 +209,7 @@ function excluir(aURL)
 				
                 <br /><br /><br /><br />
 
-                <h4>&raquo; Listagem de Usu�rios p/ �rea Administrativa</h4>
+                <h4>&raquo; Listagem de Usuários p/ área Administrativa</h4>
 
                 <table>
 

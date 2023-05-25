@@ -7,7 +7,7 @@ require("includes/conecta_bd.php");
 
 
 
-//Carrega os dados para fazer a edi��o. Se for o caso
+//Carrega os dados para fazer a edição. Se for o caso
 if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 {
     $codigo = intval($_GET['cd']);
@@ -41,7 +41,7 @@ if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 <!--
 function excluir(aURL)
 {
-    if(confirm("Voc� tem certeza que deseja apagar esse registro?"))
+    if(confirm("Você tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }
@@ -132,7 +132,7 @@ function excluir(aURL)
                     </tr>
                     
                     <tr>
-                        <td width="20%"><strong>ID da transa��o no PagSeguro:</strong></td>
+                        <td width="20%"><strong>ID da transação no PagSeguro:</strong></td>
                         <td><?php echo $var['transacao_id'];?></td>
                     </tr>
                     
@@ -152,7 +152,7 @@ function excluir(aURL)
                     </tr>
                     
                     <tr>
-                        <td width="20%"><strong>Endere�o</strong></td>
+                        <td width="20%"><strong>endereço</strong></td>
                         <td><?php echo $var['endereco'];?></td>
                     </tr>
                     

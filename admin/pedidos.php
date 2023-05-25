@@ -26,7 +26,7 @@ require("includes/conecta_bd.php");
 <!--
 function excluir(aURL)
 {
-    if(confirm("Voc� tem certeza que deseja apagar esse registro?"))
+    if(confirm("Você tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }

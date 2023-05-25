@@ -7,7 +7,7 @@ require("includes/conecta_bd.php");
 
 
 
-//Carrega os dados para fazer a edi��o. Se for o caso
+//Carrega os dados para fazer a edição. Se for o caso
 if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 {
     $codigo = intval($_GET['cd']);
@@ -76,7 +76,7 @@ tinyMCE.init({
 <!--
 function excluir(aURL)
 {
-    if(confirm("Voc� tem certeza que deseja apagar esse registro?"))
+    if(confirm("Você tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }
@@ -165,7 +165,7 @@ function excluir(aURL)
 
 					
                     <?php
-                    // "Define" o tipo da a��o do formul�rio
+                    // "Define" o tipo da ação do formulário
                     if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
                     {
                         echo '<input type="hidden" id="acao" name="acao" value="edita">';

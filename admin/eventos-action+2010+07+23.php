@@ -13,7 +13,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
     // Pega os campos enviados via POST
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
     
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($texto) || empty($nm_evento) || empty($local)   )
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos.')</script>";
@@ -99,7 +99,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
     
 
 
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($texto) || empty($nm_evento) || empty($local) )
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos .')</script>";

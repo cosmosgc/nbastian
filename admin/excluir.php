@@ -51,7 +51,7 @@ elseif($tipo == "pat")
     //$res = mysqli_query($conn, "DELETE FROM projetos WHERE cd_cliente='$cd'");
     if($rs1)
     {
-        ///echo("<script language='javascript'>\n alert('Dados exclu�dos com sucesso!')\n</script>");
+        ///echo("<script language='javascript'>\n alert('Dados excluídos com sucesso!')\n</script>");
         echo"<script language=javascript>location.href='cadastro-patrocinadores.php'</script>";
         exit;
     }
@@ -77,7 +77,7 @@ elseif($tipo == "cat")
     //$res = mysqli_query($conn, "DELETE FROM projetos WHERE cd_cliente='$cd'");
     if($rs1)
     {
-        //echo("<script language='javascript'>\n alert('Dados exclu�dos com sucesso!')\n</script>");
+        //echo("<script language='javascript'>\n alert('Dados excluídos com sucesso!')\n</script>");
         echo"<script language=javascript>location.href='cadastro-categorias.php'</script>";
         exit;
     }
@@ -105,7 +105,7 @@ elseif($tipo == "eve")
     //$res = mysqli_query($conn, "DELETE FROM projetos WHERE cd_cliente='$cd'");
     if($rs1)
     {
-        //echo("<script language='javascript'>\n alert('Dados exclu�dos com sucesso!')\n</script>");
+        //echo("<script language='javascript'>\n alert('Dados excluídos com sucesso!')\n</script>");
         echo"<script language=javascript>location.href='cadastro-eventos.php'</script>";
         exit;
     }
@@ -133,7 +133,7 @@ elseif($tipo == "gal")
     //$res = mysqli_query($conn, "DELETE FROM projetos WHERE cd_cliente='$cd'");
     if($rs1)
     {
-        //echo("<script language='javascript'>\n alert('Dados exclu�dos com sucesso!')\n</script>");
+        //echo("<script language='javascript'>\n alert('Dados excluídos com sucesso!')\n</script>");
         echo"<script language=javascript>location.href='cadastro-galerias.php'</script>";
         exit;
     }
@@ -159,7 +159,7 @@ elseif($tipo == "cli")
     //$res = mysqli_query($conn, "DELETE FROM projetos WHERE cd_cliente='$cd'");
     if($rs1)
     {
-        //echo("<script language='javascript'>\n alert('Dados exclu�dos com sucesso!')\n</script>");
+        //echo("<script language='javascript'>\n alert('Dados excluídos com sucesso!')\n</script>");
         echo"<script language=javascript>location.href='cadastro-clientes.php'</script>";
         exit;
     }
@@ -180,7 +180,7 @@ elseif($tipo == "usu")
     //$res = mysqli_query($conn, "DELETE FROM projetos WHERE cd_cliente='$cd'");
     if($rs1)
     {
-        //echo("<script language='javascript'>\n alert('Dados exclu�dos com sucesso!')\n</script>");
+        //echo("<script language='javascript'>\n alert('Dados excluídos com sucesso!')\n</script>");
         echo"<script language=javascript>location.href='cadastro-usuarios.php'</script>";
         exit;
     }
@@ -201,7 +201,7 @@ elseif($tipo == "usui")
     //$res = mysqli_query($conn, "DELETE FROM projetos WHERE cd_cliente='$cd'");
     if($rs1)
     {
-        //echo("<script language='javascript'>\n alert('Dados exclu�dos com sucesso!')\n</script>");
+        //echo("<script language='javascript'>\n alert('Dados excluídos com sucesso!')\n</script>");
         echo"<script language=javascript>location.href='cadastro-usuarios-imprensa.php'</script>";
         exit;
     }
@@ -227,7 +227,7 @@ elseif($tipo == "ftoi")
     //$res = mysqli_query($conn, "DELETE FROM projetos WHERE cd_cliente='$cd'");
     if($rs1)
     {
-        //echo("<script language='javascript'>\n alert('Dados exclu�dos com sucesso!')\n</script>");
+        //echo("<script language='javascript'>\n alert('Dados excluídos com sucesso!')\n</script>");
         echo"<script language=javascript>location.href='cadastro-fotos-imprensa.php'</script>";
         exit;
     }
@@ -248,7 +248,7 @@ elseif($tipo == "not")
     //$res = mysqli_query($conn, "DELETE FROM projetos WHERE cd_cliente='$cd'");
     if($rs1)
     {
-        //echo("<script language='javascript'>\n alert('Dados exclu�dos com sucesso!')\n</script>");
+        //echo("<script language='javascript'>\n alert('Dados excluídos com sucesso!')\n</script>");
         echo"<script language=javascript>location.href='cadastro-noticias.php'</script>";
         exit;
     }

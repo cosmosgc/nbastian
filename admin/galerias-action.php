@@ -14,7 +14,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
     // Pega os campos enviados via POST
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
     
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($nm_galeria) || empty($dt_galeria) || empty($cd_categoria) || $_FILES['arquivo']['error'] > 0 )
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos.')</script>";
@@ -36,8 +36,8 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
         $rs = mysqli_query($conn, "INSERT INTO galerias VALUES('','$cd_categoria','$nm_galeria','$texto','$local','$dt_galeria','$tempo_duracao', '$vl_foto')") or die(mysqli_error());
         $cd = mysqli_insert_id();
         
-        $dirLer = '../arquivos/temp/';//diret�rio que ser� varrido
-        $dir = '../arquivos/temp/';//diret�rio que ser� varrido
+        $dirLer = '../arquivos/temp/';//diretório que será varrido
+        $dir = '../arquivos/temp/';//diretório que será varrido
 
         $arquivo = $_FILES['arquivo']['name'];
         move_uploaded_file($_FILES['arquivo']['tmp_name'], $dirLer.$arquivo);
@@ -55,12 +55,12 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
 
             $zip->unzipAll($dir);
             
-            //come�a a varrer o diret�rio com os arquivos estraidos.
+            //começa a varrer o diretório com os arquivos estraidos.
             if (is_dir($dir))
             {
-                if ($dh = opendir($dir))//se conseguir abrir o diret�rio continua o backup
+                if ($dh = opendir($dir))//se conseguir abrir o diretório continua o backup
                 {
-                    while (($file = readdir($dh)) !== false )//enquanto a leitura do diret�rio for bem sucedida
+                    while (($file = readdir($dh)) !== false )//enquanto a leitura do diretório for bem sucedida
                     {
                         if( $file != "." && $file != "..")
                         {
@@ -71,7 +71,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
                             }
                         }
                     }
-                closedir($dh);//fecha o diret�rio
+                closedir($dh);//fecha o diretório
                 }//if opendir
             }//if is_dir
 
@@ -144,7 +144,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
     
 
 
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($nm_galeria) || empty($dt_galeria) || empty($cd_categoria)  )
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos.')</script>";
@@ -168,8 +168,8 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
         $rs = mysqli_query($conn, "UPDATE galerias SET cd_categoria='$cd_categoria', nm_galeria='$nm_galeria',  descricao='$texto', local='$local',
         dt_galeria='$dt_galeria', tempo_duracao='$tempo_duracao', vl_foto='$vl_foto' WHERE cd_galeria='$cd'") or die(mysqli_error());
 
-        $dirLer = '../arquivos/temp/';//diret�rio que ser� varrido
-        $dir = '../arquivos/temp/';//diret�rio que ser� varrido
+        $dirLer = '../arquivos/temp/';//diretório que será varrido
+        $dir = '../arquivos/temp/';//diretório que será varrido
 
         if($_FILES['arquivo']['error'] == 0)
         {
@@ -193,12 +193,12 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
 
             $zip->unzipAll($dir);
 
-            //come�a a varrer o diret�rio com os arquivos estraidos.
+            //começa a varrer o diretório com os arquivos estraidos.
             if (is_dir($dir))
             {
-                if ($dh = opendir($dir))//se conseguir abrir o diret�rio continua o backup
+                if ($dh = opendir($dir))//se conseguir abrir o diretório continua o backup
                 {
-                    while (($file = readdir($dh)) !== false )//enquanto a leitura do diret�rio for bem sucedida
+                    while (($file = readdir($dh)) !== false )//enquanto a leitura do diretório for bem sucedida
                     {
                         if( $file != "." && $file != "..")
                         {
@@ -209,7 +209,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
                             }
                         }
                     }
-                closedir($dh);//fecha o diret�rio
+                closedir($dh);//fecha o diretório
                 }//if opendir
             }//if is_dir
 

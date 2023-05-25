@@ -2,20 +2,14 @@
 
 function accents($text)
 {
-
-   $search  = array ('�', '�', '�', 'í', '�', '�', '�', '�', '�', '�', '�', '�', '�','�','�','�','�','�','�','�','�','�');
-   $replace = array ('c', 'a', 'e', 'i', 'o', 'u', 'a', 'o', 'a', 'e', 'i', 'o', 'u','a','e','i','o','u','e','o','a','n');
-   $export    = str_replace($search, $replace, $text);
-   return $export;
+   $decodedString = html_entity_decode($text, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+   return $decodedString;
 }
 
 function accents_mai($text)
 {
-
-   $search  = array ('�', '�', '�', '�', '�', '�', '�', '�', '�', '�', '�', '�', '�','�','�','�','�','�','�','�','�','�');
-   $replace = array ('c', 'a', 'e', 'i', 'o', 'u', 'a', 'o', 'a', 'e', 'i', 'o', 'u','a','e','i','o','u','e','o','a','n');
-   $export    = str_replace($search, $replace, $text);
-   return $export;
+   $decodedString = html_entity_decode($text, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+   return $decodedString;
 }
 
 function especiais($text)

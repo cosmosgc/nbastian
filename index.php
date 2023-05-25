@@ -2,21 +2,22 @@
 
 session_name("site");
 session_start();
-
+header('Content-Type: text/html; charset=utf-8');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta charset="utf-8">
 <meta name="generator" content="www.nbastian.com.br" />
-<meta name="description" content="NBastian Fotografia e Comunica��o - Nilson Bastian - Fot�grafo Profissional" />
-<meta name="keywords" content="fotografo, joinville, fot�grafo, festival de dan�a, danca, bolshoi, escola do ballet bolshoi, bal�, colunismo social, exposi��es, exposicoes, fotogr�ficas, fotografica, fotojornalismo, comunica��o, comunicacao, nilson bastian, bastian" />
+<meta name="description" content="NBastian Fotografia e Comunicação - Nilson Bastian - Fotógrafo Profissional" />
+<meta name="keywords" content="fotografo, joinville, fotógrafo, festival de dança, danca, bolshoi, escola do ballet bolshoi, balé, colunismo social, exposições, exposicoes, fotográficas, fotografica, fotojornalismo, Comunicação, comunicacao, nilson bastian, bastian" />
 <meta name="url" content="http://www.nbastian.com.br" />
-<meta name="document-classification" content="Fotografia e Comunica��o" />
+<meta name="document-classification" content="Fotografia e Comunicação" />
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP.com.br / Ag�ncia P4" />
+<meta name="author" content="EversonJP.com.br / Agéncia P4" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
 <meta http-equiv="reply-to" content="nbastian@nbastian.com" />
@@ -55,9 +56,9 @@ require_once("admin/includes/conecta_bd.php");
 
 <body>
 
-	<div id="geral"> <!-- in�cio div geral - engloba todo o site -->
+	<div id="geral"> <!-- início div geral - engloba todo o site -->
     
-    	<div id="topo"> <!-- in�cio div topo - marca + menu de navega��o -->
+    	<div id="topo"> <!-- início div topo - marca + menu de navegação -->
         
         	<ul>
                 <li><a class="dois" href="perfil.php">Perfil</a></li>
@@ -110,7 +111,7 @@ require_once("admin/includes/conecta_bd.php");
 
                         <h5><?php echo htmlentities($evento['nm_evento']);?></h5>
                         <p><?php echo substr(strip_tags($evento['descricao']),0, 75);?>...</p>
-                        <p>Data:  <?php echo implode("/",array_reverse(explode("-",$evento['dt_evento'])));?><br />Local: <?php echo $evento['local'];?><br /><?php if(empty($evento['tempo_duracao'])) echo'<br />'; else echo 'Dura��o: '.$evento['tempo_duracao'];?></p>
+                        <p>Data:  <?php echo implode("/",array_reverse(explode("-",$evento['dt_evento'])));?><br />Local: <?php echo $evento['local'];?><br /><?php if(empty($evento['tempo_duracao'])) echo'<br />'; else echo 'Duração: '.$evento['tempo_duracao'];?></p>
                         <p><a href="eventos.php">Veja todos os eventos</a></p>
                     
                     </li>
@@ -131,7 +132,7 @@ require_once("admin/includes/conecta_bd.php");
                         <h5><?php echo htmlentities($evento['nm_galeria']);?></h5>
 
                         <p><?php echo substr(strip_tags($evento['descricao']),0, 75);?>...</p>
-                        <p>Data:  <?php echo implode("/",array_reverse(explode("-",$evento['dt_galeria'])));?><br />Local: <?php echo $evento['local'];?><br /><?php if(empty($evento['tempo_duracao'])) echo'<br />'; else echo 'Dura��o: '.$evento['tempo_duracao'];?></p>
+                        <p>Data:  <?php echo implode("/",array_reverse(explode("-",$evento['dt_galeria'])));?><br />Local: <?php echo $evento['local'];?><br /><?php if(empty($evento['tempo_duracao'])) echo'<br />'; else echo 'Duração: '.$evento['tempo_duracao'];?></p>
                         <p><a href="galeria+categoria.php?cat=8">Veja todas as exposições</a></p>
                     
                     </li>

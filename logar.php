@@ -13,7 +13,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "logar")
 
     //print_r($_POST);
     //exit;
-    //Verifica se os campos s�o vazios ou est�o preenchidos com o conte�do padr�o.
+    //Verifica se os campos são vazios ou estáo preenchidos com o conteúdo padrão.
     if(empty($senha) || empty($usuario))
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos')</script>";
@@ -22,10 +22,10 @@ if(isset($_POST['acao']) && $_POST['acao'] == "logar")
     }
     else
     {
-        //verifica oe endere�o de email
+        //verifica oe endereço de email
         if(!verificar_email($usuario) == 2)
         {
-            echo("<script language='javascript'>\n alert('Favor digitar em endere�o de e-mail v�lido!')\n</script>");
+            echo("<script language='javascript'>\n alert('Favor digitar em endereço de e-mail válido!')\n</script>");
             echo("<script language='javascript'>location.href='imprensa.php'</script>");
             exit;
         }
@@ -54,7 +54,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "logar")
             }
             else
             {
-                echo("<script language='javascript'>\n alert('Usu�rio n�o cadastrado!')\n</script>");
+                echo("<script language='javascript'>\n alert('Usuário não cadastrado!')\n</script>");
                 echo("<script language='javascript'>location.href='imprensa.php'</script>");
                 exit;
             }
@@ -73,7 +73,7 @@ if(isset($_GET['acao']) && $_GET['acao'] == "sair")
 }
 
 
-//fun��o que verifica se o email foi escrito do formato correto voce@provedor.com
+//função que verifica se o email foi escrito do formato correto voce@provedor.com
 function verificar_email($email)
 {
 
@@ -86,9 +86,9 @@ function verificar_email($email)
          //vejo se tem caracter .
          if (substr_count($email,".")>= 1)
          {
-            //obtenho a termina��o do dominio
+            //obtenho a terminação do dominio
             $term_dom = substr(strrchr ($email, '.'),1);
-            //verifico que a termina��o do dominio seja correcta
+            //verifico que a terminação do dominio seja correcta
             if (strlen($term_dom)>1 && strlen($term_dom)<5 && (!strstr($term_dom,"@")) )
             {
               //verifico que o de antes do dominio seja correcto

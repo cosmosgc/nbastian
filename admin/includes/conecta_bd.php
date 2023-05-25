@@ -1,21 +1,21 @@
 <?php
 
-$host = "localhost";
-$usuario = "root";
-$senha = "";
-$banco = "nbastian_site";
+$host = "localhost";$usuario = "root";$senha = "";$banco = "nbastian_site";
+header('Content-Type: text/html; charset=utf-8');
 
-/*
-$host = "mysql.nbastian.com";
-$usuario = "nbastian";
-$senha = "bdsite2009";
-$banco = "nbastian_site";
-*/
+
+
+
+//$host = "216.172.172.190";$usuario = "nbasti78_nbastian";$senha = "Noslin@72";$banco = "nbasti78_nbastian.com";
+//é
+
+
+
 
 $conn = mysqli_connect($host, $usuario, $senha)
     or die(mysqli_connect_error());
 
-mysqli_set_charset($conn,'latin1');
+mysqli_set_charset($conn,'utf8');
 
 $db = mysqli_select_db($conn,$banco)
       or die (mysqli_connect_error());

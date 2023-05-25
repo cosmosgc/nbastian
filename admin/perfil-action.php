@@ -15,7 +15,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "edita")
     
 
 
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($texto) )
     {
         echo"<script language=javascript>alert('Favor preencher o texto .')</script>";

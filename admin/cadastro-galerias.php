@@ -7,7 +7,7 @@ require("includes/conecta_bd.php");
 
 
 
-//Carrega os dados para fazer a edi��o. Se for o caso
+//Carrega os dados para fazer a edição. Se for o caso
 if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 {
     $codigo = intval($_GET['cd']);
@@ -89,7 +89,7 @@ $(function(){
 <!--
 function excluir(aURL)
 {
-    if(confirm("Voc� tem certeza que deseja apagar esse registro?"))
+    if(confirm("Você tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }
@@ -198,9 +198,9 @@ function excluir(aURL)
 
                     <br />
                     
-                    <label for="tempo_duracao">Dura��o:</label>
+                    <label for="tempo_duracao">Duração:</label>
 
-						<input class="txt" name="tempo_duracao" type="text" id="tempo_duracao"  maxlength="100" tabindex="5" title="Dura��o do Evento" value="<?php echo $var['tempo_duracao'];?>"/>
+						<input class="txt" name="tempo_duracao" type="text" id="tempo_duracao"  maxlength="100" tabindex="5" title="Duração do Evento" value="<?php echo $var['tempo_duracao'];?>"/>
 
 
                     <br />
@@ -225,7 +225,7 @@ function excluir(aURL)
                         <textarea name="texto" id="texto" tabindex="7" rows="20" cols="40" class="txt" title="" ><?php echo $var['descricao'];?></textarea>
 					<br />
 
-                    <label for="arquivo">Arquivo Zip com fotos:<br />M�x 30MB</label>
+                    <label for="arquivo">Arquivo Zip com fotos:<br />Máx 30MB</label>
 
 						<input class="txt" name="arquivo" type="file" id="arquivo" size="43"  tabindex="8" title="Selecione o arquivo" />
 
@@ -233,7 +233,7 @@ function excluir(aURL)
 
 					
                     <?php
-                    // "Define" o tipo da a��o do formul�rio
+                    // "Define" o tipo da ação do formulário
                     if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
                     {
                         echo '<input type="hidden" id="acao" name="acao" value="edita">';

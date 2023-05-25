@@ -7,6 +7,6 @@ session_start();
  unset ($_SESSION['de_login']);
 
 
-//echo"<script language=javascript>alert('Se��o encerrada com sucesso!')</script>";
+//echo"<script language=javascript>alert('Seção encerrada com sucesso!')</script>";
 echo"<script language=javascript>location.href='index.php'</script>";
 ?>

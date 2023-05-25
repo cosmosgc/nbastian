@@ -12,7 +12,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
     // Pega os campos enviados via POST
     foreach ($_POST as $campo => $valor) { $$campo = anti_injection($valor);}
     
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($nm_usuario) || empty($email_usuario) || empty($de_senha)  )
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos.')</script>";
@@ -27,7 +27,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
         
         if($total > 0)
         {
-            echo"<script language=javascript>alert('O e-mail digitado j� se encontra cadastrado. Fa�a novamente o cadastro.')</script>";
+            echo"<script language=javascript>alert('O e-mail digitado já se encontra cadastrado. Faça novamente o cadastro.')</script>";
             echo"<script language=javascript>location.href='cadastro-usuarios.php'</script>";
             exit;
         }
@@ -51,7 +51,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
     
 
 
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($nm_usuario) || empty($email_usuario)  )
     {
         echo"<script language=javascript>alert('Favor preencher nome e a corpo da noticia .')</script>";
@@ -67,7 +67,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
 
         if($total > 0)
         {
-            echo"<script language=javascript>alert('O e-mail digitado j� se encontra cadastrado. Fa�a novamente o cadastro.')</script>";
+            echo"<script language=javascript>alert('O e-mail digitado já se encontra cadastrado. Faça novamente o cadastro.')</script>";
             echo"<script language=javascript>location.href='cadastro-usuarios.php?tipo=edit&cd=$cd'</script>";
             exit;
         }

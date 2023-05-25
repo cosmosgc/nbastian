@@ -7,17 +7,17 @@ include_once("admin/includes/anti_injection.php");
 
 if($_REQUEST['acao'] == "adiciona")
 {
-//cria o carrinho caso este n�o exista
+//cria o carrinho caso este não exista
     if(!isset($_SESSION['carrinho']))
     {
         $rs = mysqli_query($conn, "INSERT INTO carrinho VALUES('',NOW())");
         $cd_carrinho = mysqli_insert_id();
 
-        //adiciona o c�digo do carrinho na sess�o do usu�rio
+        //adiciona o código do carrinho na sessão do Usuário
         $_SESSION['carrinho'] = $cd_carrinho;
     }
 
-    //verifica se a foto j� existe no carrinho
+    //verifica se a foto já existe no carrinho
     $rs = mysqli_query($conn, "SELECT * FROM carrinho_itens  WHERE cd_carrinho='".$_SESSION['carrinho']."' AND tp_foto='".anti_injection($_GET['tipo'])."' AND cd_foto='".intval($_GET['cd_foto'])."'");
     if(mysqli_num_rows($rs)== 0)
     {

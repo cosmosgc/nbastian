@@ -9,14 +9,14 @@ include_once("admin/includes/conecta_bd.php");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="generator" content="www.nbastian.com.br" />
-<meta name="description" content="NBastian Fotografia e Comunica��o - Nilson Bastian - Fot�grafo Profissional" />
-<meta name="keywords" content="fotografo, joinville, fot�grafo, festival de dan�a, danca, bolshoi, escola do ballet bolshoi, bal�, colunismo social, exposi��es, exposicoes, fotogr�ficas, fotografica, fotojornalismo, comunica��o, comunicacao, nilson bastian, bastian" />
+<meta name="description" content="NBastian Fotografia e Comunicação - Nilson Bastian - fotógrafo Profissional" />
+<meta name="keywords" content="fotografo, joinville, fotógrafo, festival de dança, danca, bolshoi, escola do ballet bolshoi, balé, colunismo social, exposições, exposicoes, fotográficas, fotografica, fotojornalismo, Comunicação, comunicacao, nilson bastian, bastian" />
 <meta name="url" content="http://www.nbastian.com.br" />
-<meta name="document-classification" content="Fotografia e Comunica��o" />
+<meta name="document-classification" content="Fotografia e Comunicação" />
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Ag�ncia P4" />
+<meta name="author" content="EversonJP / Agência P4" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
 <meta http-equiv="reply-to" content="nbastian@nbastian.com" />
@@ -149,7 +149,7 @@ if($pode_vender)
 }
 else
 {
-    echo '<strong>Esta foto n�o pode ser solicitada para compra.</strong><br />Para ver todas as solicita��es j� feitas, clique no bot�o ao lado.';
+    echo '<strong>Esta foto não pode ser solicitada para compra.</strong><br />Para ver todas as solicitações já feitas, clique no botão ao lado.';
 }
 ?>
 </span>

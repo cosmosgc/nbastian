@@ -7,7 +7,7 @@ require("includes/conecta_bd.php");
 
 
 
-//Carrega os dados para fazer a edi��o. Se for o caso
+//Carrega os dados para fazer a edição. Se for o caso
 if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 {
     $codigo = intval($_GET['cd']);
@@ -44,7 +44,7 @@ if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 <!--
 function excluir(aURL)
 {
-    if(confirm("Voc� tem certeza que deseja apagar esse registro?"))
+    if(confirm("Você tem certeza que deseja apagar esse registro?"))
     {
         location.href = aURL;
     }
@@ -66,7 +66,7 @@ function validaForm()
     }
     if(!checkMail(document.getElementById("email_usuario").value))
     {
-        alert("Favor preencher com um endere�o de email v�lido");
+        alert("Favor preencher com um endereço de email válido");
         document.getElementById("email_usuario").value = "";
         document.getElementById("email_usuario").focus();
         return false;
@@ -156,14 +156,14 @@ function checkMail(mail)
 
 			
 
-			<h5><a href="principal.php" title="Voltar para p&aacute;gina principal">&raquo;  Principal</a> &raquo; Cadastro de Usu�rio p/ �rea da Imprensa</h5>
+			<h5><a href="principal.php" title="Voltar para p&aacute;gina principal">&raquo;  Principal</a> &raquo; Cadastro de Usuário p/ área da Imprensa</h5>
 
 			
 
 			<div id="miolo">
 			
 
-				<h4>&raquo; Cadastro de Usu�rio p/ �rea da Imprensa</h4>
+				<h4>&raquo; Cadastro de Usuário p/ área da Imprensa</h4>
 
 				
 
@@ -173,16 +173,16 @@ function checkMail(mail)
 
 
 
-                    <label for="nm_usuario">Nome do Usu�rio:</label>
+                    <label for="nm_usuario">Nome do Usuário:</label>
 
-						<input class="txt" name="nm_usuario" type="text" id="nm_usuario"  maxlength="255" tabindex="5" title="Nome do Usu�rio" value="<?php echo $var['nm_usuario'];?>"/>
+						<input class="txt" name="nm_usuario" type="text" id="nm_usuario"  maxlength="255" tabindex="5" title="Nome do Usuário" value="<?php echo $var['nm_usuario'];?>"/>
 
 
                     <br />
                     
                     <label for="email_usuario">E-mail / Login:</label>
 
-						<input class="txt" name="email_usuario" type="text" id="email_usuario"  maxlength="255" tabindex="5" title="E-mail do Usu�rio: (Login)" value="<?php echo $var['email_usuario'];?>"/>
+						<input class="txt" name="email_usuario" type="text" id="email_usuario"  maxlength="255" tabindex="5" title="E-mail do Usuário: (Login)" value="<?php echo $var['email_usuario'];?>"/>
 
 
                     <br />
@@ -196,7 +196,7 @@ function checkMail(mail)
                     
 
                     <?php
-                    // "Define" o tipo da a��o do formul�rio
+                    // "Define" o tipo da ação do formulário
                     if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
                     {
                         echo '<input type="hidden" id="acao" name="acao" value="edita">';
@@ -233,7 +233,7 @@ function checkMail(mail)
 				
                 <br />
 
-                <h4>&raquo; Listagem de Usu�rio p/ �rea da Imprensa</h4>
+                <h4>&raquo; Listagem de Usuário p/ área da Imprensa</h4>
 
                 <table>
 

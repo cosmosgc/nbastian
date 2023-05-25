@@ -10,11 +10,11 @@ session_start();
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="url" content="http://www.nbastian.com.br" />
-<meta name="document-classification" content="Fotografia e Comunica��o" />
+<meta name="document-classification" content="Fotografia e Comunicação" />
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Ag�ncia P4" />
+<meta name="author" content="EversonJP / Agência P4" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
 <meta http-equiv="reply-to" content="nilsonbastian@mac.com" />
@@ -57,9 +57,9 @@ require_once("admin/includes/conecta_bd.php");
 
 <body>
 
-	<div id="geral"> <!-- in�cio div geral - engloba todo o site -->
+	<div id="geral"> <!-- início div geral - engloba todo o site -->
     
-    	<div id="topo"> <!-- in�cio div topo - marca + menu de navega��o -->
+    	<div id="topo"> <!-- início div topo - marca + menu de navegação -->
         
         	<ul>
                 <li><a class="um" href="index.php">Home</a></li>

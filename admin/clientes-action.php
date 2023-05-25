@@ -12,7 +12,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
     // Pega os campos enviados via POST
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
     
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($cliente) || empty($descricao) || $_FILES['arquivo']['error'] > 0)
     {
         echo"<script language=javascript>alert('Favor preencher todos os campos.')</script>";
@@ -22,10 +22,10 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
     else
     {
 
-        //pega as informa��es da imagem pequena
+        //pega as informações da imagem pequena
         $pequenaInfo = getimagesize($_FILES['arquivo']['tmp_name']);
 
-        //verifica se o tipo de arquivo � um arquivo permitido
+        //verifica se o tipo de arquivo é um arquivo permitido
         if($pequenaInfo['mime'] == "image/jpeg" || $pequenaInfo['mime'] == "image/jpg" || $pequenaInfo['mime'] == "image/png" || $pequenaInfo['mime'] == "image/gif" || $pequenaInfo['mime'] == "image/x-png")        {
 
             //verifica se a altura e a largura da imagem estao corretas
@@ -34,7 +34,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
                 $foto = "../arquivos/cli_".time().".".$ext;
                 $fotobd = "arquivos/cli_".time().".".$ext;
 
-                //se n�o conseguir copiar, j� era.
+                //se não conseguir copiar, já era.
                 if(!move_uploaded_file($_FILES['arquivo']['tmp_name'],$foto))
                 {
                     echo"<script language=javascript>alert('Erro ao copiar imagem .')</script>";
@@ -53,7 +53,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
         }
         else
         {
-            echo"<script language=javascript>alert('Tipo de arquivo n�o permitido. Favor enviar uma imagem jpg, gif ou png.')</script>";
+            echo"<script language=javascript>alert('Tipo de arquivo não permitido. Favor enviar uma imagem jpg, gif ou png.')</script>";
             echo"<script language=javascript>location.href='cadastro-clientes.php'</script>";
             exit;
         }
@@ -73,10 +73,10 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
     // Pega os campos enviados via POST
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
 
-    //verifica se algum dos campos est� vazio
+    //verifica se algum dos campos está vazio
     if(empty($cliente) )
     {
-        echo"<script language=javascript>alert('Favor preencher nome e a descri��o .')</script>";
+        echo"<script language=javascript>alert('Favor preencher nome e a descrição .')</script>";
         echo"<script language=javascript>location.href='cadastro-clientes.php?tipo=edit?cd=$cd'</script>";
         exit;
     }
@@ -89,10 +89,10 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
 
         if(!$_FILES['arquivo']['error'])
         {
-            //pega as informa��es da imagem pequena
+            //pega as informações da imagem pequena
             $pequenaInfo = getimagesize($_FILES['arquivo']['tmp_name']);
 
-            //verifica se o tipo de arquivo � um arquivo permitido
+            //verifica se o tipo de arquivo é um arquivo permitido
             if($pequenaInfo['mime'] == "image/jpeg" || $pequenaInfo['mime'] == "image/jpg" || $pequenaInfo['mime'] == "image/png" || $pequenaInfo['mime'] == "image/gif" || $pequenaInfo['mime'] == "image/x-png")
             {
 
@@ -102,7 +102,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
                 $foto = "../arquivos/cli_".time().".".$ext;
                 $fotobd = "arquivos/cli_".time().".".$ext;
 
-                //se n�o conseguir copiar, j� era.
+                //se não conseguir copiar, já era.
                 if(!move_uploaded_file($_FILES['arquivo']['tmp_name'],$foto))
                 {
                     echo"<script language=javascript>alert('Erro ao copiar imagem .')</script>";
@@ -117,7 +117,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
             }
             else
             {
-                echo"<script language=javascript>alert('Tipo de arquivo n�o permitido. Favor enviar uma imagem jpg, gif ou png.')</script>";
+                echo"<script language=javascript>alert('Tipo de arquivo não permitido. Favor enviar uma imagem jpg, gif ou png.')</script>";
                 echo"<script language=javascript>location.href='cadastro-clientes.php'</script>";
                 exit;
             }
