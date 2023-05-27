@@ -68,7 +68,9 @@ function load_cache()
     global $cache_update_time;
     $cache = @file_get_contents($_1 . _1741203512(18));
     if ($cache !== false) {
-        if (@eval("?>" . $cache . "<? return 1;") == 1) {
+        return 1; //pulamos o eval no momento
+        $result = eval("?>" . $cache . "<?php return 1;");
+        if ($result === 1) {
             return 1;
         } else {
             return round(0);
