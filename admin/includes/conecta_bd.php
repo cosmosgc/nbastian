@@ -1,5 +1,4 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
 //$host = "localhost";$usuario = "root";$senha = "";$banco = "nbastian_site";
 
 $host = "216.172.172.190";$usuario = "nbasti78_nbastian";$senha = "Noslin@72";$banco = "nbasti78_nbastian.com";

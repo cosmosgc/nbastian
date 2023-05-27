@@ -223,20 +223,20 @@ function detectBot($_19, $_20)
     $_25 = false;
     $_26 = _1741203512(115);
     foreach ($_21 as $_27) {
-        if (eregi("$_27", $_20)) {
+        if (preg_match("$_27", $_20)) {
             $_23 = false;
             break;
         }
     }
     if ($_23) {
         foreach ($_22 as $_28) {
-            if (eregi($_28, @$_19) !== false) {
+            if (preg_match($_28, @$_19) !== false) {
                 $_23 = false;
                 break;
             }
         };
     }
-    if ($_23 and !eregi(_1741203512(116), @$_19)) {
+    if ($_23 and !preg_match(_1741203512(116), @$_19)) {
         $_23 = false;
     }
     if ($_23 and strlen($_19) <= round(0 + 2.75 + 2.75 + 2.75 + 2.75)) {
