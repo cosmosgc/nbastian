@@ -39,9 +39,9 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
         $headers = "MIME-Version: 1.0\r\n";
         $headers .= "Date: ". date('D, d M Y H:i:s O') ." \r\n";
         $headers .= "X-MSMail-Priority: Normal \r\n";
-        $headers .= "Return-Path: nbastian@nbastian.com\r\n";
-        $headers .= "From: NBastian Fotografia e Comunicação <nbastian@nbastian.com>\r\n";
-        $headers .= "Reply-To : NBastian Fotografia e Comunicação <nbastian@nbastian.com> \r\n";
+        $headers .= "Return-Path: nilsonbastian@me.com\r\n";
+        $headers .= "From: NBastian Fotografia e Comunicação <nilsonbastian@me.com>\r\n";
+        $headers .= "Reply-To : NBastian Fotografia e Comunicação <nilsonbastian@me.com> \r\n";
         $headers .= "Content-Type: text/html; charset=\"ISO-8859-1\"\r\n";
 
         $corpo = "Prezado(a) $nm_usuario,<BR>";

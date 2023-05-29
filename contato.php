@@ -14,10 +14,10 @@ session_start();
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Agência P4" />
+<meta name="author" content="Nbastian Fotografia comunicação" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
-<meta http-equiv="reply-to" content="nbastian@nbastian.com" />
+<meta http-equiv="reply-to" content="nilsonbastian@me.com" />
 
 <title>NBastian Fotografia | Comunica&ccedil;&atilde;o</title>
 <link href="geral.css" rel="stylesheet" type="text/css" />
@@ -118,7 +118,7 @@ jQuery(function($){
                       <li><span>(47) 3025-6114 / (47) 9964-0920</span></li>
                       
                       <li><strong>E-MAIL PARA CONTATO:</strong></li>
-                      <li><span class="minusculo"><a href="mailto:nbastian@nbastian.com?Subject=Contato via site" title="E-mail para contato">nbastian@nbastian.com</a></span></li>
+                      <li><span class="minusculo"><a href="mailto:nilsonbastian@me.com?Subject=Contato via site" title="E-mail para contato">nilsonbastian@me.com</a></span></li>
                   </ul>
                   
                   <!--<a href=""><img src="imagens/mapa.jpg" /></a>-->
@@ -184,7 +184,7 @@ jQuery(function($){
         
         <div id="info"> <!-- div info -->
         
-        	<p class="direita">Desenvolvido por <a href="http://www.eversonjp.com.br/">EversonJP</a></p>
+        	<p class="direita">Desenvolvido por <a href="http://nbastian.com/">Nbastian</a></p>
         
         	<p><strong>Copyright @ 2009 N Bastian Ag&ecirc;ncia Fotogr&aacute;fica. Todos os direitos reservados.</strong><br />
        	    O conte&uacute;do deste website n&atilde;o pode ser distribuido, copiado ou divulgado sem o conhecimento da empresa.</p>

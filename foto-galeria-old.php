@@ -16,10 +16,10 @@ include_once("admin/includes/conecta_bd.php");
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Agência P4" />
+<meta name="author" content="Nbastian Fotografia comunicação" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
-<meta http-equiv="reply-to" content="nbastian@nbastian.com" />
+<meta http-equiv="reply-to" content="nilsonbastian@me.com" />
 
 <title>NBastian Fotografia | Comunica&ccedil;&atilde;o</title>
 

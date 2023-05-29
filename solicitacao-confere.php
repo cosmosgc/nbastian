@@ -17,10 +17,10 @@ include_once("admin/includes/conecta_bd.php");
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP / Agência P4" />
+<meta name="author" content="Nbastian Fotografia comunicação" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
-<meta http-equiv="reply-to" content="nbastian@nbastian.com" />
+<meta http-equiv="reply-to" content="nilsonbastian@me.com" />
 
 <title>NBastian Fotografia | Comunica&ccedil;&atilde;o</title>
 <link href="geral.css" rel="stylesheet" type="text/css" />
@@ -222,7 +222,7 @@ jQuery(function($){
                 	<p>Agradecemos seu interesse em adquirir nosso trabalho. Na caixa ao lado, voc&ecirc; visualiza todas as fotos  que foram adicionadas ao carrinho de compras. </p>
                 	<p>Precisamos que voc&ecirc; preencha o formul&aacute;rio abaixo com seus dados para que possamos finalizar a compra, ap&oacute;s a confirma&ccedil;&atilde;o dos dados voc&ecirc; ser&aacute; redirecionado para o PagSeguro.</p>
 <fieldset>                    
-                        <input type="hidden" name="email_cobranca" value="nbastian@nbastian.com">
+                        <input type="hidden" name="email_cobranca" value="nilsonbastian@me.com">
                             <input type="hidden" name="tipo" value="CP">
                             <input type="hidden" name="moeda" value="BRL">
 
@@ -385,7 +385,7 @@ jQuery(function($){
         
         <div id="info"> <!-- div info -->
         
-        	<p class="direita">Desenvolvido por <a href="http://www.eversonjp.com.br/">EversonJP</a></p>
+        	<p class="direita">Desenvolvido por <a href="http://nbastian.com/">Nbastian</a></p>
         
         	<p><strong>Copyright @ <?php echo date("Y");?> N Bastian Ag&ecirc;ncia Fotogr&aacute;fica. Todos os direitos reservados.</strong><br />
        	    O conte&uacute;do deste website n&atilde;o pode ser distribuido, copiado ou divulgado sem o conhecimento da empresa.</p>

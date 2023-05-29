@@ -10,9 +10,9 @@ define('TOKEN','E4033F99B5024F40B56201CC9BD3A053');
 require "RetornoPagSeguro.php";
 
 function send_mail($to, $assunto, $corpo){
-    $headers = "From: NBastian Fotografia | Comunicacao  <nbastian@nbastian.com> \r\n";
-    $headers .= "Reply-To : nbastian@nbastian.com \r\n";
-    $headers .= "Return-Path: nbastian@nbastian.com \r\n";
+    $headers = "From: NBastian Fotografia | Comunicacao  <nilsonbastian@me.com> \r\n";
+    $headers .= "Reply-To : nilsonbastian@me.com \r\n";
+    $headers .= "Return-Path: nilsonbastian@me.com \r\n";
     $headers .= "Date: ". date('D, d M Y H:i:s O')."\r\n";
     //$headers .= "Message-ID: <".md5(uniqid(microtime()))."@".$_SERVER['SERVER_NAME'].">\r\n";
     $headers .= "X-Mailer: PHP v".phpversion()."\r\n";

@@ -43,7 +43,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "enviar")
             if(!stristr($_SERVER['HTTP_REFERER'],$_SERVER['HTTP_HOST']))
                 $spam=true;
 
-            $destinatario = "nbastian@nbastian.com";
+            $destinatario = "nilsonbastian@me.com";
 
 
             //$assunto = "NBastian - Contato via formulário do site";
@@ -51,7 +51,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "enviar")
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Date: ". date('D, d M Y H:i:s O') ." \r\n";
             $headers .= "X-MSMail-Priority: Normal \r\n";
-            $headers .= "Return-Path: nbastian@nbastian.com\r\n";
+            $headers .= "Return-Path: nilsonbastian@me.com\r\n";
             $headers .= "From: $nome <$email>\r\n";
             $headers .= "Reply-To : $nome <$email> \r\n";
 

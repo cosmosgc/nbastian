@@ -17,10 +17,10 @@ header('Content-Type: text/html; charset=utf-8');
 <meta name="language" content="pt-br" />
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="daily" />
-<meta name="author" content="EversonJP.com.br / Agéncia P4" />
+<meta name="author" content="Nbastian.com.br / Agéncia P4" />
 <meta name="copyright" content="NBastian" />
 <meta name="robots" content="index, follow" />
-<meta http-equiv="reply-to" content="nbastian@nbastian.com" />
+<meta http-equiv="reply-to" content="nilsonbastian@me.com" />
 <meta name="google-site-verification" content="0ZqB4dqU8D7om5nQEzTiI76tPx0CK43xhYNp6bVRLFY" />
 
 <title>NBastian Fotografia | Comunica&ccedil;&atilde;o</title>
@@ -158,7 +158,7 @@ require_once("admin/includes/conecta_bd.php");
         
         <div id="info"> <!-- div info -->
         
-        	<p class="direita">Desenvolvido por <a href="http://www.eversonjp.com.br/">EversonJP</a></p>
+        	<p class="direita">Desenvolvido por <a href="http://nbastian.com/">Nbastian</a></p>
         
         	<p><strong>Copyright @ 2009 N Bastian Ag&ecirc;ncia Fotogr&aacute;fica. Todos os direitos reservados.</strong><br />
        	    O conte&uacute;do deste website n&atilde;o pode ser distribuido, copiado ou divulgado sem o conhecimento da empresa.</p>
