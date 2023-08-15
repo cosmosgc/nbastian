@@ -55,10 +55,10 @@ tinyMCE.init({
 		theme_advanced_buttons2 : 'cut,copy,paste,pastetext,pasteword,|,bullist,numlist,|,outdent,indent,|,undo,redo,|,link,unlink,anchor,|,forecolor,backcolor,|,code',
 		theme_advanced_buttons3 : '',
 		theme_advanced_buttons4 : '',
-    //content_css : "<?php echo ROOT_DIR; ?>css/importa.css",
-	//external_image_list_url : '<?php echo ROOT_DIR; ?>',
+    //content_css : "<?php echo __DIR__; ?>css/importa.css",
+	//external_image_list_url : '<?php echo __DIR__; ?>',
 	relative_urls : false,
-	//document_base_url : "<?php echo ROOT_DIR; ?>"
+	//document_base_url : "<?php echo __DIR__; ?>"
 //	theme : "advanced",
 //  invalid_elements : "strong,em"
 //  cleanup_on_startup : true,
