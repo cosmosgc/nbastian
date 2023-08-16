@@ -1,4 +1,5 @@
 # Ignore everything except PHP files and directories
 arquivos/
+social/
 *.sql
 *.svn

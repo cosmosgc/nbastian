@@ -34,27 +34,32 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
         $vl_foto = floatval($vl_foto);
 
         $rs = mysqli_query($conn, "INSERT INTO galerias VALUES('','$cd_categoria','$nm_galeria','$texto','$local','$dt_galeria','$tempo_duracao', '$vl_foto')") or die(mysqli_error());
-        $cd = mysqli_insert_id();
+        $cd = mysqli_insert_id($conn);
         
         $dirLer = '../arquivos/temp/';//diretório que será varrido
         $dir = '../arquivos/temp/';//diretório que será varrido
 
         $arquivo = $_FILES['arquivo']['name'];
         move_uploaded_file($_FILES['arquivo']['tmp_name'], $dirLer.$arquivo);
-
+        
         
         $fotosNomes = array();
 
             $zip = new dUnzip2($dirLer.$arquivo);
 
             // Activate debug
-            $zip->debug = false;
-
+            $zip->debug = true;
+            echo($dirLer.$arquivo);
             // Unzip all the contents of the zipped file to a new folder called "uncompressed"
-            $zip->getList();
+            $fileList = $zip->getList();
 
-            $zip->unzipAll($dir);
-            
+            // Check if the file list is valid
+            if ($fileList !== null) {
+                // Unzip all the contents of the zipped file to a new folder called "uncompressed"
+                $zip->unzipAll($dir);
+            } else {
+                echo "Error: Unable to get the list of files from the zipped archive.";
+            }
             //começa a varrer o diretório com os arquivos estraidos.
             if (is_dir($dir))
             {
@@ -190,7 +195,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
 
             // Unzip all the contents of the zipped file to a new folder called "uncompressed"
             $zip->getList();
-
+            echo("193");
             $zip->unzipAll($dir);
 
             //começa a varrer o diretório com os arquivos estraidos.
