@@ -6,7 +6,7 @@ require("includes/verifica_sessao.php");
 require("includes/conecta_bd.php");
 require("includes/anti_injection.php");
 require("includes/reduz_imagem.php");
-require("includes/dUnzip2.inc.php");
+//require("includes/dUnzip2.inc.php");
 
 
 if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
@@ -45,21 +45,31 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
         
         $fotosNomes = array();
 
-            $zip = new dUnzip2($dirLer.$arquivo);
+                $zip = new ZipArchive();
 
-            // Activate debug
-            $zip->debug = true;
-            echo($dirLer.$arquivo);
-            // Unzip all the contents of the zipped file to a new folder called "uncompressed"
-            $fileList = $zip->getList();
-
-            // Check if the file list is valid
-            if ($fileList !== null) {
-                // Unzip all the contents of the zipped file to a new folder called "uncompressed"
-                $zip->unzipAll($dir);
-            } else {
-                echo "Error: Unable to get the list of files from the zipped archive.";
-            }
+                if ($zip->open($dirLer . $arquivo) === true) {
+                    // Activate debug
+                    $zip->setArchiveComment('Debug Info: ' . $dirLer . $arquivo);
+                
+                    // Get the list of files in the zip
+                    $fileList = array();
+                    for ($i = 0; $i < $zip->numFiles; $i++) {
+                        $fileList[] = $zip->getNameIndex($i);
+                    }
+                
+                    // Check if the file list is valid
+                    if (!empty($fileList)) {
+                        // Unzip all the contents to the specified directory
+                        $zip->extractTo($dir);
+                    } else {
+                        echo "Error: Unable to get the list of files from the zipped archive.";
+                    }
+                
+                    $zip->close();
+                } else {
+                    echo "Error: Unable to open the zip archive.";
+                }
+        
             //começa a varrer o diretório com os arquivos estraidos.
             if (is_dir($dir))
             {
@@ -188,15 +198,17 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
 
             $fotosNomes = array();
 
-            $zip = new dUnzip2($dirLer.$arquivo);
+            $zip = new ZipArchive();
 
-            // Activate debug
-            $zip->debug = false;
+            if ($zip->open($dirLer . $arquivo) === true) {
+                // Unzip all the contents to the specified directory
+                $zip->extractTo($dir);
 
-            // Unzip all the contents of the zipped file to a new folder called "uncompressed"
-            $zip->getList();
-            echo("193");
-            $zip->unzipAll($dir);
+                $zip->close();
+            } else {
+                echo "Error: Unable to open the zip archive.";
+            }
+
 
             //começa a varrer o diretório com os arquivos estraidos.
             if (is_dir($dir))
