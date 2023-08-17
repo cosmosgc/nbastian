@@ -1,6 +1,0 @@
-
-	<div>
-		<a href="?p={{POSTID}}" itemprop="url" title="Permalink">
-			<time datetime="{{POSTDATETIME}}" itemprop="datePublished" pubdate>{{POSTDATE}}</time>
-		</a>
-	</div>

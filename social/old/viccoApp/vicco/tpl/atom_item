@@ -1,6 +1,0 @@
-
-<entry>
-	<title type="html"><![CDATA[{{POSTCONTENT}}]]></title>
-	<link href="{{LINK}}">
-	<updated>{{DATE}}</updated>
-</entry>
