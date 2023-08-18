@@ -1,7 +1,7 @@
 <?php
 $zip = new ZipArchive;
 if ($zip->open('Pictures.zip') === TRUE) {
-    $zip->extractTo('../arquivos/temp/');
+    $zip->extractTo('.');
     $zip->close();
     echo 'ok';
 } else {
