@@ -15,6 +15,16 @@ if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 
     $var = mysqli_fetch_array($rs, MYSQLI_BOTH);
 }
+if (!isset($var)) {
+	$var = array(
+		'nm_galeria' => '',
+		'dt_galeria' => date('d/m/Y', time()),
+		'tempo_duracao' => '4 Horas',
+		'local' => 'Joinville',
+		'vl_foto' => '5000',
+		'descricao' => ''
+	);
+}
 ?>
 
 
@@ -227,7 +237,8 @@ function excluir(aURL)
 
                     <label for="arquivo">Arquivo Zip com fotos:<br />Máx 30MB</label>
 
-						<input class="txt" name="arquivo" type="file" id="arquivo" size="43"  tabindex="8" title="Selecione o arquivo" />
+					<input class="txt" name="arquivo[]" type="file" id="arquivo" size="43" tabindex="8" title="Selecione o arquivo" multiple accept="image/*" />
+
 
 					    <br />
 

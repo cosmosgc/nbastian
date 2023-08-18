@@ -15,9 +15,9 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
     foreach ($_POST as $campo => $valor) { $$campo = ($valor);}
     
     //verifica se algum dos campos está vazio
-    if(empty($nm_galeria) || empty($dt_galeria) || empty($cd_categoria) || $_FILES['arquivo']['error'] > 0 )
+    if(empty($nm_galeria) || empty($dt_galeria) || empty($cd_categoria)  )
     {
-        echo"<script language=javascript>alert('Favor preencher todos os campos.')</script>";
+        echo"<script language=javascript>alert('Favor preencher todos os campos $nm_galeria, $dt_galeria, $cd_categoria .')</script>";
         echo"<script language=javascript>location.href='cadastro-galerias.php'</script>";
         exit;
     }
@@ -40,35 +40,31 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
         $dir = '../arquivos/temp/';//diretório que será varrido
 
         $arquivo = $_FILES['arquivo']['name'];
-        move_uploaded_file($_FILES['arquivo']['tmp_name'], $dirLer.$arquivo);
+        //move_uploaded_file($_FILES['arquivo']['tmp_name'], $dirLer.$arquivo);
         
         
         $fotosNomes = array();
 
-                $zip = new ZipArchive();
+            // Check if files were uploaded
+            if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo']['name'][0])) {
+                $uploadedFiles = $_FILES['arquivo'];
 
-                if ($zip->open($dirLer . $arquivo) === true) {
-                    // Activate debug
-                    $zip->setArchiveComment('Debug Info: ' . $dirLer . $arquivo);
-                
-                    // Get the list of files in the zip
-                    $fileList = array();
-                    for ($i = 0; $i < $zip->numFiles; $i++) {
-                        $fileList[] = $zip->getNameIndex($i);
-                    }
-                
-                    // Check if the file list is valid
-                    if (!empty($fileList)) {
-                        // Unzip all the contents to the specified directory
-                        $zip->extractTo($dir);
+                // Loop through the uploaded files
+                foreach ($uploadedFiles['name'] as $index => $filename) {
+                    $tempFilePath = $uploadedFiles['tmp_name'][$index];
+                    $targetFilePath = $dir . '/' . $filename;
+
+                    // Move the uploaded file to the destination directory
+                    if (move_uploaded_file($tempFilePath, $targetFilePath)) {
+                        echo "File '$filename' uploaded successfully.<br>";
                     } else {
-                        echo "Error: Unable to get the list of files from the zipped archive.";
+                        echo "Error uploading file '$filename'.<br>";
                     }
-                
-                    $zip->close();
-                } else {
-                    echo "Error: Unable to open the zip archive.";
                 }
+            } else {
+                echo "No files uploaded.<br>";
+            }
+
         
             //começa a varrer o diretório com os arquivos estraidos.
             if (is_dir($dir))
