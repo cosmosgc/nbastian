@@ -6,7 +6,6 @@ require("includes/verifica_sessao.php");
 require("includes/conecta_bd.php");
 require("includes/anti_injection.php");
 require("includes/reduz_imagem.php");
-//require("includes/dUnzip2.inc.php");
 
 
 if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
