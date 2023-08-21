@@ -105,6 +105,52 @@
     transform: translate(0px, 0px);
   }
 </style>
+<style>
+  /* Style for the list items */
+  .explorer-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .explorer-list-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-decoration: none;
+    color: #000;
+    transition: background-color 0.2s;
+  }
+
+  .explorer-list-item:hover {
+    background-color: #f5f5f5;
+  }
+
+  .explorer-list-icon img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+
+  .explorer-list-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .explorer-list-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .explorer-list-info {
+    font-size: 12px;
+    color: #888;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
 </head>
 <body>
 <div id="desktop">
@@ -115,7 +161,7 @@
   </a>
   
   <a class="app" data-app-id="blog">
-    <img class="appIcon" src="path_to_your_icon_image.png" alt="">
+    <img class="appIcon" src="https://cdn.iconscout.com/icon/free/png-512/free-blogger-1543575-1306078.png" alt="">
     <div class="appName">Blog</div>
   </a>
   
@@ -137,12 +183,7 @@
 
 <!-- APP Windows -->
 
-<div class="window-my" id="appAWindow" style="display: none;">
-  <h2>App A Window</h2>
-  <p>This is the window content for App A.</p>
-</div>
-
-<div class="window" id="blogWindow" style="width: 300px;     
+<div class="window" id="appAWindow" style="width: 300px;     
 transform: translate(156px, 10px);
 position: absolute;
 top: 0px;
@@ -160,9 +201,30 @@ display:none;"
   <div class="window-body">
     <!-- List of blog post items will be inserted here dynamically -->
     <p>Blog</p>
-    <ul id="postList">
+  </div>
+</div>
+
+
+<div class="window" id="blogWindow" style="width: 300px;     
+transform: translate(156px, 10px);
+position: absolute;
+top: 0px;
+left: 0px;
+display:none;"
+>
+  <div class="title-bar">
+    <div class="title-bar-text">Blog</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close" class="close-button"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    <ul id="postList" class="explorer-list">
       <!-- List of blog post items will be inserted here dynamically -->
     </ul>
+    <div id="pagination" class="pagination"></div>
   </div>
 </div>
 
@@ -174,14 +236,14 @@ left: 0px;
 display:none;"
 >
   <div class="title-bar">
-    <div class="title-bar-text">A Window With Stuff In It</div>
+    <div class="title-bar-text">Post</div>
     <div class="title-bar-controls">
       <button aria-label="Minimize"></button>
       <button aria-label="Maximize"></button>
       <button aria-label="Close" class="close-button"></button>
     </div>
   </div>
-  <div class="window-body" id="postContent">
+  <div class="window-body " id="postContent">
     <p>Blog Post</p>
   </div>
 </div>
@@ -247,28 +309,62 @@ display:none;"
   const postWindow = document.getElementById('postWindow');
   const postList = document.getElementById('postList');
   const postContent = document.getElementById('postContent');
-  console.log("1");
-  // Load posts dynamically using PHP
-  fetch('load_posts.php')
-    .then(response => response.json())
-    .then(data => {
-      data.forEach(post => {
-        const listItem = document.createElement('li');
-        listItem.textContent = post.title;
-        listItem.addEventListener('click', () => loadPostContent(post.path));
-        postList.appendChild(listItem);
-      });
-    });
+  const pagination = document.getElementById('pagination');
+  const apiUrl = 'https://www.homehost.com.br/blog/wp-json/wp/v2/posts';
+  let currentPage = 1;
+  
+  // Load posts and pagination dynamically using WordPress API
+  function loadPosts(page) {
+    fetch(`${apiUrl}?per_page=5&page=${page}`)
+      .then(response => response.json())
+      .then(posts => {
+        console.log(`${apiUrl}?per_page=5&page=${page}`);
+        postList.innerHTML = ''; // Clear previous posts
+        
+        posts.forEach(post => {
+          console.log(post);
+          const listItem = document.createElement('li');
+          listItem.innerHTML = `
+            <a href="${post.link}" target="_blank" class="explorer-list-item">
+              <div class="explorer-list-icon">
+                <img src="https://cdn.iconscout.com/icon/free/png-512/free-blogger-1543575-1306078.png" alt="Icon">
+              </div>
+              <div class="explorer-list-details">
+                <div class="explorer-list-name">${post.title.rendered}</div>
+                <div class="explorer-list-info">
+                  <span>${post.author}</span>
+                  <span>${post.categories.join(', ')}</span>
+                  <span>${post.date}</span>
+                </div>
+              </div>
+            </a>
+          `;
+          console.log(listItem);
+          postList.appendChild(listItem);
+        });
 
-  // Load post content and display the post window
-  function loadPostContent(path) {
-    fetch(path)
-      .then(response => response.text())
-      .then(content => {
-        postContent.innerHTML = content;
-        postWindow.style.display = 'block';
+        // Pagination
+        const totalPages = 5;//response.headers.get('X-WP-TotalPages');
+        renderPagination(totalPages);
       });
   }
+
+  // Render pagination links
+  function renderPagination(totalPages) {
+    pagination.innerHTML = '';
+    for (let page = 1; page <= totalPages; page++) {
+      const pageLink = document.createElement('a');
+      pageLink.textContent = page;
+      pageLink.addEventListener('click', () => {
+        currentPage = page;
+        loadPosts(currentPage);
+      });
+      pagination.appendChild(pageLink);
+    }
+  }
+
+  // Initial load
+  loadPosts(currentPage);
 </script>
 
 </body>
