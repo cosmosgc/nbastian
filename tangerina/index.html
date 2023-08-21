@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desktop Experience</title>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/xp.css"
+>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #008080;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+  
+  #desktop {
+    position: relative;
+    width: 100vw;
+    height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding: 10px;
+  }
+  
+  #bottomBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+  }
+  
+  #startButton {
+    background-color: #0074d9;
+    color: #fff;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #clock {
+    color: #fff;
+    font-size: 18px;
+    margin-right: 20px;
+  }
+  
+  .app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+  }
+  
+  .appIcon {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .appIcon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .appName {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #fff;
+  }
+  .window-my {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    width: 300px;
+    min-height: 150px;
+    cursor: move;
+    z-index: 3;
+    top: 0px;
+    left: 0px;
+    transform: translate(0px, 0px);
+  }
+</style>
+</head>
+<body>
+<div id="desktop">
+  <!-- Apps -->
+  <a class="app" data-app-id="appA">
+    <img class="appIcon" src="https://cdn-icons-png.flaticon.com/128/3038/3038089.png" alt="">
+    <div class="appName">App A</div>
+  </a>
+  
+  <a class="app" data-app-id="blog">
+    <img class="appIcon" src="path_to_your_icon_image.png" alt="">
+    <div class="appName">Blog</div>
+  </a>
+  
+  <a class="app" >
+    <img class="appIcon" src="path_to_your_icon_image.png" alt="">
+    <div class="appName">App C</div>
+  </a>
+  
+  <a class="app" >
+    <img class="appIcon" src="path_to_your_icon_image.png" alt="">
+    <div class="appName">App D</div>
+  </a>
+</div>
+
+<div id="bottomBar">
+  <div id="startButton">Start</div>
+  <div id="clock">12:34 PM</div>
+</div>
+
+<!-- APP Windows -->
+
+<div class="window-my" id="appAWindow" style="display: none;">
+  <h2>App A Window</h2>
+  <p>This is the window content for App A.</p>
+</div>
+
+<div class="window" id="blogWindow" style="width: 300px;     
+transform: translate(156px, 10px);
+position: absolute;
+top: 0px;
+left: 0px;
+display:none;"
+>
+  <div class="title-bar">
+    <div class="title-bar-text">A Window With Stuff In It</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close" class="close-button"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    <!-- List of blog post items will be inserted here dynamically -->
+    <p>Blog</p>
+    <ul id="postList">
+      <!-- List of blog post items will be inserted here dynamically -->
+    </ul>
+  </div>
+</div>
+
+<div class="window" id="postWindow" style="width: 300px;     
+transform: translate(304px, 10px);
+position: absolute;
+top: 0px;
+left: 0px;
+display:none;"
+>
+  <div class="title-bar">
+    <div class="title-bar-text">A Window With Stuff In It</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close" class="close-button"></button>
+    </div>
+  </div>
+  <div class="window-body" id="postContent">
+    <p>Blog Post</p>
+  </div>
+</div>
+
+<script>
+  const apps = document.querySelectorAll('.app');
+  apps.forEach(app => {
+    app.addEventListener('click', (e) => {
+      const appId = app.getAttribute('data-app-id');
+      const window = document.getElementById(`${appId}Window`);
+      if (window) {
+        window.style.display = 'block';
+      }
+    });
+  });
+</script>
+
+<script>
+  const windows = document.querySelectorAll('.window');
+
+  windows.forEach(window => {
+    const closeButton = window.querySelector('.close-button');
+    const titleBar = window.querySelector('.title-bar');
+    let isDragging = false;
+    let xOffset, yOffset;
+    
+    const minX = 0;
+    const maxX = window.parentElement.clientWidth - window.clientWidth;
+    const minY = 0;
+    const maxY = window.parentElement.clientHeight - window.clientHeight;
+
+    titleBar.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      xOffset = e.clientX - window.getBoundingClientRect().left;
+      yOffset = e.clientY - window.getBoundingClientRect().top;
+      //window.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      let newX = e.clientX - xOffset;
+      let newY = e.clientY - yOffset;
+      
+      // Restrict dragging within the viewport
+      newX = Math.max(minX, Math.min(newX, maxX));
+      newY = Math.max(minY, Math.min(newY, maxY));
+
+      window.style.transform = `translate(${newX}px, ${newY}px)`;
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      //window.style.cursor = 'grab';
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.style.display = 'none';
+    });
+  });
+</script>
+<script>
+  const blogWindow = document.getElementById('blogWindow');
+  const postWindow = document.getElementById('postWindow');
+  const postList = document.getElementById('postList');
+  const postContent = document.getElementById('postContent');
+  console.log("1");
+  // Load posts dynamically using PHP
+  fetch('load_posts.php')
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(post => {
+        const listItem = document.createElement('li');
+        listItem.textContent = post.title;
+        listItem.addEventListener('click', () => loadPostContent(post.path));
+        postList.appendChild(listItem);
+      });
+    });
+
+  // Load post content and display the post window
+  function loadPostContent(path) {
+    fetch(path)
+      .then(response => response.text())
+      .then(content => {
+        postContent.innerHTML = content;
+        postWindow.style.display = 'block';
+      });
+  }
+</script>
+
+</body>
+</html>
