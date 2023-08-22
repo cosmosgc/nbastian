@@ -26,20 +26,20 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
-    padding: 10px;
+    padding: 0px;
   }
   
   #bottomBar {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 50px;
     background-color: #1e1e1e;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 0px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
     z-index: 2;
   }
@@ -104,6 +104,10 @@
     left: 0px;
     transform: translate(0px, 0px);
   }
+  .window-body{
+    overflow: auto;
+    max-height: 90vh;
+  }
 </style>
 <style>
   /* Style for the list items */
@@ -150,6 +154,19 @@
     display: flex;
     justify-content: space-between;
   }
+  @media (max-width: 768px) { /* Adjust the breakpoint as needed */
+    .window {
+      width: 100% !important;
+      height: 100% !important;
+      left: 0 !important;
+      top: 0 !important;
+      transform: none !important;
+      overflow: auto;
+      cursor: auto;
+    }
+
+    
+  }
 </style>
 </head>
 <body>
@@ -165,9 +182,9 @@
     <div class="appName">Blog</div>
   </a>
   
-  <a class="app" >
-    <img class="appIcon" src="path_to_your_icon_image.png" alt="">
-    <div class="appName">App C</div>
+  <a class="app" data-app-id="equipe" onclick="loadPeople">
+    <img class="appIcon" src="https://cdn.iconscout.com/icon/free/png-512/free-team-167-459280.png" alt="">
+    <div class="appName">Equipe</div>
   </a>
   
   <a class="app" >
@@ -223,20 +240,22 @@ display:none;"
   <div class="window-body">
     <ul id="postList" class="explorer-list">
       <!-- List of blog post items will be inserted here dynamically -->
+      Carregando blog
     </ul>
     <div id="pagination" class="pagination"></div>
   </div>
 </div>
 
-<div class="window" id="postWindow" style="width: 300px;     
+<div class="window" id="postWindow" style="width: 450px;     
 transform: translate(304px, 10px);
 position: absolute;
 top: 0px;
 left: 0px;
-display:none;"
+display:none;
+z-index:5;"
 >
   <div class="title-bar">
-    <div class="title-bar-text">Post</div>
+    <div class="title-bar-text">Visualizador</div>
     <div class="title-bar-controls">
       <button aria-label="Minimize"></button>
       <button aria-label="Maximize"></button>
@@ -245,6 +264,30 @@ display:none;"
   </div>
   <div class="window-body " id="postContent">
     <p>Blog Post</p>
+  </div>
+</div>
+
+<div class="window" id="equipeWindow" style="width: 300px;     
+transform: translate(100px, 40px);
+position: absolute;
+top: 0px;
+left: 0px;
+display:none;"
+>
+  <div class="title-bar">
+    <div class="title-bar-text">Equipe</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close" class="close-button"></button>
+    </div>
+  </div>
+  <div class="window-body " id="postContent">
+    <p>Equipe</p>
+    <ul id="teamList" class="explorer-list">
+      <!-- List of blog post items will be inserted here dynamically -->
+      Carregando equipe
+    </ul>
   </div>
 </div>
 
@@ -308,6 +351,7 @@ display:none;"
   const blogWindow = document.getElementById('blogWindow');
   const postWindow = document.getElementById('postWindow');
   const postList = document.getElementById('postList');
+  const teamList = document.getElementById('teamList');
   const postContent = document.getElementById('postContent');
   const pagination = document.getElementById('pagination');
   const apiUrl = 'https://www.homehost.com.br/blog/wp-json/wp/v2/posts';
@@ -347,6 +391,7 @@ display:none;"
         const totalPages = 5;//response.headers.get('X-WP-TotalPages');
         renderPagination(totalPages);
       });
+      
   }
 
   // Render pagination links
@@ -362,7 +407,57 @@ display:none;"
       pagination.appendChild(pageLink);
     }
   }
+  // Load post content and display the post window
+  function loadPostContent(path) {
+    fetch(path)
+      .then(response => response.text())
+      .then(content => {
+        postContent.innerHTML = content;
+        postWindow.style.display = 'block';
+      });
+  }
+  const equipeApp = document.querySelector('.app[data-app-id="equipe"]');
+equipeApp.addEventListener('click', () => {
+  loadPeople();
+});
 
+function loadPeople() {
+  fetch('load_people.php')
+    .then(response => response.json())
+    .then(data => {
+      teamList.innerHTML = ''; // Clear previous content
+
+      data.forEach(person => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+          <a href="#" class="explorer-list-item">
+            <div class="explorer-list-icon">
+              <img src="${person.image}" alt="Icon">
+            </div>
+            <div class="explorer-list-details">
+              <div class="explorer-list-name">${person.title}</div>
+              <!-- Other details if needed -->
+            </div>
+          </a>
+        `;
+        listItem.addEventListener('click', () => loadPersonContent(person.path));
+        teamList.appendChild(listItem);
+      });
+
+      // Hide other windows and show the "equipe" window
+      //hideAllWindows();
+      equipeWindow.style.display = 'block';
+    });
+}
+
+function loadPersonContent(path) {
+  fetch(path)
+    .then(response => response.text())
+    .then(content => {
+      postContent.innerHTML = content;
+      postWindow.style.display = 'block';
+    });
+}
   // Initial load
   loadPosts(currentPage);
 </script>

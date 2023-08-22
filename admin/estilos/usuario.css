@@ -108,7 +108,7 @@
 	
 	#miolo{
 		border: 1px solid #fafafa;
-		padding: 10px;
+		/* padding: 10px; */
 	}
 	
 	#miolo p{
@@ -159,11 +159,11 @@
 
 
 	table {
-		border-spacing:1px;
-		font: 12px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-		background-color:#fafafa;
-		color: #666;
+		border-collapse: collapse;
 		width: 100%;
+		font: 12px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+		background-color: #fafafa;
+		color: #666;
 	}
 	
 	td, th {
@@ -178,19 +178,26 @@
 	.625{ width: 75%;}
 	
 	thead th {
-		background: #fafafa;
+		/* background: #fafafa; */
 		color: #666;
 		text-align: left;
+		border: 1px solid #608db3
+	}
+	thead tr{
+		background: #a8d8ee;
 	}
 	
 	tbody tr{
 		background-color:#FFF; 
 		text-align:left;
 		}
+	tbody tr:nth-child(even) {
+		background-color: #d8dfed;
+	}
 	
 	tbody tr td { 
-		background: #FFF;
-		border: 1px solid #FFF;
+		/* background: #FFF; */
+		border: 1px solid #c9c9c9;
 		padding-bottom: 15px;
 		}
 		
@@ -295,6 +302,12 @@
 		padding: 3px;
 		width: 95px;
 		text-align: center;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-content: center;
+		align-items: center;
+		justify-content: flex-start;
 	} 
 	
 	#conteudo #menuNovo ul li a{
@@ -304,6 +317,12 @@
 		text-align: center;
 		text-decoration: none;
 	}
+	#menuNovo ul{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+	  }
 	
 	#bot{ clear: both; padding: 5px; border: 1px solid #f60;}
 	
@@ -362,3 +381,7 @@
 	
 	.semApostila{ display: none;}
 
+	tbody tr:hover {
+		background-color: #e0e0e0;
+		cursor: pointer;
+	}
