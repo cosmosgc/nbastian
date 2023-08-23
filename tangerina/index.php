@@ -85,6 +85,7 @@
     font-size: 24px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
+    object-fit: cover;
   }
   
   .appIcon:hover {
@@ -97,6 +98,7 @@
     font-size: 14px;
     color: #fff;
     text-align: center;
+    text-shadow: 0px 2px 3px black;
   }
   .window-my {
     position: absolute;
@@ -163,6 +165,15 @@
     display: flex;
     justify-content: space-between;
   }
+  div#windowsContainer .window{
+    width: 450px;
+    transform: translate(304px, 10px);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+    z-index: 5;
+  }
   @media (max-width: 768px) { /* Adjust the breakpoint as needed */
     .window {
       width: 100% !important;
@@ -200,7 +211,49 @@
     <img class="appIcon" src="path_to_your_icon_image.png" alt="">
     <div class="appName">App D</div>
   </a>
-</div>
+  
+  <?php
+    $appsDirectory = 'apps/';
+    $apps = [];
+
+    foreach (scandir($appsDirectory) as $appFolder) {
+      if ($appFolder !== '.' && $appFolder !== '..' && is_dir($appsDirectory . $appFolder)) {
+        $configPath = $appsDirectory . $appFolder . '/config.json';
+        if (file_exists($configPath)) {
+          $config = json_decode(file_get_contents($configPath), true);
+          $appImagePath = $appsDirectory . $appFolder . '/' . $config['icon'];
+          $appTitle = $config['name'];
+          $appWidth = isset($config['width']) ? $config['width'] : 300;
+          $appHeight = isset($config['height']) ? $config['height'] : 300;
+          echo '<a class="app" data-app-id="' . $appFolder . '">';
+          echo '<img class="appIcon" src="' . $appsDirectory . $appFolder . '/' . $config['icon'] . '" alt="' . $config['name'] . '">';
+          echo '<div class="appName">' . $config['name'] . '</div>';
+          echo '</a>';
+
+          echo '<div class="window" id="' . $appFolder . 'Window" style="width: ' . $appWidth . 'px; height: ' . $appHeight . 'px; transform: translate(156px, 10px); position: absolute; top: 0px; left: 0px; display: none;">';
+          echo '<div class="title-bar">';
+          echo '<div class="title-bar-text">' . $config['name'] . '</div>';
+          echo '<div class="title-bar-controls">';
+          echo '<button aria-label="Minimize"></button>';
+          echo '<button aria-label="Maximize"></button>';
+          echo '<button aria-label="Close" class="close-button"></button>';
+          echo '</div>';
+          echo '</div>';
+          echo '<div class="window-body">';
+          
+          if ($config['type'] === 'php') {
+            include $appsDirectory . $appFolder . '/' . $config['main'];
+          } else {
+            echo file_get_contents($appsDirectory . $appFolder . '/' . $config['main']);
+          }
+          
+          echo '</div>';
+          echo '</div>';
+        }
+      }
+    }
+    ?>
+
 
 <div id="bottomBar">
   <div id="startButton">Start</div>
@@ -298,6 +351,9 @@ display:none;"
       Carregando equipe
     </ul>
   </div>
+</div>
+<div id="windowsContainer">
+
 </div>
 
 <script>
@@ -467,6 +523,7 @@ function loadPersonContent(path) {
       postWindow.style.display = 'block';
     });
 }
+
   // Initial load
   loadPosts(currentPage);
 </script>

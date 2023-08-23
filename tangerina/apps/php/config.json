@@ -1,0 +1,9 @@
+{
+    "name": "php",
+    "icon": "icon.png",
+    "main": "index.php",
+    "type": "php" ,
+    "height":490,
+    "width":425
+  }
+  

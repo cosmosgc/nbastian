@@ -1,0 +1,28 @@
+
+  <div id="calculator">
+    <input type="text" id="num1" placeholder="Number 1">
+    <input type="text" id="num2" placeholder="Number 2">
+    <div>
+      <button id="add">+</button>
+    </div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const num1Input = document.getElementById('num1');
+    const num2Input = document.getElementById('num2');
+    const addButton = document.getElementById('add');
+    const resultDisplay = document.getElementById('result');
+
+    addButton.addEventListener('click', () => {
+      const num1 = parseFloat(num1Input.value);
+      const num2 = parseFloat(num2Input.value);
+
+      if (!isNaN(num1) && !isNaN(num2)) {
+        const sum = num1 + num2;
+        resultDisplay.textContent = `Result: ${sum}`;
+      } else {
+        resultDisplay.textContent = 'Invalid input';
+      }
+    });
+  </script>

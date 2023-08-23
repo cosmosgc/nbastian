@@ -1,0 +1,9 @@
+{
+    "name": "Desenho",
+    "icon": "icon.png",
+    "main": "index.html",
+    "type": "web" ,
+    "height":490,
+    "width":425
+  }
+  

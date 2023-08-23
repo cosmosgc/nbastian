@@ -1,0 +1,7 @@
+{
+    "name": "Calculator",
+    "icon": "icon.png",
+    "main": "index.html",
+    "type": "web" 
+  }
+  
