@@ -8,6 +8,7 @@
   rel="stylesheet"
   href="https://unpkg.com/xp.css"
 >
+<link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Tangerina Dev">
 <meta property="og:description" content="Uma apresentação estilo Desktop">
 <meta property="og:image" content="https://nbastian.com/tangerina/ogbk.jpg"> 
@@ -16,178 +17,6 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tangerinadev.com"> 
 
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: #008080;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-  }
-  
-  #desktop {
-    position: relative;
-    width: 100vw;
-    height: 90vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    padding: 0px;
-  }
-  
-  #bottomBar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 50px;
-    background-color: #1e1e1e;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 0px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 2;
-  }
-  
-  #startButton {
-    background-color: #0074d9;
-    color: #fff;
-    padding: 8px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  #clock {
-    color: #fff;
-    font-size: 18px;
-    margin-right: 20px;
-  }
-  
-  .app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5px;
-  }
-  
-  .appIcon {
-    width: 50px;
-    height: 50px;
-    background-color: #fff;
-    border: 1px solid #aaa;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    object-fit: cover;
-  }
-  
-  .appIcon:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .appName {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #fff;
-    text-align: center;
-    text-shadow: 0px 2px 3px black;
-  }
-  .window-my {
-    position: absolute;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    padding: 10px;
-    width: 300px;
-    min-height: 150px;
-    cursor: move;
-    z-index: 3;
-    top: 0px;
-    left: 0px;
-    transform: translate(0px, 0px);
-  }
-  .window-body{
-    overflow: auto;
-    max-height: 90vh;
-  }
-</style>
-<style>
-  /* Style for the list items */
-  .explorer-list {
-    list-style: none;
-    padding: 0;
-  }
-
-  .explorer-list-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-decoration: none;
-    color: #000;
-    transition: background-color 0.2s;
-  }
-
-  .explorer-list-item:hover {
-    background-color: #f5f5f5;
-  }
-
-  .explorer-list-icon img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-  }
-
-  .explorer-list-details {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .explorer-list-name {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-
-  .explorer-list-info {
-    font-size: 12px;
-    color: #888;
-    display: flex;
-    justify-content: space-between;
-  }
-  div#windowsContainer .window{
-    width: 450px;
-    transform: translate(304px, 10px);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    display: none;
-    z-index: 5;
-  }
-  @media (max-width: 768px) { /* Adjust the breakpoint as needed */
-    .window {
-      width: 100% !important;
-      height: 100% !important;
-      left: 0 !important;
-      top: 0 !important;
-      transform: none !important;
-      overflow: auto;
-      cursor: auto;
-    }
-
-    
-  }
-</style>
 </head>
 <body>
 <div id="desktop">
@@ -207,10 +36,6 @@
     <div class="appName">Equipe</div>
   </a>
   
-  <a class="app" data-app-id="appA">
-    <img class="appIcon" src="path_to_your_icon_image.png" alt="">
-    <div class="appName">App D</div>
-  </a>
   
   <?php
     $appsDirectory = 'apps/';
@@ -256,33 +81,26 @@
 
 
 <div id="bottomBar">
-  <div id="startButton">Start</div>
+  <div id="startButton" onclick="toggleStartMenu()">Start</div>
+  <div id="startMenu">
+    <ul>
+      <li><a href="#">Program 1</a></li>
+      <li><a href="#">Program 2</a></li>
+      <li><a href="#">Program 3</a></li>
+    </ul>
+  </div>
   <div id="clock">12:34 PM</div>
 </div>
-
+<script>
+    function toggleStartMenu() {
+      var startButton = document.getElementById('startButton');
+      var startMenu = document.getElementById('startMenu');
+      
+      startButton.classList.toggle('active');
+      startMenu.classList.toggle('active');
+    }
+</script>
 <!-- APP Windows -->
-
-<div class="window" id="appAWindow" style="width: 300px;     
-transform: translate(156px, 10px);
-position: absolute;
-top: 0px;
-left: 0px;
-display:none;"
->
-  <div class="title-bar">
-    <div class="title-bar-text">Em desenvolvimento</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize"></button>
-      <button aria-label="Maximize"></button>
-      <button aria-label="Close" class="close-button"></button>
-    </div>
-  </div>
-  <div class="window-body">
-    <!-- List of blog post items will be inserted here dynamically -->
-    <p>Aqui será um outro app</p>
-  </div>
-</div>
-
 
 <div class="window" id="blogWindow" style="width: 300px;     
 transform: translate(156px, 10px);

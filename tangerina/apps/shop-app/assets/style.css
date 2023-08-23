@@ -1,0 +1,100 @@
+#shop-app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.shop-container {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+}
+
+.item-list {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #e1e1e1;
+    height: fit-content;
+}
+
+.item-list.active {
+    max-height: 1000px; /* Set a larger value than the expected max height */
+}
+
+
+
+.item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-name {
+    font-size: 18px;
+    margin: 0;
+}
+
+.item-description {
+    font-size: 14px;
+    color: #666;
+}
+
+.item-price {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.add-to-cart,
+.remove-from-cart {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: white;
+    margin: 5px;
+    flex: 1;
+}
+
+.cart-total {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+#cart-total-price {
+    font-weight: bold;
+}
+.item-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: transform 0.2s ease-in-out; /* Add transition property */
+}
+
+.item-card:hover {
+    transform: scale(1.05); /* Add scale transformation on hover */
+}
+
+div#cart-list .item-image {
+    width: 70px;
+    height: 70px;
+}

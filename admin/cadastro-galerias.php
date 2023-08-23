@@ -235,7 +235,7 @@ function excluir(aURL)
                         <textarea name="texto" id="texto" tabindex="7" rows="20" cols="40" class="txt" title="" ><?php echo $var['descricao'];?></textarea>
 					<br />
 
-                    <label for="arquivo">Arquivo Zip com fotos:<br />Máx 30MB</label>
+                    <label for="arquivo">Multiplas imagens:<br />Máx 500MB</label>
 
 					<input class="txt" name="arquivo[]" type="file" id="arquivo" size="43" tabindex="8" title="Selecione o arquivo" multiple accept="image/*" />
 

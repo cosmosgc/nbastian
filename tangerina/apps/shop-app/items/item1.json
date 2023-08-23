@@ -1,0 +1,6 @@
+{
+    "name": "Item 1",
+    "description": "This is item 1 description.",
+    "price": 10.99,
+    "image": "items/02.png"
+}
