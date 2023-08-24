@@ -32,7 +32,7 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
         $vl_foto = str_replace(',','.',$vl_foto);
         $vl_foto = floatval($vl_foto);
 
-        $rs = mysqli_query($conn, "INSERT INTO galerias VALUES('','$cd_categoria','$nm_galeria','$texto','$local','$dt_galeria','$tempo_duracao', '$vl_foto')") or die(mysqli_error());
+        $rs = mysqli_query($conn, "INSERT INTO galerias VALUES('','$cd_categoria','$nm_galeria','$texto','$local','$dt_galeria','$tempo_duracao', '$vl_foto')") or die(mysqli_error($conn));
         $cd = mysqli_insert_id($conn);
         
         $dirLer = '../arquivos/temp/';//diretório que será varrido
@@ -63,8 +63,6 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
             } else {
                 echo "No files uploaded.<br>";
             }
-
-        
             //começa a varrer o diretório com os arquivos estraidos.
             if (is_dir($dir))
             {
@@ -84,30 +82,22 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
                 closedir($dh);//fecha o diretório
                 }//if opendir
             }//if is_dir
-
-
             //ordena pelo nome das fotos
             natcasesort($fotosNomes);
-            
             @unlink($dirLer.$arquivo);
-            
             $prim = time();
             $dir_dest = '../../arquivos/';
             foreach($fotosNomes as $arq)
             {
                 $ext = end(explode('.',strtolower($arq)));
-
                 $ft_grande = "../arquivos/foto_".$prim.".".$ext;
                 $grandebd = "arquivos/foto_".$prim.".".$ext;
-
                 $thumb = "../arquivos/mini_".$prim.".".$ext;
                 $thumbbd = "arquivos/mini_".$prim.".".$ext;
-
                 $original = "../arquivos/galeria_".$prim.".".$ext;
                 $originalbd = "arquivos/galeria_".$prim.".".$ext;
 
                 list($tam_x, $tam_y) = getimagesize($arq);
-
                     if($tam_x > $tam_y)
                     {
                         reduz_imagem($arq, 100, 75, $thumb);
@@ -120,31 +110,16 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
 
                         reduz_imagem($arq, 399, 266, $ft_grande);
                     }
-
                     copy($arq, $original);
-
-
                     @chmod($ft_grande, 0766);
-
-
-                    $res1 = mysqli_query($conn, "INSERT INTO fotos_galeria VALUES('','$cd','$thumbbd','$grandebd','$originalbd','1')") or die(mysqli_error());
+                    $res1 = mysqli_query($conn, "INSERT INTO fotos_galeria VALUES('','$cd','$thumbbd','$grandebd','$originalbd','1')") or die(mysqli_error($conn));
                     $prim++;
-
-
-
-
                 @unlink($arq);
             }//foreach fotos
-
-
         //echo"<script language=javascript>alert('cadastro realizado com sucesso.')</script>";
         echo"<script language=javascript>location.href='cadastro-galerias.php'</script>";
         exit;
-            
-
     }
-
-
 }
 elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
 {
@@ -176,7 +151,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
 
 
         $rs = mysqli_query($conn, "UPDATE galerias SET cd_categoria='$cd_categoria', nm_galeria='$nm_galeria',  descricao='$texto', local='$local',
-        dt_galeria='$dt_galeria', tempo_duracao='$tempo_duracao', vl_foto='$vl_foto' WHERE cd_galeria='$cd'") or die(mysqli_error());
+        dt_galeria='$dt_galeria', tempo_duracao='$tempo_duracao', vl_foto='$vl_foto' WHERE cd_galeria='$cd'") or die(mysqli_error($conn));
 
         $dirLer = '../arquivos/temp/';//diretório que será varrido
         $dir = '../arquivos/temp/';//diretório que será varrido
@@ -276,7 +251,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
                     @chmod($ft_grande, 0766);
 
 
-                    $res1 = mysqli_query($conn, "INSERT INTO fotos_galeria VALUES('','$cd','$thumbbd','$grandebd','$originalbd','1')") or die(mysqli_error());
+                    $res1 = mysqli_query($conn, "INSERT INTO fotos_galeria VALUES('','$cd','$thumbbd','$grandebd','$originalbd','1')") or die(mysqli_error($conn));
                     $prim++;
 
 
@@ -340,4 +315,3 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "gerencia")
         echo"<script language=javascript>location.href='gerenciar-galerias.php?tipo=edit&cd=$cd'</script>";
         exit;
 }
-?>
