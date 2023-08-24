@@ -215,7 +215,7 @@ if (!isset($var)) {
 							echo "Error fetching images: " . mysqli_error($conn);
 						}
 					} else {
-						echo "Gallery ID not provided.";
+						echo "Não foi selecionado uma galeria.";
 					}
 					?>
 					</div>
