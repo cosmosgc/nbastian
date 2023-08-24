@@ -181,28 +181,34 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
         $dirLer = '../arquivos/temp/';//diretório que será varrido
         $dir = '../arquivos/temp/';//diretório que será varrido
 
-        if($_FILES['arquivo']['error'] == 0)
-        {
 
             //echo $_FILES['arquivo']['name'];exit;
 
             $arquivo = $_FILES['arquivo']['name'];
-            move_uploaded_file($_FILES['arquivo']['tmp_name'], $dirLer.$arquivo);
+            //move_uploaded_file($_FILES['arquivo']['tmp_name'], $dirLer.$arquivo);
 
             //echo $arquivo;
 
             $fotosNomes = array();
-
-            $zip = new ZipArchive();
-
-            if ($zip->open($dirLer . $arquivo) === true) {
-                // Unzip all the contents to the specified directory
-                $zip->extractTo($dir);
-
-                $zip->close();
+            if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo']['name'][0])) {
+                $uploadedFiles = $_FILES['arquivo'];
+            
+                // Loop through the uploaded files
+                foreach ($uploadedFiles['name'] as $index => $filename) {
+                    $tempFilePath = $uploadedFiles['tmp_name'][$index];
+                    $targetFilePath = $dir . '/' . $filename;
+            
+                    // Move the uploaded file to the destination directory
+                    if (move_uploaded_file($tempFilePath, $targetFilePath)) {
+                        echo "File '$filename' uploaded successfully.<br>";
+                    } else {
+                        echo "Error uploading file '$filename'.<br>";
+                    }
+                }
             } else {
-                echo "Error: Unable to open the zip archive.";
+                echo "No files uploaded.<br>";
             }
+            
 
 
             //começa a varrer o diretório com os arquivos estraidos.
@@ -280,9 +286,6 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
             }//foreach fotos
 
 
-        }
-
-
         //$rs = mysqli_query($conn, "UPDATE noticias SET de_titulo='$titulo', de_conteudo='$texto', dt_noticia='$dt_noticia' WHERE cd_noticia='$cd'");
 
 
@@ -311,25 +314,27 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "gerencia")
         $rs1 = mysqli_query($conn, "UPDATE fotos_galeria SET ativo='".$$valor."' WHERE cd_foto='".$valor."'");
     }
 
-
-    $apagar = $_POST['apagar'];
-    
-    if(count($apagar))
-    {
-        foreach($apagar as $item)
+    if(isset($_POST['apagar'])) {
+        $apagar = $_POST['apagar'];
+        if(count($apagar))
         {
+            foreach($apagar as $item)
+            {
 
-            $rs = mysqli_query($conn, "SELECT * FROM fotos_galeria WHERE cd_foto='$item'");
-            $ft = mysqli_fetch_array($rs, MYSQLI_BOTH);
-            @unlink("../".$ft['caminho_thumb']);
-            @unlink("../".$ft['caminho_foto']);
-            //@unlink("../".$ft['caminho_original']);
-            
-            $rs = mysqli_query($conn, "DELETE FROM fotos_galeria WHERE cd_foto='$item'");
+                $rs = mysqli_query($conn, "SELECT * FROM fotos_galeria WHERE cd_foto='$item'");
+                $ft = mysqli_fetch_array($rs, MYSQLI_BOTH);
+                @unlink("../".$ft['caminho_thumb']);
+                @unlink("../".$ft['caminho_foto']);
+                //@unlink("../".$ft['caminho_original']);
+                
+                $rs = mysqli_query($conn, "DELETE FROM fotos_galeria WHERE cd_foto='$item'");
 
-            //$rs = mysqli_query($conn, "UPDATE fotos_galeria SET ativo='0' WHERE cd_foto='$item'");
+                //$rs = mysqli_query($conn, "UPDATE fotos_galeria SET ativo='0' WHERE cd_foto='$item'");
+            }
+
         }
-
+    } else {
+        // Handle the case when 'apagar' is not set
     }
     //echo"<script language=javascript>alert('Dados atualizados com sucesso.')</script>";
         echo"<script language=javascript>location.href='gerenciar-galerias.php?tipo=edit&cd=$cd'</script>";
