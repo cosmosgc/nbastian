@@ -290,7 +290,7 @@ elseif(isset($_POST['acao']) && $_POST['acao'] == "edita")
 
 
         //echo"<script language=javascript>alert('Dados atualizados com sucesso.')</script>";
-        //echo"<script language=javascript>location.href='cadastro-galerias.php'</script>";
+        header("Location: " . $_SERVER['HTTP_REFERER']);
         exit;
 
         
