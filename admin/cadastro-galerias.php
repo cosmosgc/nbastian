@@ -263,7 +263,7 @@ if (!isset($var)) {
 
 				<h4>&raquo; Listagem de Galerias</h4>
 
-				<table>
+				<table id="DataTable">
 
 					<thead>
 						<tr>
@@ -345,8 +345,12 @@ if (!isset($var)) {
 
 
 	</div> <!-- /geral -->
-
-
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<script>
+	const table = new DataTable('#DataTable');
+</script>
 
 </body>
 
