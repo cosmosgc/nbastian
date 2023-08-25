@@ -38,7 +38,6 @@ if(isset($_GET['tipo']) && $_GET['tipo'] == "edit")
 </style>
 
 <script type="text/javascript">
-<!--
 function excluir(aURL)
 {
     if(confirm("Você tem certeza que deseja apagar esse registro?"))
@@ -46,7 +45,6 @@ function excluir(aURL)
         location.href = aURL;
     }
 }
--->
 </script>
 
 <link href="estilos/adm.css" rel="stylesheet" type="text/css" />

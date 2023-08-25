@@ -43,10 +43,10 @@ if(isset($_POST['acao']) && $_POST['acao'] == "cadastra")
                 }
                 else
                 {
-                    $rs = mysqli_query($conn, "INSERT INTO categorias VALUES('','$nm_categoria','$fotobd','$venda')") or die(mysqli_error());
+                    $rs = mysqli_query($conn, "INSERT INTO categorias VALUES('','$nm_categoria','$fotobd','$venda')") or die(mysqli_error($conn));
 
                    // echo"<script language=javascript>alert('Dados cadastrados com sucesso.')</script>";
-                    echo"<script language=javascript>location.href='cadastro-categorias.php'</script>";
+                   //goBack();
                     exit;
                 }
 
@@ -117,14 +117,16 @@ if(isset($_POST['acao']) && $_POST['acao'] == "edita")
             }
         }
         
-        $rs = mysqli_query($conn, $up." WHERE cd_categoria='$cd'") or die(mysqli_error());
+        $rs = mysqli_query($conn, $up." WHERE cd_categoria='$cd'") or die(mysqli_error($conn));
        //echo"<script language=javascript>alert('Dados atualizados com sucesso!')</script>";
-            echo"<script language=javascript>location.href='cadastro-categorias.php'</script>";
-            exit;
+       goBack();
         
     }
 
 
 }
-
+function goBack(){
+    header("Location: " . $_SERVER['HTTP_REFERER']);
+    exit; // Make sure to exit after sending the header
+}
 ?>

@@ -33,9 +33,33 @@ include_once("admin/includes/conecta_bd.php");
 function removeImagem(cdItem)
 {
     //alert(cdFoto);
-    $("#solicita").load('adiciona-foto.php',{acao:"remove", cd_item: cdItem});
+    $("#fotinhos").load('adiciona-foto.php', { acao: "remove", cd_item: cdItem }, function(response, status, xhr) {
+        // This is the complete callback
+        if (status === "success") {
+            // handle the response and generate the DOM
+        }
+    });
 }
+function precalcTotal(value){
+    const totalElement = document.getElementById('valorTotal');
+    totalElement.innerText =  value.toFixed(2); // Display total with two decimal places
+}
+function calculateTotal() {
+    // Get all elements with the id "vl_foto"
+    const vlFotoElements = document.querySelectorAll('[id="vl_foto"]');
+    let total = 0;
+    console.log(total);
+    vlFotoElements.forEach(element => {
+        const valueWithCommas = element.innerText.replace(/[^\d.,-]/g, '');
+        const value = parseFloat(valueWithCommas.replace(',', '.'));
+        total += value;
+        console.log(total);
+    });
 
+    // Update the designated element to display the total
+    const totalElement = document.getElementById('valorTotal');
+    totalElement.innerText =  total.toFixed(2); // Display total with two decimal places
+}
 jQuery(function($){
    $("#fone").mask("(99) 9999-9999");
    $("#cep").mask("99999-999");
@@ -180,7 +204,7 @@ jQuery(function($){
                       ?>
                         <li>
                     	   <img src="admin/includes/phpThumb/phpThumb.php?src=../../../<?php echo $foto;?>&w=67&h=67&zc=1" />
-                            <span>R$ <?php echo number_format($vl_foto, 2, ',','.');?></span>
+                            <span>R$ <span id="vl_foto"><?php echo number_format($vl_foto, 2, ',','.');?></span> </span>
                             <a onclick="removeImagem('<?php echo $var['cd_item'];?>','');" href="javascript:void(0);">Remover</a>
                         </li>
                     <?php
@@ -194,7 +218,7 @@ jQuery(function($){
                     {
                     ?>
                      <br clear="left" />
-                    <h6 class="total">Valor Total R$ <?php echo number_format($vl_total, 2, ',','.');?></h6>
+                    <h6 class="total">Valor Total R$ <span id="valorTotal"><?php echo number_format($vl_total, 2, ',','.');?></span> </h6>
                     <?php
                     }
                     else
