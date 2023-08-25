@@ -165,23 +165,18 @@
 		background-color: #fafafa;
 		color: #666;
 	}
-	
 	td, th {
 		padding: 2px;
+		font-size: 95%;
 	}
-	
-	td img, th img{ padding: 0 10px;} 
+	td img, th img{ padding: 0 2px;} 
 	td.top{vertical-align:top; }
-	
-	.33{ width: 10%;}
-	.90{ width: 15%;}
-	.625{ width: 75%;}
-	
 	thead th {
 		/* background: #fafafa; */
 		color: #666;
 		text-align: left;
-		border: 1px solid #608db3
+		border: 1px solid #608db3;
+		font-size: smaller;
 	}
 	thead tr{
 		background: #a8d8ee;
@@ -214,7 +209,9 @@
 		font: 12px "Trebuchet MS", Georgia, "Times New Roman", Times, serif;
 		border-bottom:3px solid #eaeaea;
 	}
-	
+	.dataTables_wrapper .dataTables_filter{
+		float: none !important;
+	}
 	label{ 
 		display: block;
 		width: 90px;
@@ -382,6 +379,8 @@
 	.semApostila{ display: none;}
 
 	tbody tr:hover {
-		background-color: #e0e0e0;
-		cursor: pointer;
+		background-color: #e0e0e0 !important;
+	}
+	.pointerCopy{
+		cursor: cell;
 	}

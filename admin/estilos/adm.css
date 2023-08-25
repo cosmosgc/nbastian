@@ -149,7 +149,9 @@ h5 {
 	color: #fff;
   }
   
-  
+  .hidden{
+    display: none;
+  }
   /* Simple Animation */
   @keyframes fadeIn {
 	from {

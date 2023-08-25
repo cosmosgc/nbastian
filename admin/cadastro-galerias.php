@@ -174,57 +174,65 @@ if (!isset($var)) {
 				</form>
 
 				<div id="galleryImages">
-					<h3>A ser upado para galeria:</h3>
-					<div id="uploadPreview" style="display: flex;
-												flex-wrap: wrap;
-												justify-content: space-evenly;
-												align-items: flex-start;
-												flex-direction: row;
-												margin-top: 10px;
-												border-style: solid;
-												padding: 5px;
-												border-color: #b9b9b9;
-												border-radius: 10px;">
+					<div id="uploadPreviewContainer" class="hidden">
+						<h3>A ser upado para galeria:</h3>
+						<div id="uploadPreview" style="display: flex;
+													flex-wrap: wrap;
+													justify-content: space-evenly;
+													align-items: flex-start;
+													flex-direction: row;
+													margin-top: 10px;
+													border-style: solid;
+													padding: 5px;
+													border-color: #b9b9b9;
+													border-radius: 10px;">
+						</div>
 					</div>
-					<h3>Na galeria:</h3>
-					<div id="nowInGallery" style="display: flex;
-												flex-wrap: wrap;
-												justify-content: space-evenly;
-												align-items: flex-start;
-												flex-direction: row;
-												margin-top: 10px;
-												border-style: solid;
-												padding: 5px;
-												border-color: #b9b9b9;
-												border-radius: 10px;">
-					<?php 
-					// Check if a gallery ID is provided
-					if (isset($_GET['cd']) && !empty($_GET['cd'])) {
-						$galleryId = $_GET['cd'];
 					
-						// Perform the database query to fetch images for the provided gallery ID
-						$query = "SELECT * FROM fotos_galeria WHERE cd_galeria='$galleryId' ORDER BY cd_foto ASC ";
-						$result = mysqli_query($conn, $query);
-					
-						if ($result) {
-							// Loop through the fetched images and display them
-							while ($image = mysqli_fetch_assoc($result)) {
-								echo '<img src="../' . $image['caminho_thumb'] . '" alt="Gallery Image">';
+					<div <?php if (!isset($_GET['cd'])){echo ('class="hidden"');}?> >
+						<h3>Na galeria:</h3>
+						<div id="nowInGallery" style="display: flex;
+													flex-wrap: wrap;
+													justify-content: space-evenly;
+													align-items: flex-start;
+													flex-direction: row;
+													margin-top: 10px;
+													border-style: solid;
+													padding: 5px;
+													border-color: #b9b9b9;
+													border-radius: 10px;">
+						<?php 
+						// Check if a gallery ID is provided
+						if (isset($_GET['cd']) && !empty($_GET['cd'])) {
+							$galleryId = $_GET['cd'];
+						
+							// Perform the database query to fetch images for the provided gallery ID
+							$query = "SELECT * FROM fotos_galeria WHERE cd_galeria='$galleryId' ORDER BY cd_foto ASC ";
+							$result = mysqli_query($conn, $query);
+						
+							if ($result) {
+								// Loop through the fetched images and display them
+								while ($image = mysqli_fetch_assoc($result)) {
+									echo '<img src="../' . $image['caminho_thumb'] . '" alt="Gallery Image">';
+								}
+							} else {
+								echo "Error fetching images: " . mysqli_error($conn);
 							}
 						} else {
-							echo "Error fetching images: " . mysqli_error($conn);
+							echo "Não foi selecionado uma galeria.";
 						}
-					} else {
-						echo "Não foi selecionado uma galeria.";
-					}
-					?>
+						?>
+						</div>
 					</div>
+					
 					<script>
 						// Get the file input element
 						const fileInput = document.getElementById('arquivo');
 
 						// Get the uploadPreview div
 						const uploadPreviewDiv = document.getElementById('uploadPreview');
+						const uploadPreviewContainerDiv = document.getElementById('uploadPreviewContainer');
+						
 
 						// Add an event listener to the file input
 						fileInput.addEventListener('change', (event) => {
@@ -242,6 +250,11 @@ if (!isset($var)) {
 								img.style.height = '150px';
 								img.style.objectFit = 'cover';
 								uploadPreviewDiv.appendChild(img);
+							}
+							if (files.length === 0) {
+							uploadPreviewContainerDiv.classList.add('hidden');
+							} else {
+								uploadPreviewContainerDiv.classList.remove('hidden');
 							}
 						});
 					</script>

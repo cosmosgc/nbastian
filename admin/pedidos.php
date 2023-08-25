@@ -20,7 +20,9 @@ require("includes/standard_html.php");
 <title>NBastian Fotografia | Comunica&ccedil;&atilde;o - admin</title>
 
 <script type="text/javascript" src="includes/mascara_data.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
 <script type="text/javascript">
 <!--
@@ -95,22 +97,22 @@ function excluir(aURL)
 			<div id="miolo">
 			
 
-                <table>
+                <table id="DataTable">
 
 				<thead>
 					<tr>
 
 
-                        <th width="5%" scope="col">NR do Pedido</th>
+                        <th width="5%" scope="col">NR do Ped</th>
                         <th width="20%" scope="col">Data do Pedido</th>
 						<th width="20%" scope="col">Cliente</th>
 						<th width="10%" scope="col">Status</th>
 						<th width="10%" scope="col">Forma de Pagamento</th>
-                        <th width="10%" scope="col">ID PagSeguro</th>
+                        <th width="10%" scope="col">PagSeguro</th>
                         <th width="10%" scope="col">Total(R$)</th>
                         <th width="10%" scope="col">Nr de &Iacute;tens</th>
 
-						<th width="10%" scope="col">Visualizar</th>
+						<th width="10%" scope="col">View</th>
                         <!--<th width="10%" scope="col">Excluir</th>-->
 
 					</tr>
@@ -140,7 +142,7 @@ function excluir(aURL)
 						<td class="top"><?php echo $dados['nm_cliente'];?></td>
 						<td class="top"><?php echo $dados['status_pedido'];?></td>
 						<td class="top"><?php echo $dados['forma_pagamento'];?></td>
-						<td class="top"><?php echo $dados['transacao_id'];?></td>
+						<td class="top pointerCopy" onclick="copyTextToClipboard('<?php echo $dados['transacao_id']; ?> ')"><?php echo '<img  src="https://www.svgrepo.com/show/372323/copy-to-clipboard.svg" style="height:30px">';?></td>
 						<td class="top"><?php echo number_format($dados['vl_total'], 2, ',', '.');?></td>
 						<td class="top"><?php echo $num_itens;?></td>
 
@@ -177,7 +179,18 @@ function excluir(aURL)
 	</div> <!-- /geral -->
 
 
-
+<script>
+	const table = new DataTable('#DataTable');
+	function copyTextToClipboard(text) {
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            //alert("Copied to clipboard: " + text);
+        }
+</script>
 </body>
 
 </html>
