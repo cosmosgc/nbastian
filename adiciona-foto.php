@@ -35,6 +35,10 @@ elseif($_REQUEST['acao'] == "remove")
                       $fotos_evento = array();
                       $fotos_expo = array();
                       $rs = mysqli_query($conn, "SELECT * FROM carrinho_itens WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_item ASC");
+                      ?>
+                      <h6>Fotos selecionadas:</h6>
+                      <ul id="fotinhos">
+                      <?php
                       while($var = mysqli_fetch_array($rs, MYSQLI_BOTH))
                       {
                         if ($var['tp_foto'] == "galeria") {
@@ -61,16 +65,20 @@ elseif($_REQUEST['acao'] == "remove")
                         }
 
                       ?>
+                      
                         <li>
-                    	   <img src="admin/includes/phpThumb/phpThumb.php?src=../../../<?php echo $foto;?>&w=67&h=67&zc=1" />
-                           <span>R$ <?php echo number_format($vl_foto, 2, ',','.'); $calculatedTotal+=$vl_foto;?></span>
-                           <a onclick="removeImagem('<?php echo $var['cd_item'];?>','');" href="javascript:void(0);">Remover</a>
-                           
+                            <img src="admin/includes/phpThumb/phpThumb.php?src=../../../<?php echo $foto;?>&w=67&h=67&zc=1" />
+                            <span>R$ <?php echo number_format($vl_foto, 2, ',','.'); $calculatedTotal+=$vl_foto;?></span>
+                            <a onclick="removeImagem('<?php echo $var['cd_item'];?>','');" href="javascript:void(0);">Remover</a>
+                            
                         </li>
                     <?php
-                    //echo "<script>precalcTotal($calculatedTotal)</script>";
-                    } 
-
+                    }
+                    ?>
+                    </ul>
+                    <br clear="left" />
+                    <h6 class="total">Valor Total R$ <span id="valorTotal"><?php echo number_format($calculatedTotal, 2, ',','.');?></span> </h6>
+                    <?php 
 }
 ?>
 

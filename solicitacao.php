@@ -33,7 +33,7 @@ include_once("admin/includes/conecta_bd.php");
 function removeImagem(cdItem)
 {
     //alert(cdFoto);
-    $("#fotinhos").load('adiciona-foto.php', { acao: "remove", cd_item: cdItem }, function(response, status, xhr) {
+    $("#solicita").load('adiciona-foto.php', { acao: "remove", cd_item: cdItem }, function(response, status, xhr) {
         // This is the complete callback
         if (status === "success") {
             // handle the response and generate the DOM
