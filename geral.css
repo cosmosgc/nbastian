@@ -1,7 +1,7 @@
 @charset "iso-8859-1";
 
 /*
-Nome: NBastian Fotografia | Comunicação
+Nome: NBastian Fotografia | Comunicaï¿½ï¿½o
 Endereco: http://www.nbastian.com.br/
 Versao: 1.0
 Autor: Giovani de Oliveira - Agencia P4 - giovani@agenciap4.com.br
@@ -190,7 +190,7 @@ h2.solicitacao{
 }
 #principal #destaque ul li{
 	float: left;
-	height: 155px;
+	height: 145px;
 	padding: 55px 5px;
 	width:375px;
 }
@@ -209,8 +209,6 @@ h2.solicitacao{
 }
 #principal #destaque ul li p{
 	color: #848484;
-	font: lighter 11px Arial, Helvetica, sans-serif;
-	margin: 5px 10px 10px 135px !important;
 }
 #principal #destaque ul li a{
 	background: url(imagens/fundo+a+index.png) no-repeat right bottom;
@@ -225,8 +223,23 @@ h2.solicitacao{
 	text-transform:uppercase;
 }
 
-#principal #destaque ul li.eventos{background: url(imagens/fundo+eventos+index.png) no-repeat left top;}
-#principal #destaque ul li.expo{background: url(imagens/fundo+exposicoes+index.png) no-repeat right top;}
+#principal #destaque ul li.eventos,
+#principal #destaque ul li.expo{
+	background: rgb(9 9 10 / 74%);
+    backdrop-filter: blur(12px);
+	border-radius: 20px;
+}
+p.title_p {
+    font-size: xx-large;
+    text-align: center;
+    transform: translateY(-50px);
+	margin-bottom: -40px;
+}
+ul.destaques {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 .setaEsquerda{
 	position: absolute;
@@ -246,7 +259,7 @@ h2.solicitacao{
 }
 
 
-/* Div para página de perfil */
+/* Div para pï¿½gina de perfil */
 #perfil{
 	background: url(imagens/foto+perfil.jpg) no-repeat left top;
 	padding:20px 0 0 305px;
@@ -261,7 +274,7 @@ h2.solicitacao{
 	margin: 5px 12px;
 }
 
-/* Div para página de noticias */
+/* Div para pï¿½gina de noticias */
 #noticias{
 	padding: 20px 0;
 	width: 940px;
@@ -301,7 +314,7 @@ h2.solicitacao{
 #noticias p strong{font-size:20px; font-weight:bold; letter-spacing:-1px; margin: 25px 0 10px; color: #848485; }
 #noticias a img{ margin-left:5px;}
 
-/* Div para página de contato */
+/* Div para pï¿½gina de contato */
 #contato{
 	padding: 20px 0;
 	width: 940px;
@@ -461,7 +474,7 @@ background-color: #fff;
     margin:-12px 60px 0 0;
 }
 
-/* Div para página de imprensa */
+/* Div para pï¿½gina de imprensa */
 #imprensa{
 	padding: 20px 0 60px;
 	width: 940px;
@@ -538,7 +551,7 @@ background-color: #fff;
     margin:-10px 100px 0 0;
 }
 
-/* Div para páginas que contém galeria */
+/* Div para pï¿½ginas que contï¿½m galeria */
 .galeria{
 	padding: 20px 0 50px;
 	width: 940px;
