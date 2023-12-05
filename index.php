@@ -90,52 +90,76 @@ require_once("admin/includes/conecta_bd.php");
 
             </div> <!-- fim div banner -->     
             
-            <div id="destaque"> <!-- inicio div destaque --><? include 'jquery-galleryview-1.1//includes.php'; ?>
+            <div id="destaque"> <!-- inicio div destaque -->
+            <? include 'jquery-galleryview-1.1//includes.php'; ?>
             
-            	<ul>
+            	<ul class="destaques">
                 
-                	<li class="eventos">
-                    
+                    <li class="eventos">
+                        <p class="title_p">EVENTOS</p>
+                        <div>
+                            <?php
+                            $rs = mysqli_query($conn, "SELECT * FROM eventos WHERE tipo_evento='1' ORDER BY dt_evento DESC LIMIT 1");
+                            $evento = mysqli_fetch_array($rs, MYSQLI_ASSOC);
 
-                       <?php
-                       $rs = mysqli_query($conn,"SELECT * FROM eventos WHERE tipo_evento='1' ORDER BY dt_evento DESC LIMIT 1");
-                       $evento = mysqli_fetch_array($rs,MYSQLI_ASSOC);
-                       
-                       $rs1 = mysqli_query($conn,"SELECT caminho_foto FROM fotos_eventos WHERE cd_evento='{$evento['cd_evento']}' ORDER BY cd_foto ASC LIMIT 1");
-                       list($foto) = mysqli_fetch_array($rs1);
-                       
-                       if(empty($foto))
-                        $foto = 'imagens/eventos/index1.jpg';
-                       ?>
-                       <img src="admin/includes/phpThumb/phpThumb.php?src=../../../<?php echo $foto;?>&w=86&h=123&zc=1" />
+                            if (!empty($evento)) {
+                                $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_eventos WHERE cd_evento='{$evento['cd_evento']}' ORDER BY cd_foto ASC LIMIT 1");
+                                list($foto) = mysqli_fetch_array($rs1);
 
-                        <h5><?php echo htmlentities($evento['nm_evento']);?></h5>
-                        <p><?php echo substr(strip_tags($evento['descricao']),0, 75);?>...</p>
-                        <p>Data:  <?php echo implode("/",array_reverse(explode("-",$evento['dt_evento'])));?><br />Local: <?php echo $evento['local'];?><br /><?php if(empty($evento['tempo_duracao'])) echo'<br />'; else echo 'Duração: '.$evento['tempo_duracao'];?></p>
-                        <p><a href="eventos.php">Veja todos os eventos</a></p>
-                    
-                    </li>
-                    <li class="expo">
-                    
-                     <?php
-                       $rs = mysqli_query($conn,"SELECT * FROM galerias WHERE cd_categoria='8' ORDER BY dt_galeria DESC LIMIT 1") or die(mysqli_connect_error());
-                       $evento = mysqli_fetch_array($rs,MYSQLI_ASSOC);
-
-                       $rs1 = mysqli_query($conn,"SELECT caminho_foto FROM fotos_galeria WHERE cd_galeria='{$evento['cd_galeria']}' ORDER BY cd_foto ASC LIMIT 1");
-                       list($foto) = mysqli_fetch_array($rs1);
-                       
-                       if(empty($foto))
-                        $foto = 'imagens/eventos/index1.jpg';
-                       ?>
-                       <img src="admin/includes/phpThumb/phpThumb.php?src=../../../<?php echo $foto;?>&w=86&h=123&zc=1" />
+                                if (empty($foto)) {
+                                    $foto = 'imagens/eventos/index1.jpg';
+                                }
+                                ?>
+                                <img src="admin/includes/phpThumb/phpThumb.php?src=../../../<?php echo $foto; ?>&w=86&h=123&zc=1" />
+                                <div>
+                                    <h5><?php echo htmlentities($evento['nm_evento']); ?></h5>
+                                    <p><?php echo substr(strip_tags($evento['descricao']), 0, 75); ?>...</p>
+                                    <p>Data: <?php echo implode("/", array_reverse(explode("-", $evento['dt_evento']))); ?><br />Local: <?php echo $evento['local']; ?><br /><?php if (empty($evento['tempo_duracao'])) echo '<br />'; else echo 'Duração: ' . $evento['tempo_duracao']; ?></p>
+                                    <p><a href="eventos.php">Veja todos os eventos</a></p>
+                                </div>
+                                
+                            <?php
+                            } else {
+                                // Handle the case when the query result is empty
+                                echo '<p>Sem eventos no momento.</p>';
+                            }
+                            ?>
+                        </div>
                         
-                        <h5><?php echo htmlentities($evento['nm_galeria']);?></h5>
-
-                        <p><?php echo substr(strip_tags($evento['descricao']),0, 75);?>...</p>
-                        <p>Data:  <?php echo implode("/",array_reverse(explode("-",$evento['dt_galeria'])));?><br />Local: <?php echo $evento['local'];?><br /><?php if(empty($evento['tempo_duracao'])) echo'<br />'; else echo 'Duração: '.$evento['tempo_duracao'];?></p>
-                        <p><a href="galeria+categoria.php?cat=8">Veja todas as exposições</a></p>
-                    
                     </li>
+
+                    <li class="expo">
+                        <p class="title_p">EXPOSIÇÕES</p>
+                        <div>
+                            <?php
+                            $rs = mysqli_query($conn, "SELECT * FROM galerias WHERE cd_categoria='8' ORDER BY dt_galeria DESC LIMIT 1") or die(mysqli_connect_error());
+                            $evento = mysqli_fetch_array($rs, MYSQLI_ASSOC);
+
+                            if (!empty($evento)) {
+                                $rs1 = mysqli_query($conn, "SELECT caminho_foto FROM fotos_galeria WHERE cd_galeria='{$evento['cd_galeria']}' ORDER BY cd_foto ASC LIMIT 1");
+                                list($foto) = mysqli_fetch_array($rs1);
+
+                                if (empty($foto)) {
+                                    $foto = 'imagens/eventos/index1.jpg';
+                                }
+                                ?>
+                                <img src="admin/includes/phpThumb/phpThumb.php?src=../../../<?php echo $foto; ?>&w=86&h=123&zc=1" />
+                                <div>
+                                    <h5><?php echo htmlentities($evento['nm_galeria']); ?></h5>
+                                    <p><?php echo substr(strip_tags($evento['descricao']), 0, 75); ?>...</p>
+                                    <p>Data: <?php echo implode("/", array_reverse(explode("-", $evento['dt_galeria']))); ?><br />Local: <?php echo $evento['local']; ?><br /><?php if (empty($evento['tempo_duracao'])) echo '<br />'; else echo 'Duração: ' . $evento['tempo_duracao']; ?></p>
+                                    <p><a href="galeria+categoria.php?cat=8">Veja todas as exposições</a></p>
+                                </div>
+                            <?php
+                            } else {
+                                // Handle the case when the query result is empty
+                                echo '<p>Sem exibições no momento.</p>';
+                            }
+                            ?>
+                        </div>
+                        
+                    </li>
+
                 
                 </ul>
             
