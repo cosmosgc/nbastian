@@ -27,19 +27,6 @@ header('Content-Type: text/html; charset=utf-8');
 <link href="geral.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery.cycle.js"></script>
-
-<script type="text/javascript">  
-$(document).ready(function() {  
-    $('#banner').cycle({
-        fx:     'fade',
-        speed:  'slow',
-        timeout: 4000,
-        next:   '#next2',
-        prev:   '#prev2'
-    });
-});  
-</script>
 
 <!--[if IE 6]>
 <script src="js/DD_belatedPNG.js" type="text/javascript"></script>
@@ -72,23 +59,72 @@ require_once("admin/includes/conecta_bd.php");
             <h1>NBastian Fotografia | Comunica&ccedil;&atilde;o</h1>
             
         </div> <!-- fim div topo -->
-        
+        <link rel="stylesheet" href="css/swiper-bundle.min.css">
+        <style>
+            .swiper-container {
+            width: 100%;
+            height: 100%;
+            }
+            .swiper-slide {
+            width: 90%;
+            height: 100%;
+            }
+            .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            }
+        </style>
         <div id="principal"> <!-- inicio div principal -->
         
-        	<div class="setaEsquerda"><a id="prev2" href="#"><img src="imagens/banner/seta+esquerda.png" /></a></div>
-            <div class="setaDireita"><a id="next2" href="#"><img src="imagens/banner/seta+direita.png" /></a></div>
-        
-        	<div id="banner"> <!-- inicio div banner -->
+        <div class="swiper-container" style="overflow: hidden;">
+            <div class="swiper-wrapper" >
             <?php
-            $rs1 = mysqli_query($conn,"SELECT * FROM imagens_home ORDER BY dt_cadastro ASC");
-            while($dados = mysqli_fetch_array($rs1,MYSQLI_ASSOC))
-            {
-            
-                echo '<img src="'.$dados['caminho_foto'].'" />';
+            $rs1 = mysqli_query($conn, "SELECT * FROM imagens_home ORDER BY dt_cadastro ASC");
+            while ($dados = mysqli_fetch_array($rs1, MYSQLI_ASSOC)) {
+                echo '<div class="swiper-slide"><img src="' . $dados['caminho_foto'] . '" alt="Banner Image" /></div>
+                ';
             }
             ?>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
 
-            </div> <!-- fim div banner -->     
+        <script src="js/swiper-bundle.min.js"></script>
+        <script>
+            var swiper = new Swiper('.swiper-container', {
+                effect: "cube",
+                grabCursor: true,
+                cubeEffect: {
+                    shadow: true,
+                    slideShadows: true,
+                    shadowOffset: 20,
+                    shadowScale: 0.94,
+                },
+                centeredSlides: true,
+                slidesPerView: "1",
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            keyboard: {
+                enabled: true,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            zoom: true,
+            });
+        </script>
             
             <div id="destaque"> <!-- inicio div destaque -->
             <? include 'jquery-galleryview-1.1//includes.php'; ?>

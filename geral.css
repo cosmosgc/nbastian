@@ -169,13 +169,13 @@ h2.solicitacao{
 
 
 #principal{
-	height: 690px;
-	position: relative;
+	height: 590px;
+	/* position: absolute;*/
 	width:935px;
 }
 #principal #banner{
-	height: 688px;
-	position: absolute;
+	height: 588px;
+	/* position: absolute;*/
 	width:933px;
 }
 
@@ -188,24 +188,24 @@ h2.solicitacao{
 	width: 780px;
 	z-index:10;
 }
-#principal #destaque ul li{
-	float: left;
-	height: 145px;
-	padding: 55px 5px;
-	width:375px;
+#principal #destaque ul li {
+	height: 115px;
+    padding: 50px 3px;
+    width: 375px;
 }
 #principal #destaque ul li img{border: 5px solid #444; float: left; margin: 0 10px;}
 #principal #destaque ul li h5{
-	background: url(imagens/eventos/fundo+h5+index.png) no-repeat;
-	color: #000;
-	float: left;
-	font: bold 16px Arial, Helvetica, sans-serif;
-	height: 20px;
-	margin-bottom: 5px;
-	letter-spacing:-1px;
-	padding:10px 20px;
-	width:210px;
-	text-transform:uppercase;
+	background-color: white;
+    color: #000;
+    float: left;
+    font: bold 16px Arial, Helvetica, sans-serif;
+    height: 20px;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+    padding: 17px 20px;
+    padding-top: 0px;
+    width: 210px;
+    text-transform: uppercase;
 }
 #principal #destaque ul li p{
 	color: #848484;
@@ -216,7 +216,7 @@ h2.solicitacao{
 	color: #848484;
 	font: bold 12px Arial, Helvetica, sans-serif;
 	display: block;
-	margin-top:13px;
+	margin-top: -10px;
 	padding-right:15px;
 	text-align: right;
 	text-decoration:none;
