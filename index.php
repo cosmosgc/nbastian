@@ -22,6 +22,7 @@ header('Content-Type: text/html; charset=utf-8');
 <meta name="robots" content="index, follow" />
 <meta http-equiv="reply-to" content="nilsonbastian@me.com" />
 <meta name="google-site-verification" content="0ZqB4dqU8D7om5nQEzTiI76tPx0CK43xhYNp6bVRLFY" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NBastian Fotografia | Comunica&ccedil;&atilde;o</title>
 <link href="geral.css" rel="stylesheet" type="text/css" />
@@ -44,21 +45,8 @@ require_once("admin/includes/conecta_bd.php");
 <body>
 
 	<div id="geral"> <!-- início div geral - engloba todo o site -->
-    
-    	<div id="topo"> <!-- início div topo - marca + menu de navegação -->
-        
-        	<ul>
-                <li><a class="dois" href="perfil.php">Perfil</a></li>
-                <li><a class="tres" href="clientes.php">Clientes</a></li>
-                <li><a class="quatro" href="galeria.php">Galerias</a></li>
-                <li><a class="cinco" href="eventos.php">Eventos</a></li>
-                <li><a class="sete" href="imprensa.php">Imprensa</a></li>
-                <li><a class="oito" href="contato.php">Contato</a></li>
-            </ul>
-            
-            <h1>NBastian Fotografia | Comunica&ccedil;&atilde;o</h1>
-            
-        </div> <!-- fim div topo -->
+  
+    	<?php require_once("includes/menu_bar.php"); ?>
         <link rel="stylesheet" href="css/swiper-bundle.min.css">
         <style>
             .swiper-container {

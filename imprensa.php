@@ -2,13 +2,11 @@
 session_name("site");
 session_start();
 
-if($_SESSION['logado'] == true && isset($_SESSION['nm_usuario']))
-{
-
+if(isset($_SESSION['logado']) && $_SESSION['logado'] == true && isset($_SESSION['nm_usuario'])) {
     echo("<script language='javascript'>location.href='imprensa+interna.php'</script>");
     exit;
-
 }
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -68,22 +66,7 @@ if($_SESSION['logado'] == true && isset($_SESSION['nm_usuario']))
 
 	<div id="geral"> <!-- início div geral - engloba todo o site -->
     
-    	<div id="topo"> <!-- início div topo - marca + menu de navegação -->
-        
-        	<ul>
-                <li><a class="um" href="index.php">Home</a></li>
-                <li><a class="dois" href="perfil.php">Perfil</a></li>
-                <li><a class="tres" href="clientes.php">Clientes</a></li>
-                <li><a class="quatro" href="galeria.php">Galerias</a></li>
-                <li><a class="cinco" href="eventos.php">Eventos</a></li>
-                <li><a class="sete on7" href="imprensa.php">Imprensa</a></li>
-                <li><a class="oito" href="contato.php">Contato</a></li>
-            </ul>
-            
-            <h1><a href="index.php">NBastian Fotografia | Comunica&ccedil;&atilde;o</a></h1>
-            
-        
-        </div> <!-- fim div topo -->
+    <?php require_once("includes/menu_bar.php"); ?>
         
         <div id="imprensa"> <!-- inicio div imprensa -->
                     

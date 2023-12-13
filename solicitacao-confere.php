@@ -110,22 +110,7 @@ jQuery(function($){
 
 	<div id="geral"> <!-- início div geral - engloba todo o site -->
     
-    	<div id="topo"> <!-- início div topo - marca + menu de navegação -->
-        
-        	<ul>
-                <li><a class="um" href="index.php">Home</a></li>
-                <li><a class="dois" href="perfil.php">Perfil</a></li>
-                <li><a class="tres" href="clientes.php">Clientes</a></li>
-                <li><a class="quatro" href="galeria.php">Galerias</a></li>
-                <li><a class="cinco" href="eventos.php">Eventos</a></li>
-                <li><a class="sete" href="imprensa.php">Imprensa</a></li>
-                <li><a class="oito on8" href="contato.php">Contato</a></li>
-            </ul>
-            
-            <h1><a href="index.php">NBastian Fotografia | Comunica&ccedil;&atilde;o</a></h1>
-            
-        
-        </div> <!-- fim div topo -->
+    	<?php require_once("includes/menu_bar.php"); ?>
         
         <div id="contato"> <!-- inicio div contato -->
                     

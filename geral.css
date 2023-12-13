@@ -10,7 +10,6 @@ Autor: Giovani de Oliveira - Agencia P4 - giovani@agenciap4.com.br
 *{margin:0;padding:0;list-style:none;}
 
 body{
-	background-color: #bbb;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -65,76 +64,86 @@ h2.solicitacao{
 
 
 #geral{
-	background: #000 url(imagens/fundo+geral.jpg) repeat-x 0 0;	
+	background: #000;	
 }
-
-#topo{
-	background: url(imagens/fundo+topo.png) no-repeat bottom center;
-	height: 85px;
-	margin: 0 auto;
-	width: 935px;
-}
-/*#topo h1{
-	padding: 70px 0 0 0;
-    overflow: hidden;
-    background: url(imagens/logo+topo.png) no-repeat;
-    height: 0 !important;
-    height :70px;
-}*/
-#topo h1,
-#topo h1 a{
-	background: url(imagens/logo+topo.jpg) no-repeat;
-	display: block;
-	height: 70px;
-	text-indent:-9999px;
-	width:217px;
-}
-#topo ul{
-	height: 63px;
-	float: right;
-}
-#topo ul li{
-	display: block;
-	float: left;
-	height: 62px;
-	margin: 0 6px 0 0;
-}
-#topo ul li a{
-	height: 62px;
-	display: block;
-	text-indent: -9999px;
-}
-#topo ul li a.um { background: url(imagens/menu/home.gif) no-repeat left top; width:60px; }
-#topo ul li a.um:hover { background: url(imagens/menu/home+hover.jpg) no-repeat left top; }
-
-#topo ul li a.dois { background: url(imagens/menu/perfil.gif) no-repeat left top; width:67px; }
-#topo ul li a.dois:hover,
-#topo ul li a.dois.on2 { background: url(imagens/menu/perfil+hover.jpg) no-repeat left top; }
-
-#topo ul li a.tres { background: url(imagens/menu/clientes.gif) no-repeat left top; width:80px; }
-#topo ul li a.tres:hover,
-#topo ul li a.tres.on3{ background: url(imagens/menu/clientes+hover.jpg) no-repeat left top; }
-
-#topo ul li a.quatro { background: url(imagens/menu/galerias.gif) no-repeat left top; width:80px; }
-#topo ul li a.quatro:hover,
-#topo ul li a.quatro.on4{ background: url(imagens/menu/galerias+hover.jpg) no-repeat left top; }
-
-#topo ul li a.cinco { background: url(imagens/menu/eventos.gif) no-repeat left top; width:78px; }
-#topo ul li a.cinco:hover,
-#topo ul li a.cinco.on5{ background: url(imagens/menu/eventos+hover.jpg) no-repeat left top; }
-
-#topo ul li a.seis { background: url(imagens/menu/noticias.gif) no-repeat left top; width:78px; }
-#topo ul li a.seis:hover,
-#topo ul li a.seis.on6{ background: url(imagens/menu/noticias+hover.jpg) no-repeat left top; }
-
-#topo ul li a.sete { background: url(imagens/menu/imprensa.gif) no-repeat left top; width:86px; }
-#topo ul li a.sete:hover,
-#topo ul li a.sete.on7{ background: url(imagens/menu/imprensa+hover.jpg) no-repeat left top; }
-
-#topo ul li a.oito { background: url(imagens/menu/contato.gif) no-repeat left top; width:80px; }
-#topo ul li a.oito:hover,
-#topo ul li a.oito.on8{ background: url(imagens/menu/contato+hover.jpg) no-repeat left top; }
-
+/* General styles for the desktop view */
+#topo {
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  #topo h1 {
+	margin: 0;
+	font-size: 1.5rem;
+  }
+  
+  #topo ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+  }
+  
+  #topo ul li {
+	margin-right: 10px;
+  }
+  
+  #topo a {
+	text-decoration: none;
+	color: #fff;
+	padding: 10px;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+  }
+  
+  #topo a:hover {
+	background-color: #555;
+  }
+  
+  /* Media query for mobile devices */
+  @media only screen and (max-width: 767px) {
+	#topo ul {
+	  display: none;
+	  flex-direction: column;
+	  position: absolute;
+	  top: 60px; /* Adjust the top spacing as needed */
+	  left: 0;
+	  width: 100%;
+	  background-color: #333;
+	  z-index: 1;
+	}
+  
+	#topo ul.show {
+	  display: flex;
+	}
+  
+	#topo ul li {
+	  margin: 0;
+	  text-align: center;
+	}
+  
+	#topo a {
+	  display: block;
+	  padding: 15px;
+	}
+	#toggleBtn {
+		display: block !important; /* Hide the button on mobile */
+	  }
+  }
+  #toggleBtn {
+    display: none;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+  }  
 .box{
 	background-color:#111;
 	padding: 10px;
@@ -558,37 +567,44 @@ background-color: #fff;
 }
 
 .galeria a img{margin-left:5px;}
-
-#rodape{
-	background: #bbb url(imagens/fundo+rodape.jpg) repeat-x left 0;
-	height: 112px;
-}
-#rodape #patrocinadores{
-	background: url(imagens/fundo+rodape+interno.png) no-repeat center top;
-	height:50px;
-	margin: 0 auto;
-	padding: 18px 0 4px;
-	width: 935px;
-}
-#rodape #patrocinadores img{
-	float:left;
-	margin: 0 10px;
-}
-#rodape #info{
-	background: url(imagens/patrocinadores/fundo+info.gif) repeat-x left top;
-	margin: 0 auto;
-	padding: 9px 0 0;
-	width: 935px;
-}
-#rodape #info p{
-	color: #666;
-	font-size:10px;
-}
-#rodape #info p a{
-	color: #666;
-	font-weight:bold;
+#rodape {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+  }
+  
+  #patrocinadores {
+	margin-bottom: 20px;
+  }
+  
+  #info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  }
+  
+  .direita {
+	text-align: right;
+	margin-bottom: 10px;
+  }
+  
+  a {
+	color: #fff;
 	text-decoration: none;
-}
+  }
+  
+  a:hover {
+	text-decoration: underline;
+  }
+  
+  /* Adjust the font size, margin, and padding as needed */
+  p {
+	font-size: 14px;
+	margin: 0;
+	padding: 5px 0;
+  }
+  
 
 
 /* Classes adicionais */
@@ -765,6 +781,26 @@ h3 a{text-decoration:none;}
 .clear {
 	clear: both;
 }
+@media only screen and (max-width: 767px) {
+	/* Styles for mobile devices go here */
+  
+	/* Example: Adjusting font size for mobile */
+	#principal #destaque{
+		position: sticky;
+	}
+	ul.destaques {
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		justify-content: space-between;
+		align-items: center;
+	}
+	#principal #destaque ul li {
+		width: 90%;
+	}
+  
+	/* Add more styles as needed for your mobile layout */
+  }
 
 /*************************************************************/
 
