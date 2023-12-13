@@ -178,32 +178,33 @@ h2.solicitacao{
 
 
 #principal{
-	height: 590px;
+	/*height: 590px;*/
 	/* position: absolute;*/
-	width:935px;
+	/*width:935px;*/
 }
-#principal #banner{
+#banner{
 	height: 588px;
 	/* position: absolute;*/
 	width:933px;
 }
 
-#principal #destaque{
-	color:#fff;
-	height: 233px;
-	padding: 0 65px;
-	position: absolute;
-	top: 435px;
-	width: 780px;
-	z-index:10;
+#destaque{
+	color: #fff;
+    height: 233px;
+    position: absolute;
+    top: 435px;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
 }
-#principal #destaque ul li {
+#destaque ul li {
 	height: 115px;
     padding: 50px 3px;
     width: 375px;
 }
-#principal #destaque ul li img{border: 5px solid #444; float: left; margin: 0 10px;}
-#principal #destaque ul li h5{
+#destaque ul li img{border: 5px solid #444; float: left; margin: 0 10px;}
+#destaque ul li h5{
 	background-color: white;
     color: #000;
     float: left;
@@ -216,10 +217,10 @@ h2.solicitacao{
     width: 210px;
     text-transform: uppercase;
 }
-#principal #destaque ul li p{
+#destaque ul li p{
 	color: #848484;
 }
-#principal #destaque ul li a{
+#destaque ul li a{
 	background: url(imagens/fundo+a+index.png) no-repeat right bottom;
 	clear:both;
 	color: #848484;
@@ -232,8 +233,8 @@ h2.solicitacao{
 	text-transform:uppercase;
 }
 
-#principal #destaque ul li.eventos,
-#principal #destaque ul li.expo{
+#destaque ul li.eventos,
+#destaque ul li.expo{
 	background: rgb(9 9 10 / 74%);
     backdrop-filter: blur(12px);
 	border-radius: 20px;
@@ -247,7 +248,8 @@ p.title_p {
 ul.destaques {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+	width: 100%;
 }
 
 .setaEsquerda{
@@ -783,8 +785,10 @@ h3 a{text-decoration:none;}
 }
 @media only screen and (max-width: 767px) {
 	/* Styles for mobile devices go here */
-  
-	/* Example: Adjusting font size for mobile */
+	#destaque {
+		height: 100%;
+		position: static;
+	}
 	#principal #destaque{
 		position: sticky;
 	}

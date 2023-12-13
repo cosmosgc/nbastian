@@ -52,6 +52,7 @@ require_once("admin/includes/conecta_bd.php");
             .swiper-container {
             width: 100%;
             height: 100%;
+            max-height: 600px;
             }
             .swiper-slide {
             width: 90%;
@@ -61,6 +62,14 @@ require_once("admin/includes/conecta_bd.php");
             width: 100%;
             height: 100%;
             object-fit: cover;
+            }
+            @media (max-width: 767px) {
+                /* Styles for screens with a maximum width of 767px (typical for mobile devices) */
+
+                .swiper-container {
+                    /* width: 100%; */
+                    /* margin: 0 auto;
+                }
             }
         </style>
         <div id="principal"> <!-- inicio div principal -->
@@ -114,7 +123,10 @@ require_once("admin/includes/conecta_bd.php");
             });
         </script>
             
-            <div id="destaque"> <!-- inicio div destaque -->
+            
+            
+        </div> <!-- fim div principal -->
+        <div id="destaque"> <!-- inicio div destaque -->
             <? include 'jquery-galleryview-1.1//includes.php'; ?>
             
             	<ul class="destaques">
@@ -188,8 +200,6 @@ require_once("admin/includes/conecta_bd.php");
                 </ul>
             
             </div> <!-- fim div destaque -->
-            
-        </div> <!-- fim div principal -->
     
     </div> <!-- fim div geral -->
     
