@@ -68,14 +68,15 @@ h2.solicitacao{
 }
 /* General styles for the desktop view */
 #topo {
-	background-color: #333;
-	color: #fff;
-	padding: 10px;
-	text-align: center;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-  }
+	color: #000;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(214,214,214);
+    background: linear-gradient(180deg, rgba(214,214,214,1) 0%, rgba(255,255,255,1) 60%, rgba(83,83,83,1) 97%, rgba(149,149,149,1) 100%);
+}
   
   #topo h1 {
 	margin: 0;
@@ -95,7 +96,7 @@ h2.solicitacao{
   
   #topo a {
 	text-decoration: none;
-	color: #fff;
+	color: #000000;
 	padding: 10px;
 	border-radius: 5px;
 	transition: background-color 0.3s ease;
@@ -574,6 +575,13 @@ background-color: #fff;
 	color: #fff;
 	padding: 20px;
 	text-align: center;
+	    background: rgb(214,214,214);
+    background: linear-gradient(0deg,
+		rgba(214, 214, 214, 0) 0%,
+		rgba(214,214,214,1) 10%,
+	 rgba(255,255,255,1) 85%,
+	 rgba(83,83,83,1) 98%,
+	 rgba(149,149,149,1) 100%);
   }
   
   #patrocinadores {
@@ -592,7 +600,7 @@ background-color: #fff;
   }
   
   a {
-	color: #fff;
+	color: #04011a;
 	text-decoration: none;
   }
   
@@ -606,7 +614,16 @@ background-color: #fff;
 	margin: 0;
 	padding: 5px 0;
   }
-  
+  .header-title {
+    font-size: 24px;
+    margin: 10px 0;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.header-title:hover {
+    color: #4b4b4b;
+}
 
 
 /* Classes adicionais */

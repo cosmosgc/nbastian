@@ -31,17 +31,3 @@
             });
             </script>
         </div> <!-- fim div topo -->
-<style>
-.header-title {
-    font-size: 24px;
-    margin: 10px 0;
-    text-align: center;
-    transition: color 0.3s ease;
-}
-
-.header-title:hover {
-    color: #a7c0d1;
-}
-
-
-</style>
