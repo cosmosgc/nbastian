@@ -50,8 +50,8 @@ require_once("admin/includes/conecta_bd.php");
         
         <div id="perfil"> <!-- inicio div perfil -->
                     
-            <h2>Perfil</h2>
-            <div class="box">
+            <h2 class="pad-top-mobile-177">Perfil</h2>
+            <div class="box glass">
             
              <?php
              $rs = mysqli_query($conn,"SELECT * FROM perfil WHERE cd_perfil='1'");

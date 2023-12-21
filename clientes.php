@@ -72,25 +72,23 @@ require_once("admin/includes/conecta_bd.php");
         
         <div id="clientes"> <!-- inicio div clientes -->
                     
-            <h2 class="clientes">Clientes</h2>
+            <h2 class="title">Clientes</h2>
             <div class="box">
-            
-            	<ul>
-                    <?php
-                    $rs1 = mysqli_query($conn,"SELECT * FROM clientes ORDER BY nm_cliente ASC") or die(mysqli_connect_error());
-                    while($clientes = mysqli_fetch_array($rs1,MYSQLI_ASSOC))
-                    {
-                    ?>
-                        <li title="<?php echo $clientes['de_conteudo'];?>"><img src="<?php echo $clientes['caminho_foto'];?>" alt="<?php echo $clientes['nm_cliente'];?>" width="160" height="130" /></li>
-                    <?php
-                    }
-                    ?>
-
-                </ul>
+                <?php
+                $rs1 = mysqli_query($conn, "SELECT * FROM clientes ORDER BY nm_cliente ASC") or die(mysqli_connect_error());
+                while ($clientes = mysqli_fetch_array($rs1, MYSQLI_ASSOC)) {
+                ?>
+                    <div class="client-box" title="<?php echo $clientes['de_conteudo'];?>">
+                        <img src="<?php echo $clientes['caminho_foto'];?>" alt="<?php echo $clientes['nm_cliente'];?>" width="160" height="130" />
+                    </div>
+                <?php
+                }
+                ?>
                 <div id="boxe"></div>
                 <br clear="left" />
-            
-            </div><br clear="left" />
+            </div>
+
+            <br clear="left" />
                         
         </div> <!-- fim div clientes -->
     

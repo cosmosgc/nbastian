@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div id="topo"> <!-- início div topo - marca + menu de navegação -->
         <button id="toggleBtn">Menu</button>
         	<ul>
