@@ -517,6 +517,7 @@ background-color: #fff;
 	background: url(imagens/fundo+ul+imprensa.jpg) no-repeat;
     float: left;
     padding: 20px 130px 0 15px;
+	max-width: 300px;
 }
 #imprensa ul li{
 	color: #fff;
