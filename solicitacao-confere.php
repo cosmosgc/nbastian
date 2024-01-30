@@ -195,8 +195,8 @@ jQuery(function($){
                   
               </div>
                   
-                
-                <form name="form_contato" id="form_contato" action="https://pagseguro.uol.com.br/checkout/checkout.jhtml" method="post" >
+                <!-- <form name="form_contato" id="form_contato" action="https://pagseguro.uol.com.br/checkout/checkout.jhtml" method="post" > -->
+                <form name="form_contato" id="form_contato" action="checkout" method="get" >
                 
                 <?php
                      $rs = mysqli_query($conn, "SELECT * FROM cliente_temp WHERE cd_carrinho='".$_SESSION['carrinho']."' ORDER BY cd_cliente DESC LIMIT 1");
