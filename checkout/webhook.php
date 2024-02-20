@@ -5,6 +5,10 @@
 // $payload = @file_get_contents('php://input');
 
 // file_put_contents('log.txt', $payload);
+include_once("../admin/includes/conecta_bd.php");
+
+$reference_id = $_POST['reference_id'];
+
 
 
 if (isset($_POST['notificationCode'], $_POST['notificationType'])) {

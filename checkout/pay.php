@@ -4,7 +4,7 @@
 
 $curl = curl_init();
 $token = '20E220E68E3C48EDA1D9812A36DE9451';
-$qrCode = 'QRCO_096FE2C4-66E0-46AE-A5F1-4F866E40B402';
+$qrCode = 'ORDE_21B4B08E-FBE4-477F-B022-A6D90CDA91B6';
 $cert_file = dirname(__FILE__)."\\cacert.pem";
 //https://sandbox.api.pagseguro.com/orders/ORDE_111197D6-E1B5-4D00-BF9C-B599CF892A37/pay
 curl_setopt_array($curl, [
